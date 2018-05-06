@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER Zi'ou Zheng <zhengziou@gmail.com>
 
-ENV HUGO_VERSION=0.32.1
+ENV HUGO_VERSION=0.40.1
 
 # Install Hugo
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
