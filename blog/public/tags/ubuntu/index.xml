@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on 文刀苑</title>
+    <link>http://localhost:1313/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on 文刀苑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 02 Jul 2017 08:33:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ubuntu安装zsh &amp;&amp; 默认启动</title>
+      <link>http://localhost:1313/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
+      <description>zsh拥有更强的补全功能(常用工具的参数补全), 推荐大家使用 安装 sudo apt-get install zsh 引入增强插件,支持git,rails等补全，可选多种外观皮肤 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O -</description>
+    </item>
+    
+    <item>
+      <title>docker安装 - Ubuntu</title>
+      <link>http://localhost:1313/post/docker%E5%AE%89%E8%A3%85---ubuntu/</link>
+      <pubDate>Sun, 02 Jul 2017 08:26:53 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/docker%E5%AE%89%E8%A3%85---ubuntu/</guid>
+      <description>经过了在window10安装docker的摧残后, 准备来linux系统找找自信 知识背景 2013-3诞生了docker linux内核3.8以上</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu重启Nginx</title>
+      <link>http://localhost:1313/post/ubuntu-%E9%87%8D%E5%90%AF-nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/ubuntu-%E9%87%8D%E5%90%AF-nginx/</guid>
+      <description>ubuntu操作系统重启nginx的操作 正文 ps -ef |grep nginx 首先查看nginx在系统中的进程 kill -9 2127 结束nginx进程 开启nginx /usr/local/nginx/sbin/nginx 重启nginx /usr/local/nginx/sbin/nginx</description>
+    </item>
+    
+  </channel>
+</rss>
