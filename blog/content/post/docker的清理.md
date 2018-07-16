@@ -1,7 +1,7 @@
 ---
-title:docker的清理
-date:2017-08-01 14:55:01
-tag:[docker]
+title: docker的清理
+date: 2017-08-01 14:55:01
+tags: [docker]
 ---
 
 # 命令介绍
