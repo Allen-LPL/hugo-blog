@@ -44,7 +44,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   url = "/categories/"
 [[menu.main]]
   name = "About Me"
-  weight = 40
+  weight = 50
   identifier = "aboutme"
   url = "/aboutme/"
 
@@ -122,11 +122,11 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
     options = ""
 
   [params.sequenceDiagrams] # see https://blog.olowolo.com/example-site/post/js-sequence-diagrams/
-    enable = false
-    options = ""            # default: "{theme: 'simple'}"
+    enable = true
+    options = "{theme: 'hand'}"            # default: "{theme: 'simple'}"
 
   [params.busuanzi]         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
-    enable = false
+    enable = true
     siteUV = true
     sitePV = true
     pagePV = true
