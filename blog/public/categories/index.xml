@@ -2,20 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 文刀苑</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>http://www.liupengliang.com/categories/</link>
     <description>Recent content in Categories on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.liupengliang.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>手艺</title>
-      <link>http://localhost:1313/categories/%E6%89%8B%E8%89%BA/</link>
-      <pubDate>Thu, 06 Jul 2017 09:46:05 +0000</pubDate>
+      <title>工具</title>
+      <link>http://www.liupengliang.com/categories/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sun, 02 Jul 2017 18:26:53 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/%E6%89%8B%E8%89%BA/</guid>
+      <guid>http://www.liupengliang.com/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>手艺</title>
+      <link>http://www.liupengliang.com/categories/%E6%89%8B%E8%89%BA/</link>
+      <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
+      
+      <guid>http://www.liupengliang.com/categories/%E6%89%8B%E8%89%BA/</guid>
       <description></description>
     </item>
     
