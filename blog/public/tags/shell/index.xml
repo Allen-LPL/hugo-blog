@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Shell on 文刀苑</title>
-    <link>http://localhost:1313/tags/shell/</link>
+    <link>http://www.liupengliang.com/tags/shell/</link>
     <description>Recent content in Shell on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 06 Jul 2017 09:46:05 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.liupengliang.com/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>windows10 shell折腾日记</title>
-      <link>http://localhost:1313/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</link>
+      <link>http://www.liupengliang.com/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</link>
       <pubDate>Thu, 06 Jul 2017 09:46:05 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</guid>
+      <guid>http://www.liupengliang.com/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</guid>
       <description>&lt;p&gt;无法忍受windows的cmd, powershell的低效, 对于windows-git-bash如果在不配置git alias的情况下, 依旧是难以忍受, 故, 折腾window10可用的, 好用的shell
 &lt;/p&gt;</description>
     </item>

@@ -1,7 +1,7 @@
 FROM alpine:latest
-MAINTAINER Zi'ou Zheng <zhengziou@gmail.com>
+MAINTAINER Allen <liupengliang1012@gmail.com>
 
-ENV HUGO_VERSION=0.40.1
+ENV HUGO_VERSION=0.69.0
 
 # Install Hugo
 ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
@@ -22,11 +22,11 @@ VOLUME /static-site
 EXPOSE 1313
 
 # # By default, serve site
-# ENV HUGO_BASE_URL http://localhost:1313
-# CMD hugo server -b ${HUGO_BASE_URL} --bind=0.0.0.0
-# CMD ["/bin/sh"]
+#ENV HUGO_BASE_URL http://localhost:1313
+#CMD hugo server -b ${HUGO_BASE_URL} --bind=0.0.0.0 --disableFastRender
+#CMD ["/bin/sh"]
 
-COPY start.sh /start.sh
-CMD ["/start.sh"]
+#COPY start.sh /start.sh
+#CMD ["/start.sh"]
 
 

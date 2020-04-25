@@ -1,7 +1,7 @@
 ---
 title: docker的清理
 date: 2017-08-01 14:55:01
-tags: [docker]
+tags: [Docker]
 ---
 
 # 命令介绍
@@ -33,7 +33,11 @@ docker images
 docker system df
 `
 
-	TYPE                TOTAL               ACTIVE              SIZE                RECLAIMABLE	Images              16                  5                   1.847GB             1.514GB (81%)	Containers          10                  5                   1.015kB             12B (1%)	Local Volumes       24                  0                   0B                  0B	Build Cache                                                 0B                  0B
+	TYPE                TOTAL               ACTIVE              SIZE                RECLAIMABLE
+	Images              16                  5                   1.847GB             1.514GB (81%)
+	Containers          10                  5                   1.015kB             12B (1%)
+	Local Volumes       24                  0                   0B                  0B
+	Build Cache                                                 0B                  0B
 
 
 执行命令
@@ -47,7 +51,11 @@ docker system df
 `
 
 	untagged: docker_redis:latest
-	deleted: sha256:37ae69b7c971c8TYPE                TOTAL               ACTIVE              SIZE                RECLAIMABLE	Images              5                   5                   1.185GB             4.148MB (0%)	Containers          5                   5                   1.003kB             0B (0%)	Local Volumes       24                  0                   0B                  0B	Build Cache   fde28e0edbdbbac919ca50aec45ce09104e6860e02891b23cb
+	deleted: sha256:37ae69b7c971c8TYPE                TOTAL               ACTIVE              SIZE                RECLAIMABLE
+	Images              5                   5                   1.185GB             4.148MB (0%)
+	Containers          5                   5                   1.003kB             0B (0%)
+	Local Volumes       24                  0                   0B                  0B
+	Build Cache   fde28e0edbdbbac919ca50aec45ce09104e6860e02891b23cb
 	deleted: sha256:d0667bcff715caca2ccc3b59470af77903ec148d791873cb15332496b49fbe5f
 	deleted: sha256:0f57644645eb53a3d2256f460ade116ad3590252c28f63e5136c026423dc8286
 	deleted: sha256:e764f01ed6db22c32281d8039af4ea6f30034d71874c914ea2226f554c856ac0

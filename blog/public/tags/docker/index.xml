@@ -2,30 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on 文刀苑</title>
-    <link>http://localhost:1313/tags/docker/</link>
+    <link>http://www.liupengliang.com/tags/docker/</link>
     <description>Recent content in Docker on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Jul 2017 08:26:53 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Nov 2017 00:15:03 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.liupengliang.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>vultr基于docker搭建的hugo和ssr&#43;bbr</title>
+      <link>http://www.liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</link>
+      <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
+      
+      <guid>http://www.liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</guid>
+      <description>前言 迁移Blog，最近一直在研究docker，正好使用docker部署hugo, 以及配置了BBR算法的酸酸乳（ssr）。 步骤 直接说方法 部署v</description>
+    </item>
+    
+    <item>
       <title>docker安装 - Ubuntu</title>
-      <link>http://localhost:1313/post/docker%E5%AE%89%E8%A3%85---ubuntu/</link>
+      <link>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</link>
       <pubDate>Sun, 02 Jul 2017 08:26:53 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/docker%E5%AE%89%E8%A3%85---ubuntu/</guid>
+      <guid>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</guid>
       <description>经过了在window10安装docker的摧残后, 准备来linux系统找找自信 知识背景 2013-3诞生了docker linux内核3.8以上</description>
     </item>
     
     <item>
       <title>docker安装 - window10</title>
-      <link>http://localhost:1313/post/docker%E5%AE%89%E8%A3%85---window10/</link>
+      <link>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</link>
       <pubDate>Sun, 02 Jul 2017 08:13:58 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/docker%E5%AE%89%E8%A3%85---window10/</guid>
+      <guid>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</guid>
       <description>昨天准备重新布置自己的开发环境, 顺便练一下docker的安装, 就先尝试了window10的安装, 安装的过程中, 有各种各样的坑, 搏斗了一天后,</description>
     </item>
     
