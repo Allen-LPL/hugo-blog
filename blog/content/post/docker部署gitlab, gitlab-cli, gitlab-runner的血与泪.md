@@ -22,7 +22,7 @@ ___
 
 # docker-compose 部署gitlab-runner
 ## docker-compose部分
-```
+`
 ### RUNNER ###################################################
     runner:
       image: gitlab/gitlab-runner
@@ -31,7 +31,7 @@ ___
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - ./gitlab-runner/config:/etc/gitlab-runner
-```
+`
 
 > docker-compose up -d runner
 ![跑起来的状态](https://i.loli.net/2019/07/23/5d371fcf7c27f51190.png)
@@ -45,21 +45,21 @@ ___
 我们来一一分解
 ### shell执行
 #### 服务器配置注册信息
-```
+`
  docker exec -it gitlab-runner gitlab-runner register -n \
    --url https://gitlab.com/ \
    --registration-token REGISTRATION_TOKEN \
    --executor shell \
    --tag-list "tag" \
    --description "My Runner"
-```
+`
 #### 搭配的命令
-```
+`
  sudo usermod -aG docker gitlab-runner
  sudo -u gitlab-runner -H docker info
-```
+`
 #### 搭配的.gitlab-ci.yml配置(需要放到项目根目录)
-```
+`
  before_script:
    - docker info
 
@@ -67,13 +67,13 @@ ___
    script:
      - docker build -t my-docker-image .
      - docker run my-docker-image /script/to/run/tests
-```
+`
 #### ~~失败~~
 ![依旧提示没有权限](https://i.loli.net/2019/07/23/5d371fcfd75b472667.png)
 
 ### 使用docker-in-docker执行器
 #### 服务器配置注册信息
-```
+`
  sudo gitlab-runner register -n \
    --url https://gitlab.com/ \
    --registration-token REGISTRATION_TOKEN \
@@ -82,9 +82,9 @@ ___
    --docker-image "docker:stable" \
    --tag-list "tag" \
    --docker-privileged
-```
+`
 #### 搭配的.gitlab-ci.yml配置(需要放到项目根目录)
-```
+`
  image: docker:stable
 
  variables:
@@ -117,13 +117,13 @@ ___
    script:
      - docker build -t my-docker-image .
      - docker run my-docker-image /script/to/run/tests
-```
+`
 #### ~~失败~~
 ![docker链接不上](https://i.loli.net/2019/07/23/5d371fd00a9c981206.jpg)
 
 ### 使用Docker套接字绑定
 #### 服务器配置注册信息
-```
+`
 docker exec -it gitlab-runner gitlab-runner register \
            --non-interactive \
            --executor "docker" \
@@ -138,12 +138,13 @@ docker exec -it gitlab-runner gitlab-runner register \
            --run-untagged="true" \
            --locked="false" \
            --access-level="not_protected"
-```
+`
 
 > 注: 注意tag必须是唯一的, 多台机器公用一个, 会随机在某一台机器执行, 而不会全部执行.
 
 #### 搭配的.gitlab-ci.yml配置(需要放到项目根目录)
-```
+
+`
  image: docker:stable
 
  before_script:
@@ -154,7 +155,8 @@ docker exec -it gitlab-runner gitlab-runner register \
    script:
      - docker build -t my-docker-image .
      - docker run my-docker-image /script/to/run/tests
-```
+`
+
 #### **_成功_**
 ![成功](https://i.loli.net/2019/07/23/5d371fd00adf241936.png)
 
