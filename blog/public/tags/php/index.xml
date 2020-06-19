@@ -2,21 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PHP on 文刀苑</title>
-    <link>http://localhost:1313/tags/php/</link>
+    <link>http://www.liupengliang.com/tags/php/</link>
     <description>Recent content in PHP on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Apr 2017 14:25:20 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Aug 2017 17:38:15 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/php/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.liupengliang.com/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>记一次PHPExcel导出特殊字符的问题和解决</title>
+      <link>http://www.liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1phpexcel%E5%AF%BC%E5%87%BA%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Thu, 10 Aug 2017 17:38:15 +0000</pubDate>
+      
+      <guid>http://www.liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1phpexcel%E5%AF%BC%E5%87%BA%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/</guid>
+      <description>#描述 在导出数据时，碰见了直接崩溃，报505。 打断点和异常捕获都不能组织任性的505. 最后分析是特殊字符的问题， 最早想到的解决方式是str_</description>
+    </item>
+    
+    <item>
+      <title>记一次array_multisort排序时充值数字KEY的问题与解决方法</title>
+      <link>http://www.liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1array_multisort%E6%8E%92%E5%BA%8F%E6%97%B6%E5%85%85%E5%80%BC%E6%95%B0%E5%AD%97key%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 03 Jul 2017 18:29:29 +0000</pubDate>
+      
+      <guid>http://www.liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1array_multisort%E6%8E%92%E5%BA%8F%E6%97%B6%E5%85%85%E5%80%BC%E6%95%B0%E5%AD%97key%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>array_multisort在执行过程中, 不会充值字符串KEY, 但是会充值纯数字的KEY.</description>
+    </item>
+    
+    <item>
       <title>ThinkPHP 笔记 --- RunTime</title>
-      <link>http://localhost:1313/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</link>
+      <link>http://www.liupengliang.com/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</link>
       <pubDate>Tue, 25 Apr 2017 14:25:20 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</guid>
+      <guid>http://www.liupengliang.com/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</guid>
       <description>记录 ThinkPHP RunTime 所遇到的问题 hexo 图片请求问题!</description>
     </item>
     

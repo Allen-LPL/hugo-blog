@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VPS on 文刀苑</title>
-    <link>http://localhost:1313/tags/vps/</link>
+    <link>http://www.liupengliang.com/tags/vps/</link>
     <description>Recent content in VPS on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 15 Mar 2017 21:15:22 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/vps/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.liupengliang.com/tags/vps/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>vps上搭建hexo轻博客</title>
-      <link>http://localhost:1313/post/vps%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E8%BD%BB%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://www.liupengliang.com/post/vps%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E8%BD%BB%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Wed, 15 Mar 2017 21:15:22 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/vps%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E8%BD%BB%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://www.liupengliang.com/post/vps%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E8%BD%BB%E5%8D%9A%E5%AE%A2/</guid>
       <description>vps搭建个人轻博客的思路大致为: 本地使用hexo生成静态页面, 将本地静态页面通过hexo的deploy(部署)到VPS的git私有仓库中,</description>
     </item>
     
