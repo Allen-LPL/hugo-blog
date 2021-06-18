@@ -2,157 +2,351 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>文刀苑</title>
-    <link>http://www.liupengliang.com/</link>
+    <link>http://liupengliang.com/</link>
     <description>Recent content on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Nov 2017 00:15:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Nov 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.liupengliang.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://liupengliang.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Grafana 里地图插件worldmap-panel无法读取地图图片的解决方法(实测有效)</title>
+      <link>http://liupengliang.com/post/grafana-%E9%87%8C%E5%9C%B0%E5%9B%BE%E6%8F%92%E4%BB%B6worldmap-panel%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E5%9C%B0%E5%9B%BE%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%AE%9E%E6%B5%8B%E6%9C%89%E6%95%88/</link>
+      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/grafana-%E9%87%8C%E5%9C%B0%E5%9B%BE%E6%8F%92%E4%BB%B6worldmap-panel%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E5%9C%B0%E5%9B%BE%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%AE%9E%E6%B5%8B%E6%9C%89%E6%95%88/</guid>
+      <description>近期grafana的worldmap-panel出现无法显示地图，或者加载非常缓慢，显示不完整, 以下是解决方式. 问题 Grafana 里地图插件worldm</description>
+    </item>
+    
+    <item>
+      <title>Git - 如何直接查找出冲突的文件</title>
+      <link>http://liupengliang.com/post/git---%E5%A6%82%E4%BD%95%E7%9B%B4%E6%8E%A5%E6%9F%A5%E6%89%BE%E5%87%BA%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Wed, 04 Sep 2019 16:55:56 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/git---%E5%A6%82%E4%BD%95%E7%9B%B4%E6%8E%A5%E6%9F%A5%E6%89%BE%E5%87%BA%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%87%E4%BB%B6/</guid>
+      <description>在项目中, 在合并其他分支的时候, 总会遇到合并大量文件, 其中有一两个文件有冲突, 那怎么在茫茫多的修改分支中查找到冲突的文件是本文解决的问题 前言</description>
+    </item>
+    
+    <item>
+      <title>docker部署gitlab, gitlab-cli, gitlab-runner的血与泪</title>
+      <link>http://liupengliang.com/post/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/</link>
+      <pubDate>Tue, 23 Jul 2019 18:11:26 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/</guid>
+      <description>使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂&amp;hellip; 就这</description>
+    </item>
+    
+    <item>
+      <title>windows for docker遇到的问题总结</title>
+      <link>http://liupengliang.com/post/windows-for-docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 20 Nov 2018 23:00:10 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/windows-for-docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</guid>
+      <description>docker现在对于windows平台的支持越来越好, 我在windows环境开发的时候, 都是通过docker作为开发环境, 现整理汇总平时遇到</description>
+    </item>
+    
+    <item>
+      <title>PHP7多进程处理redis队列问题</title>
+      <link>http://liupengliang.com/post/php7%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%84%E7%90%86redis%E9%98%9F%E5%88%97%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/php7%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%84%E7%90%86redis%E9%98%9F%E5%88%97%E9%97%AE%E9%A2%98/</guid>
+      <description>一直在研究PHP7多进程编程, 在使用的过程中遇到了一些问题. 问题 redis 句柄问题 问题介绍 在使用PHP框架YII2进行多进程编程时, 在循环从redi</description>
+    </item>
+    
+    <item>
+      <title>HDFS学习笔记</title>
+      <link>http://liupengliang.com/post/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.HDFS简介 1. HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式</description>
+    </item>
+    
+    <item>
+      <title>RestTemplate的post请求中文乱码问题</title>
+      <link>http://liupengliang.com/post/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</guid>
+      <description>###1.问题重现 需调用的接口如下： 1 2 3 4 5 @RequestMapping(value = &amp;#34;/test&amp;#34;, method = RequestMethod.POST) public Object createTransGet(HttpServletRequest request, HttpServletResponse response,@RequestBody String text) { System.out.println(text); return &amp;#34;ok&amp;#34;; } RestTemplate调用接口的代码如下： 1 2 3 4 5 6</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合cxf调用WebService服务</title>
+      <link>http://liupengliang.com/post/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/</guid>
+      <description>#1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采</description>
+    </item>
+    
+    <item>
+      <title>hadoop伪分布式集群搭建</title>
+      <link>http://liupengliang.com/post/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv</description>
+    </item>
+    
+    <item>
+      <title>kettle学习笔记</title>
+      <link>http://liupengliang.com/post/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.简介 Kettle是免费开源的基于java的企业级ETL工具。 特点： 免费开源：基于java的免费开源的软件，对商业用户也没有限制 易配</description>
+    </item>
+    
+    <item>
+      <title>基于SpringBoot项目的https</title>
+      <link>http://liupengliang.com/post/lfblog/springboot/%E5%9F%BA%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84https/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/lfblog/springboot/%E5%9F%BA%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84https/</guid>
+      <description>###1.生成和导入证书步骤： 1. 生成请求证书： 1.1&amp;nbsp;&amp;nbsp;keytool -genkey -alias [Name] -keypass [Password] -keyalg RSA -keysize 2048 -validity 18250 -keystore [Name] -alias:后的Name为要申请的证书的别名 -keypass：后</description>
+    </item>
+    
+    <item>
+      <title>windows10 shell折腾日记 ( 二 )</title>
+      <link>http://liupengliang.com/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0--%E4%BA%8C-/</link>
+      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0--%E4%BA%8C-/</guid>
+      <description>&lt;p&gt;折腾了一圈MAC, 现在是MAC+Windows双环境开发, 因为中了MAC oh-my-zsh的毒, 感觉不弄好windows的环境, 就浑身不得劲
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang热重启</title>
+      <link>http://liupengliang.com/post/golang-%E7%83%AD%E9%87%8D%E5%90%AF/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/golang-%E7%83%AD%E9%87%8D%E5%90%AF/</guid>
+      <description>golang的热重启, 分为及时更新与进程重启 开发 fresh的应用 go get github.com/pilu/fresh 直接在项目中启动 fresh 生产 热重启服务 facebookgo/grace - Graceful restart &amp;amp; zero downtime deploy for Go servers. fvbock/endless - Zero downtime restarts for go servers</description>
+    </item>
+    
+    <item>
+      <title>golang热重启</title>
+      <link>http://liupengliang.com/post/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <description>golang的热重启, 分为及时更新与进程重启 blog docker run &amp;ndash;name my-hugo -d -v $(pwd):/hugo-site -p 80:1313 &amp;ndash;rm -it ailen1988/hugo-docker-dev:latest /hugo-site/blog/run.sh ssr docker run &amp;ndash;privileged -d -p 1919:1919/tcp -p 1919:1919/udp &amp;ndash;name ssr-bbr-docker-1 letssudormrf/ssr-bbr-docker -p 1919 -k qweqwe -m aes-128-ctr -O auth_aes128_sha1 -o http_post v2ray docker run -d &amp;ndash;name v2ray -v /etc/v2ray:/etc/v2ray -p 8888:80 v2ray/official v2ray</description>
+    </item>
+    
+    <item>
+      <title>golang-gin-gorm链接数据库问题</title>
+      <link>http://liupengliang.com/post/golang---gin--gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/golang---gin--gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</guid>
+      <description>在练习使用gin - gorm链接数据库时, 始终出现报错, 最终发现是时区和Sprintf的问题 问题还原 问题描述 查询和修改数据库都一直处于失败状态</description>
+    </item>
+    
+    <item>
+      <title>在PHPSTORM中使用cmder</title>
+      <link>http://liupengliang.com/post/%E5%9C%A8phpstorm%E4%B8%AD%E4%BD%BF%E7%94%A8cmder/</link>
+      <pubDate>Tue, 16 Jan 2018 09:10:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/%E5%9C%A8phpstorm%E4%B8%AD%E4%BD%BF%E7%94%A8cmder/</guid>
+      <description>windows平台 PHPSTORM 中自带的命令终端是cmd, 之前我使用过git bash, 这个配置起来很简单, 这里就不赘述, 本文主要讲一下我配置cmder的过程 配置</description>
+    </item>
+    
+    <item>
+      <title>Git多平台开发换行符异常的问题</title>
+      <link>http://liupengliang.com/post/git%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 13 Jan 2018 16:40:33 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/git%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>Git 多平台换行符问题(LF or CRLF). 文本文件所使用的换行符，在不同的系统平台上是不一样的。UNIX/Linux 使用的是 0x0A（LF），早期的 Mac OS 使</description>
+    </item>
+    
+    <item>
       <title>vultr基于docker搭建的hugo和ssr&#43;bbr</title>
-      <link>http://www.liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</link>
+      <link>http://liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</link>
       <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</guid>
+      <guid>http://liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</guid>
       <description>前言 迁移Blog，最近一直在研究docker，正好使用docker部署hugo, 以及配置了BBR算法的酸酸乳（ssr）。 步骤 直接说方法 部署v</description>
     </item>
     
     <item>
       <title>记一次PHPExcel导出特殊字符的问题和解决</title>
-      <link>http://www.liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1phpexcel%E5%AF%BC%E5%87%BA%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/</link>
+      <link>http://liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1phpexcel%E5%AF%BC%E5%87%BA%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Thu, 10 Aug 2017 17:38:15 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1phpexcel%E5%AF%BC%E5%87%BA%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/</guid>
+      <guid>http://liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1phpexcel%E5%AF%BC%E5%87%BA%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/</guid>
       <description>#描述 在导出数据时，碰见了直接崩溃，报505。 打断点和异常捕获都不能组织任性的505. 最后分析是特殊字符的问题， 最早想到的解决方式是str_</description>
     </item>
     
     <item>
+      <title>docker镜像加速器</title>
+      <link>http://liupengliang.com/post/docker%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E5%99%A8/</link>
+      <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/docker%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E5%99%A8/</guid>
+      <description>阿里云镜像加速器 针对Docker客户端版本大于 1.10.0 的用户 您可以通过修改daemon配置文件/etc/docker/daemon.json来使用</description>
+    </item>
+    
+    <item>
       <title>docker的清理</title>
-      <link>http://www.liupengliang.com/post/docker%E7%9A%84%E6%B8%85%E7%90%86/</link>
+      <link>http://liupengliang.com/post/docker%E7%9A%84%E6%B8%85%E7%90%86/</link>
       <pubDate>Tue, 01 Aug 2017 14:55:01 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/docker%E7%9A%84%E6%B8%85%E7%90%86/</guid>
+      <guid>http://liupengliang.com/post/docker%E7%9A%84%E6%B8%85%E7%90%86/</guid>
       <description>命令介绍 docker在使用的过程中会不断的累积images，docker v1.13版本之后，提供了清理的命令 docker system prune docker system prune命令可以用于</description>
     </item>
     
     <item>
       <title>使用Vim处理大文本时遇到的问题和解决方法</title>
-      <link>http://www.liupengliang.com/post/%E4%BD%BF%E7%94%A8vim%E5%A4%84%E7%90%86%E5%A4%A7%E6%96%87%E6%9C%AC%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <link>http://liupengliang.com/post/%E4%BD%BF%E7%94%A8vim%E5%A4%84%E7%90%86%E5%A4%A7%E6%96%87%E6%9C%AC%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
       <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/%E4%BD%BF%E7%94%A8vim%E5%A4%84%E7%90%86%E5%A4%A7%E6%96%87%E6%9C%AC%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://liupengliang.com/post/%E4%BD%BF%E7%94%A8vim%E5%A4%84%E7%90%86%E5%A4%A7%E6%96%87%E6%9C%AC%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
       <description>#使用Vim处理大文本时遇到的问题和解决方法 在使用vim处理大文本（20G）文件时，由于是在Linux服务器上进行操作，就遇到了打开与保存缓</description>
     </item>
     
     <item>
       <title>windows10 shell折腾日记</title>
-      <link>http://www.liupengliang.com/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</link>
+      <link>http://liupengliang.com/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</link>
       <pubDate>Thu, 06 Jul 2017 09:46:05 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</guid>
+      <guid>http://liupengliang.com/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</guid>
       <description>&lt;p&gt;无法忍受windows的cmd, powershell的低效, 对于windows-git-bash如果在不配置git alias的情况下, 依旧是难以忍受, 故, 折腾window10可用的, 好用的shell
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>记一次array_multisort排序时充值数字KEY的问题与解决方法</title>
-      <link>http://www.liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1array_multisort%E6%8E%92%E5%BA%8F%E6%97%B6%E5%85%85%E5%80%BC%E6%95%B0%E5%AD%97key%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <link>http://liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1array_multisort%E6%8E%92%E5%BA%8F%E6%97%B6%E5%85%85%E5%80%BC%E6%95%B0%E5%AD%97key%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
       <pubDate>Mon, 03 Jul 2017 18:29:29 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1array_multisort%E6%8E%92%E5%BA%8F%E6%97%B6%E5%85%85%E5%80%BC%E6%95%B0%E5%AD%97key%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://liupengliang.com/post/%E8%AE%B0%E4%B8%80%E6%AC%A1array_multisort%E6%8E%92%E5%BA%8F%E6%97%B6%E5%85%85%E5%80%BC%E6%95%B0%E5%AD%97key%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
       <description>array_multisort在执行过程中, 不会充值字符串KEY, 但是会充值纯数字的KEY.</description>
     </item>
     
     <item>
       <title>介绍一个oh-my-zsh的扩展Z实现跳转</title>
-      <link>http://www.liupengliang.com/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</link>
+      <link>http://liupengliang.com/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</link>
       <pubDate>Sun, 02 Jul 2017 18:26:53 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</guid>
+      <guid>http://liupengliang.com/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</guid>
       <description>oh-my-zsh是款常用的命令行工具, 他具有很多插件和扩展, 今天介绍一下Z. #介绍 Z 不是 Oh-My-ZSH 的一部分，不过对任何苦于使用命令行的人来说它都是</description>
     </item>
     
     <item>
       <title>Ubuntu安装zsh &amp;&amp; 默认启动</title>
-      <link>http://www.liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
+      <link>http://liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
       <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
+      <guid>http://liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
       <description>zsh拥有更强的补全功能(常用工具的参数补全), 推荐大家使用 安装 sudo apt-get install zsh 引入增强插件,支持git,rails等补全，可选多种外观皮肤 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O -</description>
     </item>
     
     <item>
       <title>docker安装 - Ubuntu</title>
-      <link>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</link>
+      <link>http://liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</link>
       <pubDate>Sun, 02 Jul 2017 08:26:53 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</guid>
+      <guid>http://liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</guid>
       <description>经过了在window10安装docker的摧残后, 准备来linux系统找找自信 知识背景 2013-3诞生了docker linux内核3.8以上</description>
     </item>
     
     <item>
       <title>docker安装 - window10</title>
-      <link>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</link>
+      <link>http://liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</link>
       <pubDate>Sun, 02 Jul 2017 08:13:58 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</guid>
+      <guid>http://liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</guid>
       <description>昨天准备重新布置自己的开发环境, 顺便练一下docker的安装, 就先尝试了window10的安装, 安装的过程中, 有各种各样的坑, 搏斗了一天后,</description>
     </item>
     
     <item>
       <title>ThinkPHP 笔记 --- RunTime</title>
-      <link>http://www.liupengliang.com/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</link>
+      <link>http://liupengliang.com/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</link>
       <pubDate>Tue, 25 Apr 2017 14:25:20 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</guid>
+      <guid>http://liupengliang.com/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</guid>
       <description>记录 ThinkPHP RunTime 所遇到的问题 hexo 图片请求问题!</description>
     </item>
     
     <item>
       <title>Linux更新Node</title>
-      <link>http://www.liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</link>
+      <link>http://liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</link>
       <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</guid>
-      <description>记录 Laravel Homestead 在vagrant中更新Node sudo npm cache clean -f sudo npm install -g n (安装node的版本控制&amp;quot;n&amp;quot;) 更新最新的版本 sudo n stable () 更新指定</description>
+      <guid>http://liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</guid>
+      <description>记录 Laravel Homestead 在vagrant中更新Node 1 2 sudo npm cache clean -f sudo npm install -g n (安装node的版本控制&amp;#34;n&amp;#34;) 更新最新的版本 1 sudo n stable () 更新指</description>
+    </item>
+    
+    <item>
+      <title>Yii2使用笔记</title>
+      <link>http://liupengliang.com/post/yii2-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/yii2-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>记录 Laravel Homestead 在vagrant中更新Node 问题</description>
     </item>
     
     <item>
       <title>远程登录服务器</title>
-      <link>http://www.liupengliang.com/post/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>http://liupengliang.com/post/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>http://liupengliang.com/post/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>本章主要为了补写git ssh到远端的VPS服务器时, 出现的问题 前言 本章主要为了补写git ssh到远端的VPS服务器时, 出现的问题 正文 问题遇到</description>
     </item>
     
     <item>
       <title>vps上搭建hexo轻博客</title>
-      <link>http://www.liupengliang.com/post/vps%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E8%BD%BB%E5%8D%9A%E5%AE%A2/</link>
+      <link>http://liupengliang.com/post/vps%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E8%BD%BB%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Wed, 15 Mar 2017 21:15:22 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/vps%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E8%BD%BB%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>http://liupengliang.com/post/vps%E4%B8%8A%E6%90%AD%E5%BB%BAhexo%E8%BD%BB%E5%8D%9A%E5%AE%A2/</guid>
       <description>vps搭建个人轻博客的思路大致为: 本地使用hexo生成静态页面, 将本地静态页面通过hexo的deploy(部署)到VPS的git私有仓库中,</description>
     </item>
     
     <item>
-      <title>Git版本控制指令</title>
-      <link>http://www.liupengliang.com/post/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4/</link>
+      <title></title>
+      <link>http://liupengliang.com/post/init/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4/</guid>
-      <description>过滤命令 git版本过滤配置文件： git update-index --assume-unchanged &amp;lt;your files&amp;gt; example: git update-index --assume-unchanged common/constant/Init.cnt.php 取消过滤配置 git update-index --no-assume-unchanged &amp;lt;files&amp;gt; zsh链接git卡顿 git config --global oh-my-zsh.hide-status 1</description>
+      <guid>http://liupengliang.com/post/init/</guid>
+      <description>image: tico/docker
+before_script: - docker info
+stages: - deploy - release - merge-xiedi - merge-allen - merge-zwq
+web001-deploy: stage: deploy script: - cd /var/www/ttz-web/ttz-web - git config user.name &amp;ldquo;dazuiba-web&amp;rdquo; - git config user.email &amp;ldquo;dazuiba-web&amp;rdquo; - git status - git pull only: - master-bak tags: - docker-runner-web001
+web002-deploy: stage: deploy script: - cd /var/www/ttz-web/ttz-web - git config user.name &amp;ldquo;dazuiba-web&amp;rdquo; - git config user.email &amp;ldquo;dazuiba-web&amp;rdquo; - git status - git pull only: - master-bak tags: - docker-runner-web002</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://liupengliang.com/post/lfblog/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/lfblog/readme/</guid>
+      <description>hadoop kettle学习笔记 RestTemplate乱码 基于SpringBoot项目的https SpringBoot整合cxf调用WebServi</description>
+    </item>
+    
+    <item>
+      <title>Git - 版本控制指令</title>
+      <link>http://liupengliang.com/post/git---%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/git---%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4/</guid>
+      <description>过滤命令 git版本过滤配置文件： 1 2 3 4 5 git update-index --assume-unchanged &amp;lt;your files&amp;gt; example: git update-index --assume-unchanged common/constant/Init.cnt.php 取消过滤配置 1 git update-index --no-assume-unchanged &amp;lt;files&amp;gt; zsh链接git卡顿 1 git config --global oh-my-zsh.hide-status 1</description>
     </item>
     
     <item>
       <title>Ubuntu重启Nginx</title>
-      <link>http://www.liupengliang.com/post/ubuntu-%E9%87%8D%E5%90%AF-nginx/</link>
+      <link>http://liupengliang.com/post/ubuntu-%E9%87%8D%E5%90%AF-nginx/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/ubuntu-%E9%87%8D%E5%90%AF-nginx/</guid>
+      <guid>http://liupengliang.com/post/ubuntu-%E9%87%8D%E5%90%AF-nginx/</guid>
       <description>ubuntu操作系统重启nginx的操作 正文 ps -ef |grep nginx 首先查看nginx在系统中的进程 kill -9 2127 结束nginx进程 开启nginx /usr/local/nginx/sbin/nginx 重启nginx /usr/local/nginx/sbin/nginx</description>
     </item>
     
