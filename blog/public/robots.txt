@@ -1,2 +1,1 @@
 User-agent: *
-Sitemap: http://www.liupengliang.com/sitemap.xml

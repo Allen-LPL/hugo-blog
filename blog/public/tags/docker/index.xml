@@ -2,39 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on 文刀苑</title>
-    <link>http://www.liupengliang.com/tags/docker/</link>
+    <link>http://liupengliang.com/tags/docker/</link>
     <description>Recent content in Docker on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Nov 2017 00:15:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2019 18:11:26 +0000</lastBuildDate>
     
-	<atom:link href="http://www.liupengliang.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://liupengliang.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>docker部署gitlab, gitlab-cli, gitlab-runner的血与泪</title>
+      <link>http://liupengliang.com/post/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/</link>
+      <pubDate>Tue, 23 Jul 2019 18:11:26 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/</guid>
+      <description>使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂&amp;hellip; 就这</description>
+    </item>
+    
+    <item>
+      <title>windows for docker遇到的问题总结</title>
+      <link>http://liupengliang.com/post/windows-for-docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 20 Nov 2018 23:00:10 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/windows-for-docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</guid>
+      <description>docker现在对于windows平台的支持越来越好, 我在windows环境开发的时候, 都是通过docker作为开发环境, 现整理汇总平时遇到</description>
+    </item>
+    
+    <item>
       <title>vultr基于docker搭建的hugo和ssr&#43;bbr</title>
-      <link>http://www.liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</link>
+      <link>http://liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</link>
       <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</guid>
+      <guid>http://liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</guid>
       <description>前言 迁移Blog，最近一直在研究docker，正好使用docker部署hugo, 以及配置了BBR算法的酸酸乳（ssr）。 步骤 直接说方法 部署v</description>
     </item>
     
     <item>
+      <title>docker镜像加速器</title>
+      <link>http://liupengliang.com/post/docker%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E5%99%A8/</link>
+      <pubDate>Wed, 02 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/docker%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F%E5%99%A8/</guid>
+      <description>阿里云镜像加速器 针对Docker客户端版本大于 1.10.0 的用户 您可以通过修改daemon配置文件/etc/docker/daemon.json来使用</description>
+    </item>
+    
+    <item>
+      <title>docker的清理</title>
+      <link>http://liupengliang.com/post/docker%E7%9A%84%E6%B8%85%E7%90%86/</link>
+      <pubDate>Tue, 01 Aug 2017 14:55:01 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/post/docker%E7%9A%84%E6%B8%85%E7%90%86/</guid>
+      <description>命令介绍 docker在使用的过程中会不断的累积images，docker v1.13版本之后，提供了清理的命令 docker system prune docker system prune命令可以用于</description>
+    </item>
+    
+    <item>
       <title>docker安装 - Ubuntu</title>
-      <link>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</link>
+      <link>http://liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</link>
       <pubDate>Sun, 02 Jul 2017 08:26:53 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</guid>
+      <guid>http://liupengliang.com/post/docker%E5%AE%89%E8%A3%85---ubuntu/</guid>
       <description>经过了在window10安装docker的摧残后, 准备来linux系统找找自信 知识背景 2013-3诞生了docker linux内核3.8以上</description>
     </item>
     
     <item>
       <title>docker安装 - window10</title>
-      <link>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</link>
+      <link>http://liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</link>
       <pubDate>Sun, 02 Jul 2017 08:13:58 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</guid>
+      <guid>http://liupengliang.com/post/docker%E5%AE%89%E8%A3%85---window10/</guid>
       <description>昨天准备重新布置自己的开发环境, 顺便练一下docker的安装, 就先尝试了window10的安装, 安装的过程中, 有各种各样的坑, 搏斗了一天后,</description>
     </item>
     

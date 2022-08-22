@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zsh on 文刀苑</title>
-    <link>http://www.liupengliang.com/tags/zsh/</link>
+    <link>http://liupengliang.com/tags/zsh/</link>
     <description>Recent content in Zsh on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Jul 2017 08:33:58 +0000</lastBuildDate>
     
-	<atom:link href="http://www.liupengliang.com/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://liupengliang.com/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ubuntu安装zsh &amp;&amp; 默认启动</title>
-      <link>http://www.liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
+      <link>http://liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
       <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
+      <guid>http://liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
       <description>zsh拥有更强的补全功能(常用工具的参数补全), 推荐大家使用 安装 sudo apt-get install zsh 引入增强插件,支持git,rails等补全，可选多种外观皮肤 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O -</description>
     </item>
     

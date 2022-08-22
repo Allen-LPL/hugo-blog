@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Node on 文刀苑</title>
-    <link>http://www.liupengliang.com/tags/node/</link>
+    <link>http://liupengliang.com/tags/node/</link>
     <description>Recent content in Node on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 25 Apr 2017 10:55:20 +0000</lastBuildDate>
     
-	<atom:link href="http://www.liupengliang.com/tags/node/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://liupengliang.com/tags/node/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux更新Node</title>
-      <link>http://www.liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</link>
+      <link>http://liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</link>
       <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
       
-      <guid>http://www.liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</guid>
-      <description>记录 Laravel Homestead 在vagrant中更新Node sudo npm cache clean -f sudo npm install -g n (安装node的版本控制&amp;quot;n&amp;quot;) 更新最新的版本 sudo n stable () 更新指定</description>
+      <guid>http://liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</guid>
+      <description>记录 Laravel Homestead 在vagrant中更新Node 1 2 sudo npm cache clean -f sudo npm install -g n (安装node的版本控制&amp;#34;n&amp;#34;) 更新最新的版本 1 sudo n stable () 更新指</description>
     </item>
     
   </channel>
