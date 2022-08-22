@@ -3,7 +3,7 @@ version: '3.1'
 services:
   blog:
     image: liupengliang/hugo-docker:latest
-    command: sh ./hugo-site/blog/run.sh
+    command: sh /hugo-site/start.sh
     ports:
       - "80:1313"
     volumes:
