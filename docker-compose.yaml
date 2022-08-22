@@ -5,6 +5,6 @@ services:
     image: liupengliang/hugo-docker:latest
     command: sh /hugo-site/start.sh
     ports:
-      - "80:1313"
+      - "81:1313"
     volumes:
       - /root/hugo-blog:/hugo-site
