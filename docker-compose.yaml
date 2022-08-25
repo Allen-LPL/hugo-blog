@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   blog:
-    image: liupengliang/hugo-docker:latest
+    image: liupengliang/hugo-docker:v6
     command: sh /hugo-site/start.sh
     ports:
       - "81:1313"
