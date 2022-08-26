@@ -6,6 +6,7 @@
 hugo server -b http://localhost:1313 --bind=0.0.0.0
 
 # hugo server -v -D -w -b http://localhost:1313 --bind=0.0.0.0 --disableFastRender
+# hugo server -v -D -w -b http://www.liupengliang.com -p 1313 --bind=0.0.0.0 
 
 
 # generate static site
