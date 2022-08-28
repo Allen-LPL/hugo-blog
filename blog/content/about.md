@@ -1,80 +1,97 @@
----
-title: "About"
-date: 2020-04-19 17:12:33
-draft: true
----
 # 个人信息
  - 刘鹏亮/ 男/ 1988
  - 手机: 151 5710 5503
- - 杭州天钻网络/ 技术总监/ 2018.11至今
- - 本科/ 吉林工程技术师范学院/ 计算机科学与技术专业/ 2012.9 - 2015.6
- - 专科/ 长春工业大学/ 计算机应用/ 2010.9 - 2012.6
- - Blog: http://liupengliang.com/
- - 在线简历: http://liupengliang.com/cv
+ - 杭州淘游科技/ 技术主管/ 2020.6 - 2022.6
+ - 本科/ 吉林工程技术师范学院/ 计算机科学与技术专业
  - Github: https://github.com/Allen-LPL
  - dockerhub: https://hub.docker.com/u/liupengliang
  - Email: liupengliang1012@gmail.com
+ - 在线简历: http://www.hangzhouai.com
  
 # 开源项目
-- [Captcha-Pic](https://github.com/Allen-LPL/Captcha-Pic) (https://github.com/Allen-LPL/Captcha-Pic)
+- [Captcha-Pic](https://github.com/Allen-LPL/Captcha-Pic)
     - Golang做的拼图验证, HTML版和Api接口版
-- [laradock二次开发](https://github.com/Allen-LPL/Laradock) (https://github.com/Allen-LPL/Laradock)
+- [laradock二次开发](https://github.com/Allen-LPL/Laradock)
     - [laradock](https://github.com/laradock/laradock)是为PHPer制作的开源项目, 在此基础上, 通过修改和完善Docker镜像管理, 使其更适合在生产环境中使用, 其中新增了Openresty, Openresty-Waf, Openresty-Lor, Verynginx, Golang, Python, Walle, Xhgui, Xhprof, Gitlab-Runner, Filebate.
 - [webcron](https://github.com/Allen-LPL/webCron) (https://github.com/Allen-LPL/webCron)
     - Golang语言, Beego框架开发, 具有权限管理, 邮件通知, 任务模糊查询及任务终点控制.
 
 # 技术栈
-- 语言: PHP, Golang, Js, Lua
-- PHP框架: Thinkphp3, Yaf, Smart
-- Golang框架: Beego, Gin, Gorm
-- 非关系数据库: Redis2.6 - Redis5.0, Memcache, go-cache
-- 关系数据库: MySQL5.6.34
-- 大数据: EFG( ElaticSearch + Filebate + Grafana ), HDFS, Hive, Hbase
-- 服务器: Nginx, Openresty, VeryNginx
-- 队列: Beanstalkd( Supervisord维护 )
-- Waf: Openresty( Waf模块自研 ), VeryNginx( 单机 )
-- 版本管理: Git, Gitlab, Composer
+- 主要语言: 7年PHP, 3年Golang
+- PHP框架: Thinkphp, Yaf, Smart
+- Golang框架: Beego, Gin, gin-vue-admin
+- Golang的Orm: Gorm
+- RPC: GRPC, Proto
+- 非关系数据库: Redis, Memcache, go-cache, BigCache, Mongodb
+- 关系数据库: MySQL
+- 大数据: ElaticSearch( ElaticSearch + Filebate + Grafana )
+- 队列: Kafka
+- Web容器: Nginx, Openresty
+- Waf: Openresty( Waf模块自研 )
 - 容器: Docker, Docker-compose
-- 持续集成: Gitlab-runner, Jenkins, Webhook
-- 高可用: Etcd
-- Code Review及接口性能管理: Xhprof, Xhgui, Tideways 
-- 项目管理：制定项目计划, 文档建设, 环境建设, 代码控制建设, Bug跟踪反馈建设, 程序部署上线集成, 组员团建等
+- 持续集成: Gitlab-runner, Webhook
+- Code Review及接口性能管理: Xhprof, Xhgui, Tideways, PProf
+- 监控: Zabbix 
+- 高可用: Consul, Nacos
+- 管理工具: 堡垒机, sql审计平台, Zabbix监控
+- 项目管理：制定项目计划、周例会、每日总结会、文档建设、环境建设、代码控制建设、Bug跟踪反馈建设、程序部署上线集成、组员团建等
+
+<div STYLE="page-break-after: always;"></div>
 
 # 解决的疑难问题
-- 分布式session
-    - 依赖Redis做的分布式用户Token管理.
+- 抵御400G的DDOS和5G带宽CC混合攻击
+  - 调整架构, 根据用户模型做分化
+  - 监控服务器性能指标, 设置告警, 提前预警
+  - 加强日志审查, 定制Waf
+- Mongo副本集切片主从仲裁docker容器化及全量数据同步
+  - docker-compose编排切片副本集, 形成一主多从一仲裁
+  - 10T数据全量迁移
+- 分布式高可用负载, Nginx进程无法重启, 无法杀死
 - 仿极验拼图验证
-    - 通过[PHP版](https://github.com/Allen-LPL/tncode)学会原理, 自研Golang版拼图验证.
-- 大数据统计分析Nginx日志
+    - [PHP版](https://github.com/Allen-LPL/tncode), 生产使用[Golang版](https://github.com/Allen-LPL/Captcha-Pic)拼图验证.
 - PHP进程大量假死问题排查
-    - PHP-Fpm进程还在, 但无请求反应.
-- xhprof排查接口性能痛点
-- PHP与Golang的RPC访问
+    - PHP-Fpm调参, 进程数调整
+    - Mysql慢查询排查
+    - Xhprof分析
 - 大量MySQL数据的无感迁移
+  - 全量迁移, 将数据批量dump
+    - 默认使用MySQL工具
+    - dump异常时使用go-dumper
+  - 增量迁移
+    - 读取binlog, 数据导入消息队列(Kafka), 异步导入数据 
 - 加速海外服务器在国内的访问
-- docker镜像编排及容器管理实现快速部署
+- 业务服务迁移与扩容
+  - docker镜像编排及容器管理实现快速部署
+  - shell实现运维自动化
 - HTTPS出入站的SSL版本问题
-- crontab秒级服务部署
-- 依托gitlab-run的CI/CD做运维自动化部署
-- Grafana的插件报错及不可用问题
-- 自定义Waf网关
-- 静态服务
 
 # 工作经历
-## 杭州天钻网络技术 | 技术总监 | 2018.11 - 至今
+## 杭州淘游科技 | 技术主管 | 2020.6 - 2022.6
 - 工作内容
-    - 独立搭建维护优化和管理分布式环境
+    - 管理20人技术团队的绩效, 奖金, 代码控制, 团建等
+    - 优化架构, 搭建IDC+ECS混合模式
+    - 抵御网络攻击, 建立完善的数据安全层
+    - 处理各项疑难问题及技术方向决策
+    - 推进微服务改造, GOLANG与PHP混合
+- 成果
+    - 将松散的IDC服务器改造为以超融合架构为基的服务, 由45台降低至24台
+    - 多次防御DDOS攻击和CC的混合攻击
+    - 建立完善研发流程与架构, 实现研发与生产环境的剥离
+    - Mysql数据迁移及定期备份
+    - 规范grpc开发协议与流程, 推进PHP向GOLANG的转变
+  
+## 杭州天钻网络技术 | 技术总监 | 2018.11 - 2020.6
+- 工作内容
     - 管理5人团队的工作计划, 绩效, 奖金, 代码控制, 团建等
+    - 独立搭建维护优化和管理分布式环境
     - 参与日常研发和维护
 - 成果
     - 完全独立自主搭建较为完善的分布式系统
     - 项目内容涵盖PC, H5, APP( 只有安卓端 )
     
-## 杭州淘游网络技术 | PHP研发工程师 | 2015.8 - 2018.11
+## 杭州淘游科技 | PHP研发工程师 | 2015.8 - 2018.11
 - 工作内容
     - 依次参与聚享游(smart), 聚享游(ThinkPHP), 聚享玩, 宝石星球项目的重要内容
-        - 聚享游改版, 服务日活10万日活站点的日常
-        - 宝石星球主要负责20万+活跃用户矿石的产出服务
 - 成果
     - 完成的聚享游改版
     - 依托PHP多进程+Redis队列服务宝石星球20万用户的需求
@@ -84,6 +101,4 @@ draft: true
     - 依赖CMS制作官网, 商城
 - 成果
     - 制作了近40个网站
-    
-# [下载简历](http://www.liupengliang.com/cv/Back-End%20Pengliang%20Liu.pdf)
-
+   

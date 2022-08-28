@@ -2,8 +2,8 @@
 title: RestTemplate的post请求中文乱码问题
 date: 2018-07-02 08:13:58
 tags: [RestTemplate]
-categories: [刘芳的文章]
-author: "刘芳"
+categories: [BigData]
+# author: "刘芳"
 menu: ""
 ---
 

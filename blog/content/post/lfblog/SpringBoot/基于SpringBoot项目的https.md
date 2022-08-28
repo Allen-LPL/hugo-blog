@@ -2,8 +2,8 @@
 title: 基于SpringBoot项目的https
 date: 2018-07-02 08:13:58
 tags: [SpringBoot]
-categories: [刘芳的文章]
-author: "刘芳"
+categories: [BigData]
+# author: "刘芳"
 menu: ""
 ---
 
