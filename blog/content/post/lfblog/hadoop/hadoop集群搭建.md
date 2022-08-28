@@ -3,7 +3,7 @@ title: hadoop伪分布式集群搭建
 date: 2018-07-02 08:13:58
 tags: [Hadoop]
 categories: [刘芳的文章]
-author: "刘芳"
+# author: "刘芳"
 menu: ""
 ---
 

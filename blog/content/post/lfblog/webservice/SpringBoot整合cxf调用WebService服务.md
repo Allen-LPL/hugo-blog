@@ -2,8 +2,8 @@
 title: SpringBoot整合cxf调用WebService服务
 date: 2018-07-02 08:13:58
 tags: [SpeingBoot, Java]
-categories: [刘芳的文章]
-author: "刘芳"
+categories: [BigData]
+# author: "刘芳"
 menu: ""
 ---
 
