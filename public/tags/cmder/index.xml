@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CMDER on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/cmder/</link>
+    <description>Recent content in CMDER on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Tue, 16 Jan 2018 09:10:03 +0000</lastBuildDate><atom:link href="http://localhost/tags/cmder/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在PHPSTORM中使用cmder</title>
+      <link>http://localhost/post/%E5%9C%A8phpstorm%E4%B8%AD%E4%BD%BF%E7%94%A8cmder/</link>
+      <pubDate>Tue, 16 Jan 2018 09:10:03 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/%E5%9C%A8phpstorm%E4%B8%AD%E4%BD%BF%E7%94%A8cmder/</guid>
+      <description>windows平台 PHPSTORM 中自带的命令终端是cmd, 之前我使用过git bash, 这个配置起来很简单, 这里就不赘述, 本文主要讲一下我配置cmder的过程 配置</description>
+    </item>
+    
+  </channel>
+</rss>

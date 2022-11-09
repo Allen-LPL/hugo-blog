@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/mac/</link>
+    <description>Recent content in Mac on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mac低版本mac低版本Homebrew报错</title>
+      <link>http://localhost/post/mac%E4%BD%8E%E7%89%88%E6%9C%ACmac%E4%BD%8E%E7%89%88%E6%9C%AChomebrew%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/mac%E4%BD%8E%E7%89%88%E6%9C%ACmac%E4%BD%8E%E7%89%88%E6%9C%AChomebrew%E6%8A%A5%E9%94%99/</guid>
+      <description>mac系统低版本过低, 或者Homebrew长时间未更新过, 造成homebrew-core文件落后太多, 解决方案就是将homebrew-cor</description>
+    </item>
+    
+  </channel>
+</rss>

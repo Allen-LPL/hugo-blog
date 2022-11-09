@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>REDIS on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/redis/</link>
+    <description>Recent content in REDIS on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Thu, 18 Oct 2018 10:55:20 +0000</lastBuildDate><atom:link href="http://localhost/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PHP7多进程处理redis队列问题</title>
+      <link>http://localhost/post/php7%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%84%E7%90%86redis%E9%98%9F%E5%88%97%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/php7%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%84%E7%90%86redis%E9%98%9F%E5%88%97%E9%97%AE%E9%A2%98/</guid>
+      <description>一直在研究PHP7多进程编程, 在使用的过程中遇到了一些问题. &amp;lt;The rest of contents | 余下全文&amp;gt; 问题 redis 句柄问题 问题介绍 在使用PHP框架YII2进行多进</description>
+    </item>
+    
+  </channel>
+</rss>

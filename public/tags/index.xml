@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/</link>
+    <description>Recent content in Tags on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Sat, 05 Nov 2022 18:34:08 +0000</lastBuildDate><atom:link href="http://localhost/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker TensorFlowServer</title>
+      <link>http://localhost/tags/docker-tensorflowserver/</link>
+      <pubDate>Sat, 05 Nov 2022 18:34:08 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/docker-tensorflowserver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://localhost/tags/docker/</link>
+      <pubDate>Thu, 03 Nov 2022 15:59:09 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://localhost/tags/linux/</link>
+      <pubDate>Thu, 03 Nov 2022 15:59:09 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://localhost/tags/golang/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://localhost/tags/mysql/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>http://localhost/tags/mac/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grafana</title>
+      <link>http://localhost/tags/grafana/</link>
+      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/grafana/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://localhost/tags/git/</link>
+      <pubDate>Wed, 04 Sep 2019 16:55:56 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gitlab</title>
+      <link>http://localhost/tags/gitlab/</link>
+      <pubDate>Tue, 23 Jul 2019 18:11:26 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Uxc</title>
+      <link>http://localhost/tags/uxc/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/uxc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP7</title>
+      <link>http://localhost/tags/php7/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/php7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>REDIS</title>
+      <link>http://localhost/tags/redis/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yii2</title>
+      <link>http://localhost/tags/yii2/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/yii2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hadoop</title>
+      <link>http://localhost/tags/hadoop/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/hadoop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HDFS</title>
+      <link>http://localhost/tags/hdfs/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/hdfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>http://localhost/tags/java/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kettle</title>
+      <link>http://localhost/tags/kettle/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/kettle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RestTemplate</title>
+      <link>http://localhost/tags/resttemplate/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/resttemplate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpeingBoot</title>
+      <link>http://localhost/tags/speingboot/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/speingboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SpringBoot</title>
+      <link>http://localhost/tags/springboot/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/springboot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Babun</title>
+      <link>http://localhost/tags/babun/</link>
+      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/babun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oh-my-zsh</title>
+      <link>http://localhost/tags/oh-my-zsh/</link>
+      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/oh-my-zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>http://localhost/tags/shell/</link>
+      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gin</title>
+      <link>http://localhost/tags/gin/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/gin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gorm</title>
+      <link>http://localhost/tags/gorm/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/gorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CMDER</title>
+      <link>http://localhost/tags/cmder/</link>
+      <pubDate>Tue, 16 Jan 2018 09:10:03 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/cmder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHPSTORM</title>
+      <link>http://localhost/tags/phpstorm/</link>
+      <pubDate>Tue, 16 Jan 2018 09:10:03 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/phpstorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://localhost/tags/hugo/</link>
+      <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHP</title>
+      <link>http://localhost/tags/php/</link>
+      <pubDate>Thu, 10 Aug 2017 17:38:15 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>http://localhost/tags/ubuntu/</link>
+      <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zsh</title>
+      <link>http://localhost/tags/zsh/</link>
+      <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ThinkPHP</title>
+      <link>http://localhost/tags/thinkphp/</link>
+      <pubDate>Tue, 25 Apr 2017 14:25:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/thinkphp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Homestead</title>
+      <link>http://localhost/tags/homestead/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/homestead/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laravel</title>
+      <link>http://localhost/tags/laravel/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node</title>
+      <link>http://localhost/tags/node/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hexo</title>
+      <link>http://localhost/tags/hexo/</link>
+      <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/hexo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>http://localhost/tags/ssh/</link>
+      <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VPS</title>
+      <link>http://localhost/tags/vps/</link>
+      <pubDate>Wed, 15 Mar 2017 21:15:22 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/vps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>http://localhost/tags/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

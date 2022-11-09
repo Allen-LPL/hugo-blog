@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gitlab on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/gitlab/</link>
+    <description>Recent content in Gitlab on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Tue, 23 Jul 2019 18:11:26 +0000</lastBuildDate><atom:link href="http://localhost/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker部署gitlab, gitlab-cli, gitlab-runner的血与泪</title>
+      <link>http://localhost/post/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/</link>
+      <pubDate>Tue, 23 Jul 2019 18:11:26 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/</guid>
+      <description>使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂... 就这么入了gi</description>
+    </item>
+    
+  </channel>
+</rss>

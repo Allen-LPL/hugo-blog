@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gorm on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/gorm/</link>
+    <description>Recent content in Gorm on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Wed, 21 Mar 2018 21:47:03 +0000</lastBuildDate><atom:link href="http://localhost/tags/gorm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang-gin-gorm链接数据库问题</title>
+      <link>http://localhost/post/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</guid>
+      <description>在练习使用gin - gorm链接数据库时, 始终出现报错, 最终发现是时区和Sprintf的问题 问题还原 问题描述 查询和修改数据库都一直处于失败状态</description>
+    </item>
+    
+  </channel>
+</rss>

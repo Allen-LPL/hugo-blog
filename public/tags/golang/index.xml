@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/golang/</link>
+    <description>Recent content in Golang on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang 垃圾回收</title>
+      <link>http://localhost/post/golang/golang-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/golang/golang-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>Golang垃圾回收 gc触发条件 超过内存大小阈值 比如一次回收完毕后, 内存的使用量是5M, 那么下次回收的时候内存使用量达到10M 达到定时时间 如</description>
+    </item>
+    
+    <item>
+      <title>golang RPC入门</title>
+      <link>http://localhost/post/golang/golang-rpc%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/golang/golang-rpc%E5%85%A5%E9%97%A8/</guid>
+      <description>Golang入门 RPC 定义 RPC是在分布式计算，远程过程调用（英语：Remote Procedure Call，缩写为 RPC）是一个计算机通信协议。在互联网时代，R</description>
+    </item>
+    
+    <item>
+      <title>golang热重启</title>
+      <link>http://localhost/post/golang/golang-%E7%83%AD%E9%87%8D%E5%90%AF/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/golang/golang-%E7%83%AD%E9%87%8D%E5%90%AF/</guid>
+      <description>golang的热重启, 分为及时更新与进程重启 开发 fresh的应用 go get github.com/pilu/fresh 直接在项目中启动 fresh 生产 热重启服务 facebookgo/grace - Graceful restart &amp;amp; zero downtime deploy for Go servers. fvbock/endless - Zero downtime restarts for go servers</description>
+    </item>
+    
+    <item>
+      <title>常用的基础命令</title>
+      <link>http://localhost/post/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <description>常用的基础命令 blog docker run &amp;ndash;name my-hugo -d -v $(pwd):/hugo-site -p 80:1313 &amp;ndash;rm -it liupengliang/hugo-docker:latest ssr docker run &amp;ndash;privileged -d -p 1919:1919/tcp -p 1919:1919/udp &amp;ndash;name ssr-bbr-docker-1 letssudormrf/ssr-bbr-docker -p 1919 -k qweqwe -m aes-128-ctr -O auth_aes128_sha1 -o http_post v2ray docker run -d &amp;ndash;name v2ray -v /etc/v2ray:/etc/v2ray -p 8888:80 v2ray/official v2ray -config=/etc/v2ray/config.json athens docker run -d -v /root/athens-storage:/var/lib/athens -e ATHENS_DISK_STORAGE_ROOT=/var/lib/athens -e ATHENS_STORAGE_TYPE=disk &amp;ndash;name athens-proxy &amp;ndash;restart always -p</description>
+    </item>
+    
+    <item>
+      <title>golang-gin-gorm链接数据库问题</title>
+      <link>http://localhost/post/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</guid>
+      <description>在练习使用gin - gorm链接数据库时, 始终出现报错, 最终发现是时区和Sprintf的问题 问题还原 问题描述 查询和修改数据库都一直处于失败状态</description>
+    </item>
+    
+  </channel>
+</rss>

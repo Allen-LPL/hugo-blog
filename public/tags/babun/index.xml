@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Babun on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/babun/</link>
+    <description>Recent content in Babun on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Fri, 04 May 2018 19:30:24 +0000</lastBuildDate><atom:link href="http://localhost/tags/babun/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>windows10 shell折腾日记 ( 二 )</title>
+      <link>http://localhost/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BA%8C-/</link>
+      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BA%8C-/</guid>
+      <description>&lt;p&gt;折腾了一圈MAC, 现在是MAC+Windows双环境开发, 因为中了MAC oh-my-zsh的毒, 感觉不弄好windows的环境, 就浑身不得劲&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>windows10 shell折腾日记</title>
+      <link>http://localhost/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</link>
+      <pubDate>Thu, 06 Jul 2017 09:46:05 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/</guid>
+      <description>&lt;p&gt;无法忍受windows的cmd, powershell的低效, 对于windows-git-bash如果在不配置git alias的情况下, 依旧是难以忍受, 故, 折腾window10可用的, 好用的shell&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

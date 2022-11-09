@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SpeingBoot on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/speingboot/</link>
+    <description>Recent content in SpeingBoot on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Mon, 02 Jul 2018 08:13:58 +0000</lastBuildDate><atom:link href="http://localhost/tags/speingboot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot整合cxf调用WebService服务</title>
+      <link>http://localhost/post/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/</guid>
+      <description>#1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采</description>
+    </item>
+    
+  </channel>
+</rss>

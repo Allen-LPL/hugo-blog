@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kettle on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/kettle/</link>
+    <description>Recent content in Kettle on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Mon, 02 Jul 2018 08:13:58 +0000</lastBuildDate><atom:link href="http://localhost/tags/kettle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kettle学习笔记</title>
+      <link>http://localhost/post/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.简介 Kettle是免费开源的基于java的企业级ETL工具。 特点： 免费开源：基于java的免费开源的软件，对商业用户也没有限制 易配</description>
+    </item>
+    
+  </channel>
+</rss>

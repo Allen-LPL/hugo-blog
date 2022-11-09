@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 我的全新 Hugo 网站</title>
+    <link>http://localhost/categories/</link>
+    <description>Recent content in Categories on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Sat, 05 Nov 2022 18:34:08 +0000</lastBuildDate><atom:link href="http://localhost/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>手艺</title>
+      <link>http://localhost/categories/%E6%89%8B%E8%89%BA/</link>
+      <pubDate>Sat, 05 Nov 2022 18:34:08 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/categories/%E6%89%8B%E8%89%BA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>管理</title>
+      <link>http://localhost/categories/%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/categories/%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BigData</title>
+      <link>http://localhost/categories/bigdata/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/categories/bigdata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>工具</title>
+      <link>http://localhost/categories/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sun, 02 Jul 2017 18:26:53 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/categories/%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

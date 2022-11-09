@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/linux/</link>
+    <description>Recent content in Linux on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Thu, 03 Nov 2022 15:59:09 +0000</lastBuildDate><atom:link href="http://localhost/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Dockerfile build时请求超时的问题解决</title>
+      <link>http://localhost/post/linux-dockerfile-build%E6%97%B6%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Thu, 03 Nov 2022 15:59:09 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/linux-dockerfile-build%E6%97%B6%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>Linux服务器上，使用Dockerfile build镜像拉取各种依赖时， 总会碰到因为要请求被墙的网址导致build error, 辣么怎么解决呢， 本文提</description>
+    </item>
+    
+    <item>
+      <title>Linux系统查看流量的工具整理</title>
+      <link>http://localhost/post/linux%E6%9F%A5%E7%9C%8B%E6%B5%81%E9%87%8F/</link>
+      <pubDate>Mon, 15 Aug 2022 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/linux%E6%9F%A5%E7%9C%8B%E6%B5%81%E9%87%8F/</guid>
+      <description>记录 Linux系统查看流量的工具 &amp;lt;The rest of contents | 余下全文&amp;gt; nethogs: 按进程查看流量占用 iptraf: 按连接/端口查看流量 ifstat: 按设备查看流量 ethtool: 诊断工具 tcpdump: 抓包工具 ss: 连</description>
+    </item>
+    
+    <item>
+      <title>介绍一个oh-my-zsh的扩展Z实现跳转</title>
+      <link>http://localhost/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</link>
+      <pubDate>Sun, 02 Jul 2017 18:26:53 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</guid>
+      <description>oh-my-zsh是款常用的命令行工具, 他具有很多插件和扩展, 今天介绍一下Z. #介绍 Z 不是 Oh-My-ZSH 的一部分，不过对任何苦于使用命令行的人来说它都是</description>
+    </item>
+    
+  </channel>
+</rss>

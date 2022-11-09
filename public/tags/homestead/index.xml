@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homestead on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/homestead/</link>
+    <description>Recent content in Homestead on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Tue, 25 Apr 2017 10:55:20 +0000</lastBuildDate><atom:link href="http://localhost/tags/homestead/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux更新Node</title>
+      <link>http://localhost/post/linux%E6%9B%B4%E6%96%B0node/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/linux%E6%9B%B4%E6%96%B0node/</guid>
+      <description>记录 Laravel Homestead 在vagrant中更新Node &amp;lt;The rest of contents | 余下全文&amp;gt; sudo npm cache clean -f sudo npm install -g n (安装node的版本控制&amp;#34;n&amp;#34;) 更新最新</description>
+    </item>
+    
+  </channel>
+</rss>

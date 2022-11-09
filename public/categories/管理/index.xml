@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>管理 on 我的全新 Hugo 网站</title>
+    <link>http://localhost/categories/%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content in 管理 on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Tue, 02 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost/categories/%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Uxc项目部署</title>
+      <link>http://localhost/post/pj/uxc/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/pj/uxc/</guid>
+      <description>Uxc的搭建 /zhongjl:dacong575 blog docker run &amp;ndash;name my-hugo -d -v $(pwd):/hugo-site -p 80:1313 &amp;ndash;rm -it liupengliang/hugo-docker:latest ssr docker run &amp;ndash;privileged -d -p 1919:1919/tcp -p 1919:1919/udp &amp;ndash;name ssr-bbr-docker-1 letssudormrf/ssr-bbr-docker -p 1919 -k qweqwe -m aes-128-ctr -O auth_aes128_sha1 -o http_post v2ray 可以详细查看《Linux Dockerfile build时请求超时的问题解</description>
+    </item>
+    
+  </channel>
+</rss>

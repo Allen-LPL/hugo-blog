@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hadoop on 我的全新 Hugo 网站</title>
+    <link>http://localhost/tags/hadoop/</link>
+    <description>Recent content in Hadoop on 我的全新 Hugo 网站</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liupengliang1012@gmail.com (Allen)</managingEditor>
+    <webMaster>liupengliang1012@gmail.com (Allen)</webMaster>
+    <lastBuildDate>Mon, 02 Jul 2018 08:13:58 +0000</lastBuildDate><atom:link href="http://localhost/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hadoop伪分布式集群搭建</title>
+      <link>http://localhost/post/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv</description>
+    </item>
+    
+    <item>
+      <title>HDFS学习笔记</title>
+      <link>http://localhost/post/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <author>liupengliang1012@gmail.com (Allen)</author>
+      <guid>http://localhost/post/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数</description>
+    </item>
+    
+  </channel>
+</rss>
