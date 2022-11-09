@@ -9,7 +9,7 @@ pull.
 <!--more-->
 
 # 问题报错
-![报错](https://s3.bmp.ovh/imgs/2022/07/19/9fbb987645eae6cb.png)
+![报错](https://s3.bmp.ovh/imgs/2022/07/19/9fbb987645eae6cb.png "报错")
 
 # 解决方式, 以下二选一, 或者都做
 ## 拉取浅层, 快速解决问题

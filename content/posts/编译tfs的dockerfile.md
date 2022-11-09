@@ -7,8 +7,12 @@ categories: [手艺]
 最近在做机器学习的服务搭建， 使用的是docker容器内编译， 性能直接提升了30%， 以下是Bazel5.1.1编译
 <!--more-->
 
-> 如果你是在墙内， 那你需要参考《Linux Dockerfile build时请求超时的问题解决》以解决编译时的超时问题。
-> 如果你是在墙外， 请注释*RUN git config --global https.proxy https://172.17.0.1:10809*这一行
+{{< admonition type=tip title="注意" open=true >}}
+如果你是在墙内， 那你需要参考《Linux Dockerfile build时请求超时的问题解决》以解决编译时的超时问题。
+如果你是在墙外， 请注释*RUN git config --global https.proxy https://172.17.0.1:10809*这一行  
+{{< /admonition >}}
+> 
+> 
 
 # 编译镜像
 ```docker

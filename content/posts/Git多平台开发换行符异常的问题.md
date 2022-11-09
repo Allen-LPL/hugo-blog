@@ -11,11 +11,11 @@ Git 多平台换行符问题(LF or CRLF).
 <!--more-->
 # 描述问题
 在多端开发的时候, 倘若windows端安装git时是这样勾选的
-![Git多平台开发换行符异常的问题1.jpg](https://i.loli.net/2018/09/07/5b9243a7c45a1.jpg)
+![Git多平台开发换行符异常的问题1.jpg](https://i.loli.net/2018/09/07/5b9243a7c45a1.jpg "Git多平台开发换行符异常的问题1.jpg")
 辣么, 恭喜你, 其他平台开发的代码就会从这样
-![Git多平台开发换行符异常的问题2.png](https://i.loli.net/2018/09/07/5b9243a7a4234.png)
+![Git多平台开发换行符异常的问题2.png](https://i.loli.net/2018/09/07/5b9243a7a4234.png "Git多平台开发换行符异常的问题2.jpg")
 变成这样
-![Git多平台开发换行符异常的问题3.png](https://i.loli.net/2018/09/07/5b9243a7c3b46.png)
+![Git多平台开发换行符异常的问题3.png](https://i.loli.net/2018/09/07/5b9243a7c3b46.png "Git多平台开发换行符异常的问题3.jpg")
 
 # 解决方式
 
@@ -28,7 +28,7 @@ git config --global core.autocrlf input
 
 > 这样设置与安装时这个选项作用相同
 
-![Git多平台开发换行符异常的问题4.jpg](https://i.loli.net/2018/09/07/5b9246db725a6.jpg)
+![Git多平台开发换行符异常的问题4.jpg](https://i.loli.net/2018/09/07/5b9246db725a6.jpg "Git多平台开发换行符异常的问题4.jpg")
 
 
 ## 其他相关的命令

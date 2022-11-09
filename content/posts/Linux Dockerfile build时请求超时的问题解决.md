@@ -289,7 +289,8 @@ ifconfig eth0|sed -n 2p|awk  '{ print $2 }'
 ```
 
 如果在Dockerfile中有依赖需要git pull或者git submodule超时了，如图：
-![Xnip2022-11-07_20-47-24.png](https://s2.loli.net/2022/11/07/Vc61gUIHEbTjwJW.png)
+![Xnip2022-11-07_20-47-24.png](https://s2.loli.net/2022/11/07/Vc61gUIHEbTjwJW.png "docker build git error")
+
 在Dockerfile中添加
 ```docker
 RUN git config --global https.proxy https://172.17.0.1:10809

@@ -14,7 +14,7 @@ categories: [手艺]
 # docker-compose 部署gitlab
 
 ## dockerfile && docker-compose
-可直接引用[laradock](https://github.com/laradock/laradock)的gitlab部分, 自带gitlab-cli.
+可直接引用[laradock](https://github.com/laradock/laradock "laradock")的gitlab部分, 自带gitlab-cli.
 本来可以仅仅使用gitlab的代码管理部分就可以了, 不过我发现了devops部分, 那就折腾起来.
 
 ------
@@ -34,7 +34,7 @@ ___
 `
 
 > docker-compose up -d runner
-![跑起来的状态](https://i.loli.net/2019/07/23/5d371fcf7c27f51190.png)
+![跑起来的状态](https://i.loli.net/2019/07/23/5d371fcf7c27f51190.png "跑起来的状态")
 
 ## gitlab-runnerの注册
 按照[官方文档](https://docs.gitlab.com/ee/ci/docker/using_docker_build.html)的指示, 有三种
@@ -69,7 +69,7 @@ ___
          - docker run my-docker-image /script/to/run/tests
 
 #### ~~失败~~
-![依旧提示没有权限](https://i.loli.net/2019/07/23/5d371fcfd75b472667.png)
+![依旧提示没有权限](https://i.loli.net/2019/07/23/5d371fcfd75b472667.png "依旧提示没有权限")
 
 ### 使用docker-in-docker执行器
 #### 服务器配置注册信息
@@ -119,7 +119,7 @@ ___
          - docker run my-docker-image /script/to/run/tests
 
 #### ~~失败~~
-![docker链接不上](https://i.loli.net/2019/07/23/5d371fd00a9c981206.jpg)
+![docker链接不上](https://i.loli.net/2019/07/23/5d371fd00a9c981206.jpg "docker链接不上")
 
 ### 使用Docker套接字绑定
 #### 服务器配置注册信息
@@ -158,6 +158,6 @@ ___
 
 
 #### **_成功_**
-![成功](https://i.loli.net/2019/07/23/5d371fd00adf241936.png)
+![成功](https://i.loli.net/2019/07/23/5d371fd00adf241936.png "成功")
 
 以上是整个项目配置的流程, 三种方式我都尝试了, 最终通过**第三种**方式实现.

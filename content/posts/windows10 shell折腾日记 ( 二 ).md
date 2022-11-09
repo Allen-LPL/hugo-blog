@@ -12,7 +12,7 @@ categories: [手艺]
 ## **启动zsh时会报以下错误**
     > compdef: unknown command or service: git
 
-![1.png](https://i.loli.net/2020/04/18/4W2bCzE5L6vl91h.png)
+![1.png](https://i.loli.net/2020/04/18/4W2bCzE5L6vl91h.png "1.png")
 
 ## **解决** 
 执行以下命令
@@ -23,8 +23,8 @@ compinit
 cp ~/.zcompdump .zcompdump-$(hostname)-5.0.6
 ```
 如下图
-![2.png](https://i.loli.net/2020/04/18/6bjLSsX8TxUoyui.png)
-![3.png](https://i.loli.net/2020/04/18/ILUyDHFrgXj5fPs.png)
+![2.png](https://i.loli.net/2020/04/18/6bjLSsX8TxUoyui.png "2.png")
+![3.png](https://i.loli.net/2020/04/18/ILUyDHFrgXj5fPs.png "3.png")
 
 
 

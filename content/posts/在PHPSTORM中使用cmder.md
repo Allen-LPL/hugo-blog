@@ -8,10 +8,10 @@ windows平台 PHPSTORM 中自带的命令终端是cmd, 之前我使用过git bas
 
 <!--more-->
 # 配置环境变量
-![在PHPSTORM中使用cmder1.png](https://i.loli.net/2018/09/07/5b924c2bc3fa2.png)
+![在PHPSTORM中使用cmder1.png](https://i.loli.net/2018/09/07/5b924c2bc3fa2.png "在PHPSTORM中使用cmder1.png")
 
 # 配置PHPSTORM的Terminal设置
-![在PHPSTORM中使用cmder2.png](https://i.loli.net/2018/09/07/5b924c2bd2076.png)
+![在PHPSTORM中使用cmder2.png](https://i.loli.net/2018/09/07/5b924c2bd2076.png "在PHPSTORM中使用cmder2.png")
 
 我使用的PHPSTORM版本是 ***PHPSTORM 2017.2.5*** 配置命令
 ` "cmd.exe" /k ""%CMDER_ROOT%\vendor\init.bat"" `
@@ -22,4 +22,4 @@ windows平台 PHPSTORM 中自带的命令终端是cmd, 之前我使用过git bas
 > 出现这个问题, 主要是因为PHPSTORM版本的问题
 
 # 效果
-![在PHPSTORM中使用cmder3.png](https://i.loli.net/2018/09/07/5b924c2ba2744.png)
+![在PHPSTORM中使用cmder3.png](https://i.loli.net/2018/09/07/5b924c2ba2744.png "在PHPSTORM中使用cmder3.png")

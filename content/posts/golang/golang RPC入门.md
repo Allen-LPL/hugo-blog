@@ -34,7 +34,7 @@ RPC只是描绘了 Client 与 Server 之间的点对点调用流程，包括 stu
 > 默认跨语言, 使用json
 ### 初级版
 创建两个文件夹, 分别命名为server, client. 在其下分别创建main.go文件
-![1.png](https://s3.bmp.ovh/imgs/2022/08/05/af8705476d69329f.png)
+![1.png](https://s3.bmp.ovh/imgs/2022/08/05/af8705476d69329f.png "1")
 - client
 ```go
 package main
@@ -121,7 +121,7 @@ func main() {
 为了避免这种情况， 可以对客户端进行一次封装, 使用接口当作文档, 明确参数类型
 
 创建新文件夹 service
-![2.png](https://s3.bmp.ovh/imgs/2022/08/05/f8fae7472be2f7e9.png)
+![2.png](https://s3.bmp.ovh/imgs/2022/08/05/f8fae7472be2f7e9.png "2")
 
 service里的接口声明
 ```go
@@ -253,7 +253,7 @@ func main() {
 
 ### 通过HTTP请求RPC协议
 因为只需要是通过HTTP请求, 所以不需要client
-![3.png](https://s3.bmp.ovh/imgs/2022/08/05/87f96b7b880dc336.png)
+![3.png](https://s3.bmp.ovh/imgs/2022/08/05/87f96b7b880dc336.png "3")
 service代码不变
 ```go
 package service
@@ -310,7 +310,7 @@ func main() {
 ```
 
 #### 通过POSTMAN 或者 PAW请求
-![4.png](https://s3.bmp.ovh/imgs/2022/08/05/1a82a46a48332f1e.png)
+![4.png](https://s3.bmp.ovh/imgs/2022/08/05/1a82a46a48332f1e.png "4")
 
 
 以上.

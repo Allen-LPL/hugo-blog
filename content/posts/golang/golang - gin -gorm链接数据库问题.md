@@ -16,10 +16,10 @@ categories: [手艺]
 > sql: database is closed
 
 逐一排查问题, 发现是配置的问题:
-![1](https://i.loli.net/2019/06/16/5d0614f22ef1b44094.png)
+![1](https://i.loli.net/2019/06/16/5d0614f22ef1b44094.png "1")
 
 # 解决
 修改掉Sprintf的影响
 
-![2](https://i.loli.net/2019/06/16/5d0614f1855a453126.png)
+![2](https://i.loli.net/2019/06/16/5d0614f1855a453126.png "2")
 

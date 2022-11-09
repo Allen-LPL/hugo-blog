@@ -15,7 +15,7 @@ docker现在对于windows平台的支持越来越好, 我在windows环境开发�
 因为我是使用docker-compose编排, 起初以为是docker-compose的原因, 尝试了docker exec, 还是不行, 那就不是docker的原因, 不能简单粗暴的解决问题, 认真读了一下报错, :-O
 竟然是让我在前面加*winpty*
 
-![2.1.png](https://i.loli.net/2020/04/18/8VBRXQnGwYUqv5t.png)
+![2.1.png](https://i.loli.net/2020/04/18/8VBRXQnGwYUqv5t.png "2.1.png")
 
 ***你个老头坏得很, 我差点就信了你!!!!!***
 
@@ -27,6 +27,6 @@ docker现在对于windows平台的支持越来越好, 我在windows环境开发�
 
 那就用powershell.exe试一下,
 
-![2.2.png](https://i.loli.net/2020/04/18/VI7TU6kjdKGqEYn.png)
+![2.2.png](https://i.loli.net/2020/04/18/VI7TU6kjdKGqEYn.png "2.2.png")
 
 搞定!

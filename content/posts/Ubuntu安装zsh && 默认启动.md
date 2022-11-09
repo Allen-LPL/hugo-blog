@@ -6,7 +6,7 @@ categories: [手艺]
 ---
 zsh拥有更强的补全功能(常用工具的参数补全), 推荐大家使用
 
-<!--more-->
+<!-- more -->
 # 安装
 `sudo apt-get install zsh`
 
