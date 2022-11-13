@@ -1,6 +1,6 @@
 ---
-title: golang 切片的扩容
-date: 2021-01-12
+title: golang Map的扩容
+date: 2021-01-13
 tags: [Golang]
 categories: [手艺]
 ---
