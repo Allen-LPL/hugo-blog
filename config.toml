@@ -530,9 +530,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     enable = true
     # 用于 Cookie 许可横幅的文本字符串
     [params.cookieconsent.content]
-      message = "最近在找工作， 主业后端， 前段运维都能做， 有内推机会可以发来"
+      message = "最近在找工作， 主业后端， 前段运维都能做， 有内推机会可以发来 http://www.hangzhouai.com"
       dismiss = ""
-      link = "http://www.hangzhouai.com"
+      link = ""
 
   #  第三方库文件的 CDN 设置
   [params.cdn]
