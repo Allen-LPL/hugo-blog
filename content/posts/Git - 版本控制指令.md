@@ -1,9 +1,10 @@
 ---
 title: Git - 版本控制指令
-date: 2017-06-13 16:40:33
+date: 2017-06-03 
 tags: [Git]
 categories: [手艺]
-thumbnail: "/uploads/images/Git版本控制指令/gitLimit.png"
+
+[//]: # (thumbnail: "/uploads/images/Git版本控制指令/gitLimit.png")
 ---
 
 版本控制指令一些简单记录
