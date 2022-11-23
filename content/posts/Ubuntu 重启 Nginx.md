@@ -1,6 +1,6 @@
 ---
 title: Ubuntu重启Nginx
-date: 2017-8-3 15:43:31
+date: 2017-08-03 15:43:31
 tags: [Nginx,Ubuntu]
 categories: [手艺]
 ---

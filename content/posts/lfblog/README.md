@@ -1,3 +1,9 @@
+---
+title: "大数据目录"
+date: 2022-11-09T03:37:04Z
+draft: false
+---
+
 
 1. hadoop
 2. kettle学习笔记
