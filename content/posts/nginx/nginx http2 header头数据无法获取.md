@@ -1,11 +1,11 @@
 ---
-title: Nginx报net::ERR_CONNECTION_CLOSED的解决现场
+title: Nginx报ERR_CONNECTION_CLOSED的解决现场
 date: 2023-01-16 22:58:42
 tags: [Nginx]
 categories: [手艺]
 ---
-
 客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原
+
 <!--more-->
 # 异常
 ![img.png](img.png)
