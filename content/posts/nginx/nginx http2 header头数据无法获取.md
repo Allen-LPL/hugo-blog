@@ -7,23 +7,24 @@ categories: [手艺]
 客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原
 
 <!--more-->
-# 异常
-![img.png](img.png)
 
-![img_2.png](img_2.png)
+# 异常
+![img.png](https://s2.loli.net/2023/01/16/NVcDMsJEOfTj3vG.png "Chrome异常")
+
+![img_2.png](https://s2.loli.net/2023/01/16/cFoqBLhZDSpQsKe.png "Chrome没有请求体")
 > 只有请求头, 但是没有响应
 
-![img_1.png](img_1.png)
+![img_1.png](https://s2.loli.net/2023/01/16/vMQ8yNhHtVnJ5UO.png "控制台报错")
 > VUE控制台显示报错 **net::ERR_CONNECTION_CLOSED**
 
-![img_3.png](img_3.png)
+![img_3.png](https://s2.loli.net/2023/01/16/QKwHf9BqvreYXtS.png "Nginx日志")
 > Nginx日志记录了请求现场, 无法获取Header头, 无法获取resp请求体
 
 # 思路
 
 1. 检查PHP接口是否正常
 
-![img_4.png](img_4.png)
+![img_4.png](https://s2.loli.net/2023/01/16/4RIvrhbQLOSmB5J.png "PostMan请求")
 
 2. 调整nginx config 将请求header及请求体记录到log
 
@@ -139,7 +140,7 @@ location ~ \.php$ {
 4. 至此还没有解决问题, 就开始急病乱投医, 包括不限于重新处理VUE代码, PHP代码, Linux文件权限, 自己电脑的代理问题等
 最后没有办法, 只能从[nginx官方文档]一点点找, 最后找出关键点!
 
-![img_5.png](img_5.png)
+![img_5.png](https://s2.loli.net/2023/01/16/UkWXolpVDMbZtYy.png "nginx官方文档")
 
 > 如果nginx版本是version 1.19.7及以上, 那么就使用large_client_header_buffers
 
