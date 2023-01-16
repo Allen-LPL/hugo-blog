@@ -1,6 +1,6 @@
 ---
 title: Nginx报ERR_CONNECTION_CLOSED的解决现场
-date: 2023-01-16 22:58:42
+date: 2023-01-16 
 tags: [Nginx]
 categories: [手艺]
 ---
