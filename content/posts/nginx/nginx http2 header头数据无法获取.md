@@ -153,7 +153,7 @@ http2_max_field_size 16k; # default 4k
 
 # 结束
 好了, 搞定
-![img_6.png](img_6.png)
+![img_6.png](https://s2.loli.net/2023/01/16/uJpbLXyPdh5gaU2.png "结束")
 
 [nginx官方文档]: https://nginx.org/en/docs/http/ngx_http_v2_module.html
 
