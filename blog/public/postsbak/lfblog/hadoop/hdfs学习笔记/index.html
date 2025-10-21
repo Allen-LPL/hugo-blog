@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>HDFS学习笔记 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/postsbak/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="HDFS学习笔记" />
+<meta property="og:description" content="###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/postsbak/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" />
+<meta property="article:published_time" content="2018-07-02T08:13:58+00:00" />
+<meta property="article:modified_time" content="2018-07-02T08:13:58+00:00" />
+<meta itemprop="name" content="HDFS学习笔记">
+<meta itemprop="description" content="###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数">
+<meta itemprop="datePublished" content="2018-07-02T08:13:58&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-02T08:13:58&#43;00:00" />
+<meta itemprop="wordCount" content="9600">
+
+
+
+<meta itemprop="keywords" content="HDFS,Hadoop," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HDFS学习笔记"/>
+<meta name="twitter:description" content="###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>###1.HDFS简介</p>
+<ol>
+<li><strong>HDFS</strong>（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于<strong>流式数据模式</strong>访问和处理超大文件的需求而开发的。</li>
+<li><strong>HDFS数据块</strong>：HDFS上的文件被划分为块大小的多个分块，作为独立的存储单元，称为数据块，hadoop1.x默认大小是64MB,1.x默认大小是128MB。<!-- raw HTML omitted -->
+使用数据块的好处：
+<ul>
+<li>一个文件的大小可以大于网络中任意一个磁盘的容量。文件的所有块不需要存储在同一个磁盘上。因此文件可以利用集群中的任意磁盘进行存储</li>
+<li>简化了存储子系统的设计，将存储子系统控制单元设置为块，可简化存储管理，同时元数据就不需要和块一同存储，用一个单独的系统管理这些块的元数据。</li>
+<li>数据块适合用于数据备份进而提供数据容错能力和提高可用性。</li>
+<li>查看快信息：hadoop dfs /-files -blocks</li>
+</ul>
+</li>
+<li>HDFS的三个节点：Namenode，Datanode，Secondary Namenode
+<ul>
+<li><strong>Namenode</strong>：HDFS的守护进程，用来管理文件系统的命名空间，负责记录文件是如何分割成数据块，以及这些数据块分别被存储到那些数据节点上，它的主要功能是对内存及IO进行集中管理。</li>
+<li><strong>Datanode</strong>：文件系统的工作节点，根据需要存储和检索数据块，并且定期向namenode发送他们所存储的块的列表。</li>
+<li><strong>Secondary Namenode</strong>：辅助后台程序，与NameNode进行通信，以便定期保存HDFS元数据的快照。
+###2.HDFS的劣势，不适合的场合</li>
+</ul>
+</li>
+<li>低延时数据访问
+<ul>
+<li>比如毫秒级的来存储数据，这是不行的，它做不到。</li>
+<li>它适合高吞吐率的场景，就是在某一时间内写入大量的数据。但是它在低延时的情况下是不行的，比如毫秒级以内读取数据，这样它是很难做到的。</li>
+</ul>
+</li>
+<li>小文件存储
+<ul>
+<li>存储大量小文件(这里的小文件是指小于HDFS系统的Block大小的文件（默认128M）)的话，它会占用 NameNode大量的内存来存储文件、目录和块信息。这样是不可取的，因为NameNode的内存总是有限的。</li>
+<li>小文件存储的寻道时间会超过读取时间，它违反了HDFS的设计目标。</li>
+</ul>
+</li>
+<li>并发写入、文件随机修改
+<ul>
+<li>一个文件只能有一个写，不允许多个线程同时写。</li>
+<li>仅支持数据 append（追加），不支持文件的随机修改。
+###3.HDFS存储数据
+<img src="images/hdfs1.jpg" alt=""> <!-- raw HTML omitted --></li>
+</ul>
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<p>HDFS 采用Master/Slave的架构来存储数据，这种架构主要由四个部分组成，分别为HDFS Client、NameNode、DataNode和Secondary NameNode。下面我们分别介绍这四个组成部分:<!-- raw HTML omitted --></p>
+<ol>
+<li>
+<p>Client客户端</p>
+<ul>
+<li>文件切分。文件上传HDFS的时候，Client会将文件切分成一个个的block块，进行存储</li>
+<li>与NameNode交互，获取文件的存储信息。</li>
+<li>与DataNode交互，读取或写入文件。</li>
+<li>Client提供一些命令来管理HDFS，比如启动、关闭命令。</li>
+<li>Client可以通过一些命令来访问HDFS，比如put、pull。</li>
+</ul>
+</li>
+<li>
+<p>NameNode：就是master，是一个管理者</p>
+<ul>
+<li>管理HDFS的名称空间</li>
+<li>管理数据块(block)映射信息</li>
+<li>配置副本策略</li>
+<li>处理客户端读写请求</li>
+</ul>
+</li>
+<li>
+<p>DataNode：就是slave，NameNode下达命令，DataNode执行实际读写操作</p>
+<ul>
+<li>存储实际的数据块</li>
+<li>执行数据块的读写操作</li>
+</ul>
+</li>
+<li>
+<p>Secondary NameNode：并非 NameNode 的热备。当NameNode 挂掉的时候，它并不能马上替换 NameNode 并提供服务。</p>
+<ul>
+<li>负责NameNode分担其工作量</li>
+<li>定期合并 fsimage和fsedits，并推送给NameNode。</li>
+<li>在紧急情况下，可辅助恢复 NameNode。</li>
+<li>默认安装在namenode节点上，但。。。。不安全</li>
+</ul>
+</li>
+<li>
+<p>详细介绍一下NameNode和Secondary NameNode的工作原理<!-- raw HTML omitted -->
+NameNode又成为名称节点，是负责管理分布式文件系统的命名空间，（Namespace），保存了两个核心的数据结构，即FsImage和EditLog。 可以理解为大管家，不负责存储具体的数据</p>
+<ul>
+<li>FsImage用于维护文件系统树以及文件树中所有的文件和文件夹的元数据<!-- raw HTML omitted -->元数据的存储格式<!-- raw HTML omitted --></li>
+<li>操作日志文件EditLog中记录了所有针对文件的创建、删除、重命名等操作。</li>
+<li>注意：这两个都是文件，也会加载解析到内存中</li>
+</ul>
+<p>为啥会拆成两个？主要是FsImage文件很大，把增量的修改放到EditLog中，一个FsImage和一个Editlog进行合并会得到一个新的FsImage。</p>
+<p>因为NameNode是大管家，所以如果坏了丢失了，就相当于系统引导区坏了，那整个文件系统就崩溃了。所以NameNode存储的元数据很重要，就需要备份。这个时候就产生了一个叫sendaryNamenode的节点用来做备份，它会定期的和namenode就行通信来完成整个的备份操作。具体的操作如下:<!-- raw HTML omitted --></p>
+<pre><code>![](images/hdfs8.png) &lt;br/&gt;
+ ![](images/hdfs9.jpg) &lt;br/&gt;
+</code></pre>
+<p>SecondaryNameNode的工作情况：</p>
+<ul>
+<li>SecondaryNameNode会定期和NameNode进行通信，请求其停止使用EditLog文件，暂时将新的写操作日志写入到新文件edit.new中。这个操作是瞬间完成，上层写日志的函数完全感觉不到差别</li>
+<li>SecondaryNameNode通过HTTP GET方式从NameNode获取FsImage和EditLog，并下载到本地相应目录下。</li>
+<li>SecondaryNameNode将下载下来的FsImage加载到内存中，然后一条一条的执行EditLog中的更新操作，使得内存中的FsImage保持最新。这个过程就是EditLog和FsImage文件合并。</li>
+<li>SecondaryNameNode执行完合并操作后，就会通过HTTP POST方法将合并后的FsImage发送到NameNode节点上</li>
+<li>NameNode将从SecondaryNameNode接收到的新的FsImage替换旧的FsImage文件，同时将edit.new替换EditLog文件，通过这个过程EditLog就变小了<!-- raw HTML omitted -->
+除了这个自带的备份操作，还需要进行人工的备份，把一份fsimage到多个地方进行备份，万一namenode的节点坏了呢。</li>
+</ul>
+</li>
+<li>
+<p>NameNode中元数据<!-- raw HTML omitted -->
+namenode对元数据有三种存储方式：<!-- raw HTML omitted --></p>
+<ul>
+<li>内存元数据(NameSystem)：就是当前namenode正在使用的元数据，是存储在内存中的。</li>
+<li>磁盘元数据镜像文件（fsimage)：是内存元数据的镜像，保存在namenode工作目录中，它是一个准元数据，作用是在namenode宕机时能够快速较准确的恢复元数据。称为fsimage。</li>
+<li>数据操作日志文件(EditLog)：是用来记录元数据操作的，在每次改动元数据时都会追加日志记录，如果有完整的日志就可以还原完整的元数据。主要作用是用来完善fsimage，减少fsimage和内存元数据的差距。称为editslog。<!-- raw HTML omitted --></li>
+</ul>
+<p>NameNode中元数据的存储细节<!-- raw HTML omitted -->
+NameNode(Filename,replicas,block-ids,ids2host&hellip;)<!-- raw HTML omitted -->
+例子：/test/a.log, 3, {blk_1,blk_2}, [{blk_1:[h0,h1,h3]},{blk_2:[h0,h2,h4]}]<!-- raw HTML omitted -->
+如何知道数据块是否损坏：校验和CRC32，每一个块有一个校验和。<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>什么时候checkpoint（即合并edits文件） <!-- raw HTML omitted -->
+由hdfs-site.xml配置文件中的配置决定：<!-- raw HTML omitted -->
+fs.checkpoint.period指定两次checkpoint的最大时间间隔，默认3600s <!-- raw HTML omitted -->
+fs.checkpoint.size 规定edits文件的最大值，一旦超过这个值则强制checkpoint，不管是否达到最大时间间隔。默认大小是64M. <!-- raw HTML omitted --></p>
+</li>
+</ol>
+<p>###4.HDFS读取数据
+<img src="images/hdfs2.png" alt=""> <!-- raw HTML omitted -->
+HDFS文件读取原理，分以下几个步骤：<!-- raw HTML omitted --></p>
+<ol>
+<li>通过调用FileSystem的open()方法，获取一个DistributedFileSystem的实例</li>
+<li>DistributedFileSystem通过RPC访问NameNode，获取文件第一批blocks的location，同一个block会按照副本数返回多个locations，这些locations会按照hadoop的拓扑结构排序，距离客户端近的排在前面。</li>
+<li>前两步会返回一个FSDataInputStream对象，该对象会被封装成 DFSInputStream对象，DFSInputStream可以方便的管理DataNode和DataNode的数据流。 客户端调用Read方法，DFSInputStream就会找出离客户端最近的datanode并连接。</li>
+<li>数据从datanode流向客户端</li>
+<li>如果第一个block块的数据读取完了，就会关闭第一个block的dataNode连接，接着读取下一个块。这些操作对客户端来说是透明的，从客户端的角度来看只是读一个持续不断的流。</li>
+<li>如果第一批block都读完了，DFSInputStream就会去namenode拿下一批blocks的location，然后继续读，如果所有的block块都读完，这时就会关闭掉所有的流。</li>
+</ol>
+<p>###5.HDFS写入文件
+<!-- raw HTML omitted -->写入文件时，是先存储文件，然后再告知namenode各个块的映射地址，还是先安排好地址再存入的数据的。<!-- raw HTML omitted -->
+block块映射是以什么样的格式存储在Namenode中的<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<img src="images/hdfs3.png" alt=""> <!-- raw HTML omitted -->
+HDFS写入文件原理，分以下几个步骤：<!-- raw HTML omitted --></p>
+<ol>
+<li>Client通过调用<strong>DistributedFileSystem</strong>的create()方法，创建一个新的文件</li>
+<li>DistributedFileSystem通过<strong>RPC</strong>访问NameNode，去创建一个没有blocks关联的新文件。创建前NameNode会做各种校验，比如文件是否存在，客户端有无权限去创建等。如果校验通过，NameNode 就会记录下新文件，否则就会抛出IO异常。</li>
+<li>前两步结束就会返回<strong>FSDataOutputStream</strong>对象，和读文件的时候相似，FSDataOutputStream 被封装成 <strong>DFSOutputStream</strong>，DFSOutputStream 可以协调 NameNode和 DataNode。客户端开始写数据到DFSOutputStream,DFSOutputStream会把数据切成一个个小 <strong>packet</strong>，然后排成队列 data queue。</li>
+<li><strong>DataStreamer</strong> 会去处理接受 data queue，它先问询 NameNode 这个新的 block 最适合存储的在哪几个DataNode里，比如重复数是3，那么就找到3个最适合的 DataNode，把它们排成一个 <strong>pipeline</strong> 。DataStreamer 把 packet 按队列输出到管道的第一个 DataNode 中，第一个 DataNode又把 packet 输出到第二个 DataNode 中，以此类推。</li>
+<li>DFSOutputStream 还有一个队列叫 ack queue，也是由 packet 组成，等待DataNode的收到响应，当pipeline中的所有DataNode都表示已经收到的时候，这时akc queue才会把对应的packet包移除掉。</li>
+<li>客户端完成写数据后，调用close方法关闭写入流。</li>
+<li>DataStreamer 把剩余的包都刷到 pipeline 里，然后等待 ack 信息，收到最后一个 ack 后，通知 DataNode 把文件标示为已完成。</li>
+</ol>
+<p>###6.HDFS删除数据分析
+Hdfs删除数据流程：</p>
+<ul>
+<li>客户端向namenode发起RPC调用，请求删除文件。namenode检查合法性。</li>
+<li>namenode查询文件相关元信息，向存储数据块的datanode发送删除请求。</li>
+<li>datanode删除相关数据块。返回结果。</li>
+<li>namenode返回结果给客户端。</li>
+</ul>
+<p><strong>注意</strong>：   当用户或应用程序删除某个文件时，这个文件并没有立刻从HDFS中删除。实际上，HDFS会将这个文件重命名转移到/trash目录。只要文件还在/trash目录中，该文件就可以被迅速地恢复。文件在/trash中保存的时间是可配置的，当超过这个时间时，Namenode就会将该文件从名字空间中删除。删除文件会使得该文件相关的数据块被释放。注意，从用户删除文件到HDFS空闲空间的增加之间会有一定时间的延迟。只要被删除的文件还在/trash目录中，用户就可以恢复这个文件。如果用户想恢复被删除的文件，他/她可以浏览/trash目录找回该文件。/trash目录仅仅保存被删除文件的最后副本。/trash目录与其他的目录没有什么区别，除了一点：在该目录上HDFS会应用一个特殊策略来自动删除文件。目前的默认策略是删除/trash中保留时间超过6小时的文件。将来，这个策略可以通过一个被良好定义的接口配置。</p>
+<p>　　当一个文件的副本系数被减小后，Namenode会选择过剩的副本删除。下次心跳检测时会将该信息传递给Datanode。Datanode遂即移除相应的数据块，集群中的空闲空间加大。同样，在调用setReplication API结束和集群中空闲空间增加间会有一定的延迟。</p>
+<p>###7.HDFS 副本存放策略
+namenode如何选择在哪个datanode 存储副本（replication）？这里需要对可靠性、写入带宽和读取带宽进行权衡。Hadoop对datanode存储副本有自己的副本策略，在其发展过程中一共有两个版本的副本策略，分别如下所示:<!-- raw HTML omitted -->
+<img src="images/hdfs4.jpg" alt=""> <!-- raw HTML omitted --></p>
+<p>###8.hadoop2.x新特性</p>
+<ul>
+<li>引入了NameNode Fedaration，解决了内存横向扩展</li>
+<li>引入了NameNode HA，解决了NameNode 单点故障</li>
+<li>引入了YARN，负责资源管理和调度</li>
+<li>增加了ResourceManager HA解决了ResourceManager单点故障</li>
+</ul>
+<p>以下分别介绍这四个新特性：</p>
+<ol>
+<li>
+<p>NameNode Fedaration</p>
+<p><img src="images/hdfs5.png" alt=""> <!-- raw HTML omitted --></p>
+<ul>
+<li>存在多个NameNode，每个NameNode分管一部分目录</li>
+<li>NameNode共用DataNode<!-- raw HTML omitted -->
+这样做的好处是，当NameNode内存受限时，能扩展内存解决内存受限问题。并且每个NameNode独立工作，其中一个NameNode节点挂掉不影响其他的NameNode提供服务。虽然有多个NameNode分管不同的目录，但是对特定NameNode，依然存在单点故障，因为没有热备。解决单点故障用NameNode HA。</li>
+</ul>
+</li>
+<li>
+<p>NameNode HA</p>
+<p>解决方案：</p>
+<ul>
+<li>
+<p>基于NFS共享存储解决方案	 <!-- raw HTML omitted -->
+Active NameNode与Standby NameNode通过NFS实现共享数据，但如果Active NameNode与NFS之间或Standby NameNode与NFS之间，其中一处有网络故障的话，那就会造成数据同步问题</p>
+</li>
+<li>
+<p>基于Qurom Journal Manager(QJM)解决方案<!-- raw HTML omitted --></p>
+<p><img src="images/hdfs6.png" alt=""> <!-- raw HTML omitted -->
+1）Active NN、Standby NN有主备之分，NN Active是主的，NN Standby备用的<!-- raw HTML omitted -->
+2）集群启动之后，一个namenode是active状态，来处理client与datanode之间的请求，并把相应的日志文件写到本地中或JN中；<!-- raw HTML omitted -->
+3）Active NN与Standby NN之间是通过一组JN共享数据（JN一般为奇数个，ZK一般也为奇数个），Active NN会把日志文件、镜像文件写到JN中去，只要JN中有一半写成功，那就表明Active NN向JN中写成功啦，Standby NN就开始从JN中读取数据，来实现与Active NN数据同步，这种方式支持容错，因为Standby NN在启动的时候，会加载镜像文件（fsimage）并周期性的从JN中获取日志文件来保持与Active NN同步<!-- raw HTML omitted -->
+4）为了实现Standby NN在Active NN挂掉之后，能迅速的再提供服务，需要DN不仅需要向Active NN汇报，同时还要向Standby NN汇报，这样就使得Standby NN能保存数据块在DN上的位置信息，因为在NameNode在启动过程中最费时工作，就是处理所有DN上的数据块的信息<!-- raw HTML omitted -->
+5）为了实现Active NN高热备，增加了FailoverController和ZK，FailoverController通过Heartbeat的方式与ZK通信，通过ZK来选举，一旦Active NN挂掉，就选取另一个FailoverController作为active状态，然后FailoverController通过rpc，让standby NN转变为Active NN<!-- raw HTML omitted -->
+6）FailoverController一方面监控NN的状态信息，一方面还向ZK定时发送心跳，使自己被选举。当自己被选为主（Active）的时候，就会通过rpc使相应NN转变Active状态</p>
+</li>
+</ul>
+</li>
+<li>
+<p>结合HDFS2的新特性，在实际生成环境中部署图</p>
+<p><img src="images/hdfs7.png" alt=""> <!-- raw HTML omitted -->
+这里有12个DN,有4个NN，NN-1与NN-2是主备关系，它们管理/share目录；NN-3与NN-4是主备关系，它们管理/user目录</p>
+</li>
+<li>
+<p>引入了YARN，负责资源管理和调度</p>
+</li>
+<li>
+<p>增加了ResourceManager HA解决了ResourceManager单点故障</p>
+</li>
+</ol>
+<p>###9.命令行界面访问HDFS</p>
+<ol>
+<li>-help [cmd]	//显示命令的帮助信息</li>
+<li>-ls(r) <!-- raw HTML omitted -->	//显示当前目录下所有文件</li>
+<li>-du(s) <!-- raw HTML omitted -->	//显示目录中所有文件大小</li>
+<li>-count[-q] <!-- raw HTML omitted -->	//显示目录中文件数量</li>
+<li>-mv <!-- raw HTML omitted --> <!-- raw HTML omitted -->	//移动多个文件到目标目录</li>
+<li>-cp <!-- raw HTML omitted --> <!-- raw HTML omitted -->	//复制多个文件到目标目录</li>
+<li>-rm(r)		//删除文件(夹)</li>
+<li>-put <!-- raw HTML omitted --> <!-- raw HTML omitted -->	//本地文件复制到hdfs</li>
+<li>-copyFromLocal	//同put</li>
+<li>-moveFromLocal	//从本地文件移动到hdfs</li>
+<li>-get [-ignoreCrc] <!-- raw HTML omitted --> <!-- raw HTML omitted -->	//复制文件到本地，可以忽略crc校验</li>
+<li>-getmerge <!-- raw HTML omitted --> <!-- raw HTML omitted -->		//将源目录中的所有文件排序合并到一个文件中</li>
+<li>-cat <!-- raw HTML omitted -->	//在终端显示文件内容</li>
+<li>-text <!-- raw HTML omitted -->	//在终端显示文件内容</li>
+<li>-copyToLocal [-ignoreCrc] <!-- raw HTML omitted --> <!-- raw HTML omitted -->	//复制到本地</li>
+<li>-moveToLocal <!-- raw HTML omitted --> <!-- raw HTML omitted --></li>
+<li>-mkdir <!-- raw HTML omitted -->	//创建文件夹</li>
+<li>-touchz <!-- raw HTML omitted -->	//创建一个空文件</li>
+</ol>
+<p>###10.JAVA API访问HDFS
+JAVA API操作HDFS的文件系统，首先要获取用于操作文件系统的实例，而文件系统的又是与当前的系统的环境变量息息相关。对于操作HDFS来说，环境配置主要是core-site.xml中的相关配置。</p>
+<ol>
+<li>
+<p>获取文件系统访问实例</p>
+<pre><code> Configuration conf = new Configuration();  //获取当前的默认环境配置
+ FileSystem fs = FileSystem.get(conf);   //根据当前环境配置，获取文件系统访问实例
+</code></pre>
+</li>
+</ol>
+<p>Configuration还提供了用于增加和修改当前环境配置的方法，如addResource(Path file)可以增加xml格式的配置,set(String name,String value)以键值对的形式新增/修改配置项：</p>
+<pre><code>    public static FileSystem get(Configuration conf) throws IOException;
+    public static FileSystem get(URI uri,Configuration conf) throws IOException;
+</code></pre>
+<p>第一个方法是使用默认的URI地址(core-site.xml中配置)获取当前环境变量来加载文件系统，第二个方法则传入指定的URI路径来获取实例。
+2. 向HDFS中写入数据</p>
+<pre><code>向HDFS中写入数据，提供了如下API：
+
+    public FSDataOutputStream create(Path f) throws IOException;
+    public FSDataOutputStream append(Path f) throws IOException;
+    public void write(byte b[]) throws IOException;
+    public final void writeBytes(String s) throws IOException
+    public final void writeUTF(String str) throws IOException	
+
+
+ - create方法根据路径创建数据流对象，如果path目录的文件已经存在，则会覆盖原文件的内容
+ - append方法则在原路径的文件上追加写入。
+ - 以上两个，都返回了FSDataOutputStream对象，其继承至DataOutputStream，提供了标准I/O的操作。FSDataOutputStream提供了很多写出数据流的方法如重载的write,writeBytes,writeUTF等。
+ - flush提供了一种将缓冲区的数据强制刷新到文件系统的方法。
+ - write()提供了一种带有回调方法的参数，回去在每次写出缓存时，提供进度。
+
+例如：
+
+    OutputStream out = fs.create(new Path(dst), new Progressable() {
+    public void progress() {
+        System.out.print(&quot;.&quot;);
+    }
+    });
+    IOUtils.copyBytes(in, out, 4096, true);
+</code></pre>
+<ol start="3">
+<li>
+<p>读取HDFS文件系统的数据</p>
+<pre><code> public FSDataInputStream open(Path f) throws IOException;
+ public final int read(byte b[], int off, int len) throws IOException;
+
+ public class FSDataInputStream extends DataInputStream implements Seekable, PositionedReadable,
+  ByteBufferReadable, HasFileDescriptor, CanSetDropBehind, CanSetReadahead, HasEnhancedByteBufferAccess, CanUnbuffer ;
+</code></pre>
+<ul>
+<li>open()方法根据传进来的path路径，获取环境变量，并设置读取的缓冲区大小（默认为4096），然后返回FSDataInputStream实例</li>
+<li>FSDataInputStream继承至DataInputStream，并实现了Seekable等接口。</li>
+<li>DataInputStream继承至标准I/O类，Seekable接口实现对数据的重定位，PositionedReadable接口实现从指定偏移量处读取文件。</li>
+<li>read()方法从指定off位置读取len长度的字节存入byte数组。如果到达文件尾则返回-1，否则返回读取的实际长度。</li>
+</ul>
+</li>
+<li>
+<p>文件/目录操作</p>
+<pre><code> public boolean mkdirs(Path f);
+ //提供递归的创建path目录功能，mkdirs还有带权限的重载版本
+
+ public abstract boolean delete(Path paramPath, boolean paramBoolean) ;
+ //如果paramBoolean为false，则不能递归的删除子目录，如果此时目录非空，将抛出异常Directory is not empty
+
+ public abstract FileStatus[] listStatus(Path paramPath);
+ //listStatus方法可以列出指定目录下的文件或者文件夹（不能递归列出），具有PathFilter过滤的重载版本
+
+ private void listStatus(ArrayList&lt;FileStatus&gt; results, Path f, PathFilter filter) ;
+ //FileStatus对象描述了文件的各种属性，诸如文件是否是文件夹，文件的权限，所有者等，isDirectory(),getLen(),getPath()...
+
+ copyFromLocalFile(src, dst);  //从本地拷贝文件到HDFS
+ copyToLocalFile(src, dst);    //从HDFS直接拷贝文件到本地
+</code></pre>
+</li>
+<li>
+<p>API实例如下：</p>
+<pre><code> public class HDFSDemo {	
+ private FileSystem fs = null;
+
+ /**
+ * 获取文件系统访问实例
+ * @throws IOException
+ * @throws URISyntaxException
+ * @throws InterruptedException
+ */
+ @Before
+ public void init() throws IOException, URISyntaxException, InterruptedException{
+     //System.setProperty(&quot;HADOOP_USER_NAME&quot;,&quot;root&quot;);
+     Configuration conf  = new Configuration();  //获取当前的默认环境配置
+     fs = FileSystem.get(new URI(&quot;hdfs://master:9001&quot;), conf,&quot;root&quot;);//根据当前环境配置，获取文件系统访问实例
+ }	
+
+ /**
+ * 创建文件目录
+ * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ @Test
+ public void testMkdir() throws IllegalArgumentException, IOException{
+     boolean flag = fs.mkdirs(new Path(&quot;/data/test&quot;));
+     System.out.println(flag);
+ }
+
+ /**
+  * 删除文件或文件夹
+  * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ public void testRmdir() throws IllegalArgumentException, IOException{
+     boolean flag = fs.delete(new Path(&quot;/data/test/test.txt&quot;), true);
+     System.out.println(flag);
+ }
+
+ /**
+ * 获取目录下所有文件
+ * @throws FileNotFoundException
+ * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ public void testListAllFile() throws FileNotFoundException, IllegalArgumentException, IOException{		
+     FileStatus[] status = fs.listStatus(new Path(&quot;/data/test/&quot;));//列出目录内容       
+     Path[] listedPaths = FileUtil.stat2Paths(status); //获取目录下所有文件路径       
+     for (Path path : listedPaths) {//循环读取每个文件
+         System.out.println(path);
+     }
+ }
+
+ /**
+  * 将文件上传至HDFS
+ * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ public void testCopyFromLocal() throws IllegalArgumentException, IOException{
+     fs.copyFromLocalFile(new Path(&quot;C:\\学习\\test.txt&quot;), new Path(&quot;/data/test/&quot;));
+ }
+
+ /**
+ * 从HDFS下载文件
+ * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ public void testCopyToLocal() throws IllegalArgumentException, IOException{
+     fs.copyToLocalFile(new Path(&quot;/data/test/test.txt&quot;), new Path(&quot;C:\\学习\\&quot;));
+ }
+
+ /**
+ * 从HDFS下载文件
+ * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ public void testUpload() throws IllegalArgumentException, IOException{
+     InputStream in = fs.open(new Path(&quot;/data/input/test.txt&quot;));		
+     FileOutputStream out = new FileOutputStream(new File(&quot;C:\\学习\\&quot;));		
+     IOUtils.copyBytes(in, out, 2048, true);
+ }
+
+ /**
+ * 获取hdfs集群节点信息
+ * @throws IOException
+ */
+ public void getHdfsNodes() throws IOException{
+     DistributedFileSystem dfs = (DistributedFileSystem )fs;//获取分布式文件系统
+     DatanodeInfo[] dataNodeStats = dfs.getDataNodeStats(); //获取所有节点		
+     for (int i = 0; i &lt; dataNodeStats.length; i++) {
+         System.out.println(&quot;DataNote_&quot; + i + &quot;_Name:&quot; + dataNodeStats[i].getHostName());//循环遍历
+     }
+ }
+
+ /**
+ * 查找某个文件在HDFS集群的位置
+ * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ public void getFileLocal() throws IllegalArgumentException, IOException{
+     //获取文件目录
+     FileStatus fileStatus = fs.getFileStatus(new Path(&quot;/data/input/test.txt&quot;));
+     //获取文件块位置列表
+     BlockLocation[] blockLocations = fs.getFileBlockLocations(fileStatus, 0, fileStatus.getLen());
+     //循环输出块信息
+     for (int i = 0; i &lt; blockLocations.length; i++) {
+         String[] hosts = blockLocations[i].getHosts();
+         System.out.println(&quot;block_&quot; + i + &quot;_location:&quot; + hosts[0]);
+     }
+ }
+
+ /**
+  * hdfs文件写入
+ * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ public void write() throws IllegalArgumentException, IOException{
+     FSDataOutputStream fout = fs.create(new Path(&quot;/data/input/test.txt&quot;));
+     byte[] bWrite = &quot;hello hadoop distribute file system \n&quot;.getBytes();
+     fout.write(bWrite);//写入字节数组
+     fout.flush();//flush提供了一种将缓冲区的数据强制刷新到文件系统的方法
+     fout.close();//关闭写出流
+	
+     fout = fs.append(new Path(&quot;/data/input/test.txt&quot;));
+     fout.write(&quot;append: the append method of java API \n&quot;.getBytes());	
+     fout.close();
+ }
+
+ /**
+ * 从hdfs读取
+ * @throws IllegalArgumentException
+ * @throws IOException
+ */
+ public void read() throws IllegalArgumentException, IOException{
+ FSDataInputStream fin = fs.open(new Path(&quot;/data/input/test.txt&quot;));
+     byte[] buff = new byte[128];
+     int len = 0;
+     while((len = fin.read(buff,0,128)) != -1){
+         System.out.print(new String(buff,0,len));
+     }
+ }
+
+ @After
+ public void afterAll() throws IOException{
+     fs.close();
+ }
+ }
+</code></pre>
+</li>
+<li>
+<p>遇到的问题</p>
+<p>append()遇到的问题</p>
+<pre><code> java.io.IOException: Failed to replace a bad datanode on the existing pipeline due to no more good datanodes being available to try. (Nodes: current=[192.168.232.9:50010, 192.168.232.10:50010], original=[192.168.232.9:50010, 192.168.232.10:50010]). The current failed datanode replacement policy is DEFAULT, and a client may configure this via 'dfs.client.block.write.replace-datanode-on-failure.policy' in its configuration.
+ at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.findNewDatanode(DFSOutputStream.java:960)
+ at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.addDatanode2ExistingPipeline(DFSOutputStream.java:1026)
+ at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.setupPipelineForAppendOrRecovery(DFSOutputStream.java:1175)
+ at org.apache.hadoop.hdfs.DFSOutputStream$DataStreamer.run(DFSOutputStream.java:531)
+</code></pre>
+</li>
+</ol>
+<p>解决方法：</p>
+<pre><code>    Configuration conf  = new Configuration();  //获取当前的默认环境配置
+    conf.set(&quot;dfs.client.block.write.replace-datanode-on-failure.policy&quot;, &quot;NEVER&quot;); 
+    conf.set(&quot;dfs.client.block.write.replace-datanode-on-failure.enable&quot;,&quot;true&quot; ); 
+</code></pre>
+<p>原因：
+- dfs.client.block.write.replace-datanode-on-failure.enable=true<br>
+在进行pipeline写数据（上传数据的方式）时，如果DN或者磁盘故障，客户端将尝试移除失败的DN，然后写到剩下的磁盘。一个结果是，pipeline中的DN减少了。这个特性是添加新的DN到pipeline。这是一个站点范围的选项。当集群规模非常小时，例如3个或者更小，集群管理者可能想要禁止掉此特性。<br>
+- dfs.client.block.write.replace-datanode-on-failure.policy=DEFAULT<br>
+此属性仅在dfs.client.block.write.replace-datanode-on-failure.enable设置为true时有效。<br>
+ALWAYS: 总是添加新的DN<br>
+NEVER: 从不添加新的DN<br>
+DEFAULT: 设r是副本数，n是要写的DN数。在r&gt;=3并且floor(r/2)&gt;=n或者r&gt;n(前提是文件是hflushed/appended)时添加新的DN。</p>
+<p>###11.Remote Procedure Call
+RPC&ndash;不同进程间的方法调用，底层走的还是socket，RMI底层也是socket。<!-- raw HTML omitted -->
+Webservice&mdash;不同语言不同平台间方法调用的解决方案。<!-- raw HTML omitted -->
+<img src="images/hdfs10.jpg" alt=""> <!-- raw HTML omitted --></p>
+<p>Client 与 namenode 、 namenode与 datanode、 Client 与 datanode之间的通信都是用的RPC。</p>
+
+  </div>
+</article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

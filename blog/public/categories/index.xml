@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 文刀苑</title>
@@ -6,16 +6,44 @@
     <description>Recent content in Categories on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Mon, 22 May 2023 15:16:57 +0000</lastBuildDate>
     
 	<atom:link href="http://liupengliang.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>刘芳的文章</title>
-      <link>http://liupengliang.com/categories/%E5%88%98%E8%8A%B3%E7%9A%84%E6%96%87%E7%AB%A0/</link>
+      <title>手艺</title>
+      <link>http://liupengliang.com/categories/%E6%89%8B%E8%89%BA/</link>
+      <pubDate>Mon, 22 May 2023 15:16:57 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/categories/%E6%89%8B%E8%89%BA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>技术管理</title>
+      <link>http://liupengliang.com/categories/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Fri, 02 Jul 2021 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/categories/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>管理</title>
+      <link>http://liupengliang.com/categories/%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/categories/%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BigData</title>
+      <link>http://liupengliang.com/categories/bigdata/</link>
       <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
       
-      <guid>http://liupengliang.com/categories/%E5%88%98%E8%8A%B3%E7%9A%84%E6%96%87%E7%AB%A0/</guid>
+      <guid>http://liupengliang.com/categories/bigdata/</guid>
       <description></description>
     </item>
     
@@ -25,15 +53,6 @@
       <pubDate>Sun, 02 Jul 2017 18:26:53 +0000</pubDate>
       
       <guid>http://liupengliang.com/categories/%E5%B7%A5%E5%85%B7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>手艺</title>
-      <link>http://liupengliang.com/categories/%E6%89%8B%E8%89%BA/</link>
-      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/categories/%E6%89%8B%E8%89%BA/</guid>
       <description></description>
     </item>
     

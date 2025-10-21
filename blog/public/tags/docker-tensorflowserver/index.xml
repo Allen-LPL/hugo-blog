@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker TensorFlowServer on 文刀苑</title>
+    <link>http://liupengliang.com/tags/docker-tensorflowserver/</link>
+    <description>Recent content in Docker TensorFlowServer on 文刀苑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Nov 2022 18:34:08 +0000</lastBuildDate>
+    
+	<atom:link href="http://liupengliang.com/tags/docker-tensorflowserver/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>编译tfs的dockerfile文件</title>
+      <link>http://liupengliang.com/posts/%E7%BC%96%E8%AF%91tfs%E7%9A%84dockerfile/</link>
+      <pubDate>Sat, 05 Nov 2022 18:34:08 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/%E7%BC%96%E8%AF%91tfs%E7%9A%84dockerfile/</guid>
+      <description>&lt;p&gt;最近在做机器学习的服务搭建， 使用的是docker容器内编译， 性能直接提升了30%， 以下是Bazel5.1.1编译&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>编译tfs的dockerfile文件</title>
+      <link>http://liupengliang.com/postsbak/%E7%BC%96%E8%AF%91tfs%E7%9A%84dockerfile/</link>
+      <pubDate>Sat, 05 Nov 2022 18:34:08 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/%E7%BC%96%E8%AF%91tfs%E7%9A%84dockerfile/</guid>
+      <description>&lt;p&gt;最近在做机器学习的服务搭建， 使用的是docker容器内编译， 性能直接提升了30%， 以下是Bazel5.1.1编译&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

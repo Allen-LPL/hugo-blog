@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hadoop on 文刀苑</title>
+    <link>http://liupengliang.com/tags/hadoop/</link>
+    <description>Recent content in Hadoop on 文刀苑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jul 2018 08:13:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://liupengliang.com/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hadoop伪分布式集群搭建</title>
+      <link>http://liupengliang.com/posts/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv</description>
+    </item>
+    
+    <item>
+      <title>hadoop伪分布式集群搭建</title>
+      <link>http://liupengliang.com/postsbak/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv</description>
+    </item>
+    
+    <item>
+      <title>HDFS学习笔记</title>
+      <link>http://liupengliang.com/posts/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数</description>
+    </item>
+    
+    <item>
+      <title>HDFS学习笔记</title>
+      <link>http://liupengliang.com/postsbak/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数</description>
+    </item>
+    
+  </channel>
+</rss>

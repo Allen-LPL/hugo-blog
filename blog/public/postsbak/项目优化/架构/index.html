@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>网站架构规划 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="web平台架构设计
+" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/postsbak/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/%E6%9E%B6%E6%9E%84/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="网站架构规划" />
+<meta property="og:description" content="web平台架构设计" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/postsbak/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/%E6%9E%B6%E6%9E%84/" />
+<meta property="article:published_time" content="2022-11-23T19:20:47+00:00" />
+<meta property="article:modified_time" content="2022-11-23T19:20:47+00:00" />
+<meta itemprop="name" content="网站架构规划">
+<meta itemprop="description" content="web平台架构设计">
+<meta itemprop="datePublished" content="2022-11-23T19:20:47&#43;00:00" />
+<meta itemprop="dateModified" content="2022-11-23T19:20:47&#43;00:00" />
+<meta itemprop="wordCount" content="108">
+
+
+
+<meta itemprop="keywords" content="架构," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="网站架构规划"/>
+<meta name="twitter:description" content="web平台架构设计"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>web平台架构设计</p>
+<h1 id="物理拓扑">物理拓扑</h1>
+<p><img src="https://s2.loli.net/2022/11/23/dQ7SU58sFNmuwfv.png" alt="物理拓扑.jpg" title="物理拓扑"></p>
+<h1 id="网络拓扑">网络拓扑</h1>
+<p><img src="https://s2.loli.net/2022/11/23/JSXQmFI9vAiyWpx.png" alt="网络拓扑.png" title="网络拓扑"></p>
+<h1 id="开发环境规范">开发环境规范</h1>
+<h2 id="公司dockerhub地址">公司dockerhub地址</h2>
+<ul>
+<li><a href="https://hub.docker.com/layers/pxb7/backend_mysql/v5.7.35/images/sha256-37e25d80a993d13e1e8d1373e03f6c518254a4546f39a99b75c8cbb85ddf236b?context=repo" title="pxb7/backend_mysql:v5.7.35">pxb7/backend_mysql:v5.7.35</a> [448MB]</li>
+<li><a href="https://hub.docker.com/r/pxb7/backend-phpfpm/tags" title="pxb7/backend-phpfpm:v7.3.33">pxb7/backend-phpfpm:v7.3.33</a> [922MB]</li>
+<li><a href="https://hub.docker.com/layers/pxb7/backend-openresty/v1.19.3.2/images/sha256-b2d38c4bd0f5ccdda1d011d20c8cd1898911891ec97e2b6935fa69e5b2db9cfd?context=repo" title="pxb7/backend-openresty:v1.19.3.2">pxb7/backend-openresty:v1.19.3.2</a> [105MB]</li>
+<li><a href="https://hub.docker.com/layers/pxb7/backend_workspace/v7.3.33/images/sha256-0b78b481a8cc0c3351bc2a434bb1b5e64a3422c5869cbe4ed48c386829a15f71?context=repo" title="pxb7/backend_workspace:v7.3.33">pxb7/backend_workspace:v7.3.33</a> [1.01GB]</li>
+<li><a href="https://hub.docker.com/layers/pxb7/backend-redis/v7.0.5/images/sha256-8cc1db9c609bf5ca1a22f61ec1d78acc6cb6a75655cfaf599de12c7eb702295b?context=repo" title="pxb7/backend-redis:v7.0.5">pxb7/backend-redis:v7.0.5</a> [117MB]</li>
+<li><a href="https://hub.docker.com/layers/pxb7/backend_mongo/v4.4.6/images/sha256-c89e5e9f0152d939477fa73adbadc390acd5688661db72de0883d90192f9328f?context=repo" title="pxb7/backend_mongo:v4.4.6">pxb7/backend_mongo:v4.4.6</a> [423MB]</li>
+</ul>
+<h2 id="docker-compose编排文件">docker-compose编排文件</h2>
+<p><a href="https://e.gitee.com/jinhua-bochun-network/repos/jinhua-bochun-network/docker/sources" title="文件地址">文件地址</a></p>
+<h2 id="规范">规范</h2>
+<ol>
+<li>禁止在master修改</li>
+<li>统一开发环境: 生产, 预发, 测试, 本地等环境必须统一</li>
+</ol>
+  </div>
+</article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

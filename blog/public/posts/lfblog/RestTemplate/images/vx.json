@@ -1,0 +1,31 @@
+{
+    "created_time": "2023-02-09T15:51:11Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2023-02-09T15:51:11Z",
+            "id": "49",
+            "modified_time": "2023-02-09T15:51:11Z",
+            "name": "restTemplate1.jpg",
+            "signature": "2062419507391305327",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2023-02-09T15:51:11Z",
+            "id": "50",
+            "modified_time": "2023-02-09T15:51:11Z",
+            "name": "restTemplate2.jpg",
+            "signature": "7197612969199736431",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "48",
+    "modified_time": "2023-02-09T15:51:11Z",
+    "signature": "1769586519731148399",
+    "version": 3
+}

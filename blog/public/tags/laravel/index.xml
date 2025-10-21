@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Laravel on 文刀苑</title>
@@ -13,11 +13,20 @@
     
     <item>
       <title>Linux更新Node</title>
-      <link>http://liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</link>
+      <link>http://liupengliang.com/posts/%E8%BF%90%E7%BB%B4/linux%E6%9B%B4%E6%96%B0node/</link>
       <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
       
-      <guid>http://liupengliang.com/post/linux%E6%9B%B4%E6%96%B0node/</guid>
-      <description>记录 Laravel Homestead 在vagrant中更新Node 1 2 sudo npm cache clean -f sudo npm install -g n (安装node的版本控制&amp;#34;n&amp;#34;) 更新最新的版本 1 sudo n stable () 更新指</description>
+      <guid>http://liupengliang.com/posts/%E8%BF%90%E7%BB%B4/linux%E6%9B%B4%E6%96%B0node/</guid>
+      <description>&lt;p&gt;记录 &lt;strong&gt;Laravel Homestead&lt;/strong&gt; 在vagrant中更新Node&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux更新Node</title>
+      <link>http://liupengliang.com/postsbak/%E8%BF%90%E7%BB%B4/linux%E6%9B%B4%E6%96%B0node/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/%E8%BF%90%E7%BB%B4/linux%E6%9B%B4%E6%96%B0node/</guid>
+      <description>&lt;p&gt;记录 &lt;strong&gt;Laravel Homestead&lt;/strong&gt; 在vagrant中更新Node&lt;/p&gt;</description>
     </item>
     
   </channel>

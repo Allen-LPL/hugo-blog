@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用Vim处理大文本时遇到的问题和解决方法 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="#使用Vim处理大文本时遇到的问题和解决方法 在使用vim处理大文本（20G）文件时，由于是在Linux服务器上进行操作，就遇到了打开与保存缓" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/postsbak/%E4%BD%BF%E7%94%A8vim%E5%A4%84%E7%90%86%E5%A4%A7%E6%96%87%E6%9C%AC%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用Vim处理大文本时遇到的问题和解决方法" />
+<meta property="og:description" content="#使用Vim处理大文本时遇到的问题和解决方法 在使用vim处理大文本（20G）文件时，由于是在Linux服务器上进行操作，就遇到了打开与保存缓" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/postsbak/%E4%BD%BF%E7%94%A8vim%E5%A4%84%E7%90%86%E5%A4%A7%E6%96%87%E6%9C%AC%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" />
+<meta property="article:published_time" content="2017-08-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-08-01T00:00:00+00:00" />
+<meta itemprop="name" content="使用Vim处理大文本时遇到的问题和解决方法">
+<meta itemprop="description" content="#使用Vim处理大文本时遇到的问题和解决方法 在使用vim处理大文本（20G）文件时，由于是在Linux服务器上进行操作，就遇到了打开与保存缓">
+<meta itemprop="datePublished" content="2017-08-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-08-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="224">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用Vim处理大文本时遇到的问题和解决方法"/>
+<meta name="twitter:description" content="#使用Vim处理大文本时遇到的问题和解决方法 在使用vim处理大文本（20G）文件时，由于是在Linux服务器上进行操作，就遇到了打开与保存缓"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>#使用Vim处理大文本时遇到的问题和解决方法
+在使用vim处理大文本（20G）文件时，由于是在Linux服务器上进行操作，就遇到了打开与保存缓慢的问题，现记录下解决方式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+</span><span class="cp"></span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$#</span><span class="s2">&#34;</span> -ne <span class="m">3</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Usage: </span><span class="nv">$0</span><span class="s2"> hugeFilePath startLine endLine&#34;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+sed -n -e <span class="nv">$2</span><span class="s1">&#39;,&#39;</span><span class="nv">$3</span><span class="s1">&#39;p&#39;</span> -e <span class="nv">$3</span><span class="s1">&#39;q&#39;</span> <span class="nv">$1</span> &gt; hfnano_temporary_file
+vim hfnano_temporary_file
+<span class="o">(</span>head -n <span class="sb">`</span>expr <span class="nv">$2</span> - 1<span class="sb">`</span> <span class="nv">$1</span><span class="p">;</span> cat hfnano_temporary_file<span class="p">;</span> sed -e <span class="s1">&#39;1,&#39;</span><span class="nv">$3</span><span class="s1">&#39;d&#39;</span> <span class="nv">$1</span><span class="o">)</span> &gt; hfnano_temporary_file2
+cat hfnano_temporary_file2 &gt; <span class="nv">$1</span>
+rm hfnano_temporary_file hfnano_temporary_file2
+</code></pre></td></tr></table>
+</div>
+</div><p>使用方式：</p>
+<pre><code>sh hfnano yourHugeFile 3 8
+</code></pre>
+<p>这种解决方式首先解决了打开的问题，但是在保存时依旧会随着文件的大小而产生不同时间的等待，双核4G的服务器我处理20G文件，等待了60s.</p>
+
+  </div>
+</article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

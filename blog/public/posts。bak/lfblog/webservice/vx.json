@@ -1,0 +1,30 @@
+{
+    "created_time": "2023-02-09T15:51:11Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2023-02-09T15:51:11Z",
+            "id": "61",
+            "modified_time": "2023-02-09T15:51:11Z",
+            "name": "SpringBoot整合cxf调用WebService服务.md",
+            "signature": "5322420085873514095",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+        {
+            "name": "images"
+        },
+        {
+            "name": "testWebserviceClient_SpringBoot"
+        },
+        {
+            "name": "testWebserviceServer"
+        }
+    ],
+    "id": "57",
+    "modified_time": "2023-02-09T15:51:11Z",
+    "signature": "4047616368707966575",
+    "version": 3
+}

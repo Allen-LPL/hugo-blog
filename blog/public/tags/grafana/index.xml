@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Grafana on 文刀苑</title>
+    <link>http://liupengliang.com/tags/grafana/</link>
+    <description>Recent content in Grafana on 文刀苑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 26 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://liupengliang.com/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grafana 里地图插件worldmap-panel无法读取地图图片的解决方法(实测有效)</title>
+      <link>http://liupengliang.com/posts/grafana-%E9%87%8C%E5%9C%B0%E5%9B%BE%E6%8F%92%E4%BB%B6worldmap-panel%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E5%9C%B0%E5%9B%BE%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%AE%9E%E6%B5%8B%E6%9C%89%E6%95%88/</link>
+      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/grafana-%E9%87%8C%E5%9C%B0%E5%9B%BE%E6%8F%92%E4%BB%B6worldmap-panel%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E5%9C%B0%E5%9B%BE%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%AE%9E%E6%B5%8B%E6%9C%89%E6%95%88/</guid>
+      <description>&lt;p&gt;近期grafana的worldmap-panel出现无法显示地图，或者加载非常缓慢，显示不完整, 以下是解决方式.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Grafana 里地图插件worldmap-panel无法读取地图图片的解决方法(实测有效)</title>
+      <link>http://liupengliang.com/postsbak/grafana-%E9%87%8C%E5%9C%B0%E5%9B%BE%E6%8F%92%E4%BB%B6worldmap-panel%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E5%9C%B0%E5%9B%BE%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%AE%9E%E6%B5%8B%E6%9C%89%E6%95%88/</link>
+      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/grafana-%E9%87%8C%E5%9C%B0%E5%9B%BE%E6%8F%92%E4%BB%B6worldmap-panel%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E5%9C%B0%E5%9B%BE%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%AE%9E%E6%B5%8B%E6%9C%89%E6%95%88/</guid>
+      <description>&lt;p&gt;近期grafana的worldmap-panel出现无法显示地图，或者加载非常缓慢，显示不完整, 以下是解决方式.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

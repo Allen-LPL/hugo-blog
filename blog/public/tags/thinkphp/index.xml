@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ThinkPHP on 文刀苑</title>
@@ -13,11 +13,20 @@
     
     <item>
       <title>ThinkPHP 笔记 --- RunTime</title>
-      <link>http://liupengliang.com/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</link>
+      <link>http://liupengliang.com/posts/php/thinkphp-%E7%AC%94%E8%AE%B0-runtime/</link>
       <pubDate>Tue, 25 Apr 2017 14:25:20 +0000</pubDate>
       
-      <guid>http://liupengliang.com/post/thinkphp-%E7%AC%94%E8%AE%B0-----runtime/</guid>
-      <description>记录 ThinkPHP RunTime 所遇到的问题 hexo 图片请求问题!</description>
+      <guid>http://liupengliang.com/posts/php/thinkphp-%E7%AC%94%E8%AE%B0-runtime/</guid>
+      <description>&lt;p&gt;记录 &lt;strong&gt;ThinkPHP RunTime&lt;/strong&gt; 所遇到的问题&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ThinkPHP 笔记 --- RunTime</title>
+      <link>http://liupengliang.com/postsbak/php/thinkphp-%E7%AC%94%E8%AE%B0-runtime/</link>
+      <pubDate>Tue, 25 Apr 2017 14:25:20 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/php/thinkphp-%E7%AC%94%E8%AE%B0-runtime/</guid>
+      <description>&lt;p&gt;记录 &lt;strong&gt;ThinkPHP RunTime&lt;/strong&gt; 所遇到的问题&lt;/p&gt;</description>
     </item>
     
   </channel>

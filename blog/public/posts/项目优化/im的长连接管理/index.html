@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>IM的长连接管理 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="最近在用go做一套IM, 思路整理
+" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/posts/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/im%E7%9A%84%E9%95%BF%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="IM的长连接管理" />
+<meta property="og:description" content="最近在用go做一套IM, 思路整理" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/posts/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/im%E7%9A%84%E9%95%BF%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86/" />
+<meta property="article:published_time" content="2022-11-21T04:13:58+00:00" />
+<meta property="article:modified_time" content="2022-11-21T04:13:58+00:00" />
+<meta itemprop="name" content="IM的长连接管理">
+<meta itemprop="description" content="最近在用go做一套IM, 思路整理">
+<meta itemprop="datePublished" content="2022-11-21T04:13:58&#43;00:00" />
+<meta itemprop="dateModified" content="2022-11-21T04:13:58&#43;00:00" />
+<meta itemprop="wordCount" content="4961">
+
+
+
+<meta itemprop="keywords" content="IM," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IM的长连接管理"/>
+<meta name="twitter:description" content="最近在用go做一套IM, 思路整理"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">IM的长连接管理</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-11-21 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+            </div>
+          <span class="more-meta"> 4961 words </span>
+          <span class="more-meta"> 10 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tcp-长连接的管理思路">TCP 长连接的管理思路</a>
+      <ul>
+        <li><a href="#实现思路">实现思路</a></li>
+        <li><a href="#应用场景">应用场景</a></li>
+      </ul>
+    </li>
+    <li><a href="#tcp-长连接心跳超时的处理">TCP 长连接心跳超时的处理</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#对于通用的长连接接入层而言">对于通用的长连接接入层而言</a></li>
+    <li><a href="#长连接接入层的优雅扩容方案">长连接接入层的优雅扩容方案</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#基本的防火墙策略">基本的防火墙策略</a></li>
+    <li><a href="#syn-攻击">SYN 攻击</a></li>
+    <li><a href="#tcp-长连接层面上">TCP 长连接层面上</a>
+      <ul>
+        <li><a href="#黑名单机制">黑名单机制</a></li>
+        <li><a href="#限制建连速度">限制建连速度</a></li>
+        <li><a href="#限制发包速度">限制发包速度</a></li>
+        <li><a href="#tls-加密传输">TLS 加密传输</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>最近在用go做一套IM, 思路整理</p>
+<h1 id="tcp-长连接接入层的连接管理">TCP 长连接接入层的连接管理</h1>
+<h2 id="tcp-长连接的管理思路">TCP 长连接的管理思路</h2>
+<h3 id="实现思路">实现思路</h3>
+<p>IM 架构中的 TCP 长连接接入层的 NET 连接一般会很多，比如单台服务器至少会有几十万，有的甚至会到百万连接；这个长连接的维持，也就代表中会有这么多客户端（用户）的接入。那么我们怎么去管理这些连接？当有数据需要下发的时候，怎么能够快速根据连接信息找到用户、或者根据用户快速定位到网络连接？ 这就需要我们能够有一个合适的数据结构去维护，并且我们需要考虑一些其他的点比如快速定位、机器内存大小等。</p>
+<p>最容易想到的一个思路是通过 map 数据结构来管理，比如 <code>map&lt;conn，user&gt;</code>，因为每个用户的 uid（user）是唯一，因此，这样做，初期来看，并不会有太大的影响；但是试想一下，这个只能单向定位，只能根据 Conn 网络连接查找用户，那么我想根据用户信息快速查找到对应的 Conn 然后下发数据怎么办呢？</p>
+<p>为此，一个更为合适的做法就是将用户和网络连接进行一一对应，这样，不仅是可以相互查找，并且查找定位的时间复杂度总是 O(1)。具体实现的 Golang 代码如下，只列出关键信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="c1">// Conn 与 User 一一映射，用来优化 map 查询方式
+</span><span class="c1"></span>
+<span class="kd">type</span> <span class="nx">Conn</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">conn</span>        <span class="nx">net</span><span class="p">.</span><span class="nx">Conn</span>  <span class="c1">// TCP 网络 连接信息
+</span><span class="c1"></span>     <span class="nx">user</span>        <span class="o">*</span><span class="nx">User</span>     <span class="c1">// 客户端用户信息（一般包含 uid、name等）
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">uid</span>              <span class="kt">int64</span>
+    <span class="nx">Name</span>             <span class="kt">string</span>
+    <span class="nx">conn</span>             <span class="o">*</span><span class="nx">Conn</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这样的结构设计，就是 Conn 里面包含了 User、User 里面包含了 Conn，这样就是一一对应，不管多少数据量，查询定位的时间复杂度都是 O(1)。这里应用了一个思想就是空间换时间，因为我们当前的机器的内存是很大的，所以就可以利用这个空间换时间的思想，快速查询。</p>
+<h3 id="应用场景">应用场景</h3>
+<p>IM 系统中，必然会有这么几个操作：</p>
+<ul>
+<li>用来连接（accept）</li>
+<li>用户登录（login）</li>
+</ul>
+<p>TCP Socket 编程模型是：</p>
+<blockquote>
+<p>socket -&gt; bind -&gt; listen -&gt; accept -&gt; recv -&gt; send -&gt; close</p>
+</blockquote>
+<p>因此对 IM 接入层来说，首先会收到用户的 accept 请求，accept 成功之后，我们就有了 Conn 信息，然后我们开始填充 Conn 结构 和 User 结构，这里算是初步建立起了对应关系，但是 User 中的信息还不够，还需要用户登录之后才有更多的数据。</p>
+<p>连接成功之后，用户就会发起登录请求，登录成功之后，就会有了足够的 User 信息，这样就可以根据相关信息相互定位了。登录成功之后，长连接接入层还需要给用户回应 ACK ，因此在登录包之后，长连接接入层就可以从 User 结构中取出 Conn 进行回包给用户（客户端）。</p>
+<p>随后的操作中，我们可以根据业务场景的需要，从 User（uid）中快速定位到 Conn，然后发送消息给客户端；也可以根据 Conn 快速定位到 User，更新 User 信息，或者获取 User 信息。</p>
+<h2 id="tcp-长连接心跳超时的处理">TCP 长连接心跳超时的处理</h2>
+<p>再来看看另外一个场景，首先，我们要清楚，长连接接入层一定是有多个的，一台机器肯定扛不住，也无法做到高可用。因此在每个接入层节点中的处理上，还有一点非常重要的就是，维持着大量长连接后，如果客户端一直没有请求，或者客户端以为异常导致关闭了连接但是服务端并不知晓，那么这些无用的长连接，服务端肯定是需要清理的，避免占用大量资源。</p>
+<p>怎么实现？当然需要通过心跳来保持连接，如果心跳超时则踢出连接。心跳这里多说一句，一般固定心跳设置为 4.5 分钟，还有更为合适的智能心跳策略。我们现在重点在于管理 TCP 长连接，不讨论心跳策略的实现。</p>
+<p>上面的 TCP 长连接的管理思路是需要一一对应，方便相互查找，那么针对心跳是否超时，这个和用户没有关系，因此只需 Conn 的处理。通过一个红黑树可以搞定，通过递归地从根节点向左遍历节点，直到左节点为空，可以查找树中的所有 Conn 的超时情况。</p>
+<p>Golang 的代码片段如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">var</span> <span class="nx">timeoutTree</span> <span class="o">*</span><span class="nx">rbtree</span><span class="p">.</span><span class="nx">Rbtree</span>  <span class="c1">//红黑树
+</span><span class="c1"></span>
+
+<span class="kd">type</span> <span class="nx">TimeoutInfo</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">conn</span>    <span class="o">*</span><span class="nx">Conn</span>         <span class="c1">// 连接信息
+</span><span class="c1"></span>    <span class="nx">latestTime</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>  <span class="c1">//心跳的最新时间
+</span><span class="c1"></span><span class="p">}</span>
+
+
+<span class="nx">每次收到心跳包都重新更新时间</span>
+<span class="kd">func</span> <span class="nf">AddTimeoutCheckInfo</span><span class="p">(</span><span class="nx">conn</span> <span class="o">*</span><span class="nx">Conn</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">timeoutTree</span><span class="p">.</span><span class="nf">Insert</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">TimeoutInfo</span><span class="p">{</span><span class="nx">conn</span><span class="p">:</span> <span class="nx">conn</span><span class="p">,</span> <span class="nx">latestTime</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()})</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>独立协程来遍历扫描并清除超时的连接：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go">    <span class="k">for</span> <span class="p">{</span>
+        <span class="c1">// 遍历
+</span><span class="c1"></span>        <span class="nx">item</span> <span class="o">:=</span> <span class="nx">timeoutTree</span><span class="p">.</span><span class="nf">Min</span><span class="p">()</span>
+
+        <span class="c1">// 取连接、取最新时间
+</span><span class="c1"></span>        <span class="nx">latestTime</span> <span class="o">:=</span> <span class="nx">item</span><span class="p">.(</span><span class="o">*</span><span class="nx">TimeoutInfo</span><span class="p">).</span><span class="nx">latestTime</span>
+        <span class="nx">conn</span> <span class="o">:=</span> <span class="nx">item</span><span class="p">.(</span><span class="o">*</span><span class="nx">TimeoutInfo</span><span class="p">).</span><span class="nx">conn</span>
+
+        <span class="c1">// 计算连接的最新时间是否超时，超时则关闭连接和清理
+</span><span class="c1"></span>        <span class="k">if</span> <span class="nx">timeout</span> <span class="p">{</span> 
+            <span class="nx">timeoutTree</span><span class="p">.</span><span class="nf">Delete</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+            <span class="nx">conn</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+        <span class="p">}</span> 
+    <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="tcp-长连接层的负载均衡策略">TCP 长连接层的负载均衡策略</h1>
+<p>既然长连接接入层节点有多个，并且可以随时根据需要扩缩容，然而客户端并不清楚你服务端到底部署了多少台节点，那么客户端该怎么发起连接呢？ 怎么做才能保证合理的负载均衡呢？</p>
+<p>一般的负载均衡策略如 RR 轮询，是否能够满足 IM 的诉求呢？ 试想这么一个真实的场景，当前线上有 5 台机器，每台机器负载都很高了，此时连接会很不稳定，客户端出现频繁重连。此时肯定需要扩容，OK，那么扩容了 2 台，然后 client 建连如果还是轮询，那么新扩容的机器，还是不能马上分散其他机器上的压力，压力还是会往老的机器上面去打，显然不合理。</p>
+<p>因此，针对 IM 场景，最合理的负载均衡策略，就是根据连接数来负载均衡，客户端新发起连接需要接入的接入层节点一定是连接数最少的，因为每台节点会需要控制最大连接数的限制才能保证最优性能，并且能够及时给压力大的节点减压。</p>
+<p>怎么实现呢？这里就需要有一个服务注册发现的组件（如 Etcd）来帮助我们达到诉求。首先，接入层启动后，往 Etcd 里面注册信息，并且再在后续的生命周期中，定期更新当前节点已有的连接数到 Etcd 中；然后我们需要有一个 Router Server，这个服务去 watch Etcd 中的接入层节点信息，Etcd 的使用可以参考etcd/clientv3；然后实时计算，得到一个列表排序，这个排序是按照节点数最少的节点排序的。</p>
+<p>然后 Router Server 提供一个 HTTP 服务的 API 接口，用来返回所有节点中连接数最少的节点的一批 IP 列表（一般可以 3 个）给到客户端。为何不是返回一个呢？ 因为我们返回的节点，可能因为其他原因导致连接不上，或者连接不稳定，那么此时 客户端就可以有备选方案，选择返回的下一个节点建连。</p>
+<p>涉及点包括：</p>
+<ul>
+<li>接入层注册信息（节点 IP 和 port、节点连接数）</li>
+<li>路由层 watch 接入层的信息</li>
+<li>路由层计算路由算法</li>
+<li>路由层提供 HTTP 接口返回合适的节点 IP 列表</li>
+</ul>
+<h1 id="tcp-长连接接入层服务的优雅重启和缩容">TCP 长连接接入层服务的优雅重启和缩容</h1>
+<h2 id="对于通用的长连接接入层而言">对于通用的长连接接入层而言</h2>
+<p>长连接接入层是和用户客户端直接相连的，客户端通过 TCP 长连接连接到接入层，因此接入层如果需要重启，那么必然会导致客户端连接断开，发生重连。如果此时用户正在发送消息，那么必然会导致发送异常，从而影响用户体验。</p>
+<p>那么我们需要怎么实现接入层，才能保证重启或者缩容的时候，不影响用户、对用户无感知呢？有这么几个思路：</p>
+<ol>
+<li>接入层做的足够轻量，尽量只是维持 TCP 长连接和数据包的转发，所有其他业务逻辑，尽量转发到业务层去处理，接入层与业务逻辑层严格分离；因为业务层逻辑是需要频繁变动，而接入层的长连接维持可以做到尽量不变，这样就会尽可能的减少重启。</li>
+<li>接入层尽可能的做到无状态化，方便随时的扩缩容；这样就需要有一个叫用户中心的服务来保存用户的各种状态和信息，如在线状态、离线状态、用户是通过哪个接入层节点连接的；通过这个方式，用户就可以随意接入到任何接入层节点，并且接入层节点也可随时扩缩容；这样的话，业务逻辑层就可以和用户中心通过 RPC 通信获取用户的各种连接信息和是否在线的状态，然后精准下发消息到指定接入层，然后接入层将消息下发给客户端用户。</li>
+<li>主动迁移信令。增加一条信令和客户端进行交互，服务端如果要重启/缩容，那么主动告知连接在此接入层节点上的所有客户端，服务端主动发送迁移信令，比如 publish(迁移信令,100%)，表示发送给所有此接入层节点上的客户端，客户端收到此迁移信令后，就主动进行重新连接其他节点。因为是客户端主动断开重连其他节点的，虽然还是会有重连，但是客户端是主动发起的，因此可以通过代码逻辑来保证从业务逻辑上不会影响用户的体验，这样的话，用户在操作上就会无感知，从而提升用户体验。同时，接入层节点要发送主动迁移信令之前，需要先从服务发现与注册中心（Etcd）中下线自己，避免重连的时候还继续连接到此节点。然后当重启之前，也需要判断一下是否当前节点上所有的用户连接都已经迁移到其他节点上了。</li>
+</ol>
+<h2 id="长连接接入层的优雅扩容方案">长连接接入层的优雅扩容方案</h2>
+<p>扩容方案是指在线用户越来越多，当前已有的接入层节点已经扛不住了，需要扩容接入层节点来分摊在线用户的连接和请求。这里分两种情况考虑：</p>
+<ul>
+<li>其他节点的压力还相对较小，但是事先预知到需要扩容，也就是提前扩容。此时按照路由层的最小连接数优先接入请求的策略并无不妥，新扩容的可以均摊流量，原有的节点也不会因为压力过大而导致性能问题。</li>
+<li>其他节点压力已经扛不住了，需要紧急扩容并且快速给老的节点减压。这个时候，如果还仅仅只是新增节点，然后根据原有的负载均衡路由策略来减压是达不到减压效果的，因为只有新的连接才会接入到新扩容的节点；原有老的节点上的连接如果没有断连那么还是继续维持在原有节点上，因此根本不能给老的节点减压。</li>
+<li>所以，就需要服务端有更好的机制，通过服务端的机制来促使客户端重新连接到新的节点上，从而进行减压。这里，还是需要一个迁移信令，但是这个信令服务端只是需要随机发送给部分比例的用户，比如 publish(迁移信令,30%)，表示发送迁移信令给 30% 比例的用户，让这 30%的用户重连到新的节点上。</li>
+</ul>
+<h1 id="tcp-长连接层节点怎么防止攻击">TCP 长连接层节点怎么防止攻击</h1>
+<h2 id="基本的防火墙策略">基本的防火墙策略</h2>
+<p>公司内常规的防火墙策略，通过 iptable 设置 iptables 的防火墙策略。比如限制只能接收指定 IP 和 Port 的包，避免攻击者通过节点上其他端口的漏洞登录机器；比如只接收某些协议（TCP）的包。</p>
+<h2 id="syn-攻击">SYN 攻击</h2>
+<p>SYN 攻击是一个典型的 DDOS 攻击，具体就是攻击客户端在短时间内伪造大量不存在的 IP 地址，然后向服务端发送 TCP 握手连接的 SYN 请求包，服务端收到 SYN 包后会回复 ACK 确认包，并等待客户端的 ACK 确认。但是，由于源 IP 地址不是真实有效的，因此服务端需要不断的重发直至 63s 超时后才会断开连接。这些伪造的 SYN 包将长时间占用未连接队列，引起网络堵塞甚至系统瘫痪，让正常的 TCP 握手连接请求不能处理。通过 netstat -n -p TCP | grep SYN_RECV 可以查看是否有大量 SYN_RECV 状态，如果有则可能存在 SYN 攻击。</p>
+<p>Linux 在系统层面上，提供了三个选项来应对相关攻击：</p>
+<ul>
+<li>tcp_max_syn_backlog，增大 SYN 连接数</li>
+<li>tcp_synack_retries，减少重试次数</li>
+<li>tcp_abort_on_overflow，过载直接丢弃，拒绝连接</li>
+</ul>
+<p>另外，还有一个 tcp_syncookies 参数可以缓解，当 SYN 队列满了后，TCP 会通过相关信息（源 IP、源 port）制造出一个 SYN Cookie 返回，如果是攻击者则不会有响应，如果是正常连接，则会把这个 SYN Cookie 发回来，然后服务端可以通过 SYN Cookie 建连接。</p>
+<h2 id="tcp-长连接层面上">TCP 长连接层面上</h2>
+<h3 id="黑名单机制">黑名单机制</h3>
+<p>可以静态或者动态配置黑名单列表，处于黑名单中的 IP 列表则直接拒绝 accept 建连；服务端执行 accept 之后，首先先判断 remote IP 是否存在于黑名单中，如果是则直接 close 连接；如果不是则继续下一步。</p>
+<h3 id="限制建连速度">限制建连速度</h3>
+<p>IM 系统为了防止恶意攻击，需要防止单个 IP 大量频繁建连，避免异常 socket 连接数爆满；因此需要限制每个 IP 每秒建立速度，如果单个 IP 在单位时间内建连的连接数超过一定阈值（如 100）该值，则将 IP 列入黑名单并且同时关闭此连接</p>
+<p>怎么实现呢？分如下几步。</p>
+<ol>
+<li>定义一个合理的防攻击的数据结构，里面包含 connRates 字段、startTime 字段。
+<ul>
+<li>startTime 表示此连接接入的初始时间</li>
+<li>connRates 用来对统计时间内的接入 IP 做累加</li>
+</ul>
+</li>
+<li>服务端每次 accept 之后，针对这个 Conn 连接，先判断当前时间和此连接的 startTime 的差值是否已经超过一个统计周期，如果超过则清零重置；如果没有超过，则对此连接的 IP 做累加。</li>
+<li>然后判断 IP 累加的结果是否超过阈值，如果超过则加入黑名单并且 close 连接；如果没有超过则进行下一步的请求。</li>
+</ol>
+<h3 id="限制发包速度">限制发包速度</h3>
+<p>IM 系统要能够发送消息包，必然需要先进行登录操作，登录主要是为了鉴权，从而获取得到正确的 token，才能正常登录。为了避免 token 等被窃取，为了更为安全，登录之后发送消息的频率也需要进行控制；控制的机制就是针对单个连接限制每秒处理包的上限，在单位时间内收到的包的请求数量超过一定阈值（如 100p/s）则直接丢弃。
+怎么实现呢？需要几个步骤：</p>
+<ul>
+<li>针对每个 Conn 的数据结构，增加一个 packetsNum 字段；</li>
+<li>当前 Conn 每收到一个包，先计算统计时间内 packetsNum 的次数是否超过阈值，然后 packetsNum++；如果超过阈值则丢包并返回错误；</li>
+<li>开一个定时器，每隔一个统计时间周期，清零 packetsNum。</li>
+</ul>
+<h3 id="tls-加密传输">TLS 加密传输</h3>
+<p>TLS 安全传输层协议用于在两个通信应用程序之间提供保密性和数据完整性，是我们 IM 系统中保证消息传输过程中不被截获、篡改、伪造的常用手段。</p>
+<p>TLS 过程使用到了对称加密、非对称加密、CA 认证等，安全性非常高；但是相比于 TCP 传输会多了几个秘钥相关的环节，从而导致整个握手阶段会多出 1~2 个 RTT 的耗时；不过只是握手阶段的耗时对我们 IM 的应用场景并不影响。为此，为了安全性，尽可能的使用 TLS 来建立 TCP 连接。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Allen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2022-11-21</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/im/">IM</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="http://liupengliang.com/postsbak/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/%E6%9E%B6%E6%9E%84/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">网站架构规划</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="http://liupengliang.com/postsbak/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/im%E7%9A%84%E9%95%BF%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86/">
+            <span class="next-text nav-default">IM的长连接管理</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

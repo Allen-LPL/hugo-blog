@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on 文刀苑</title>
+    <link>http://liupengliang.com/tags/golang/</link>
+    <description>Recent content in Golang on 文刀苑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 13 Jan 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://liupengliang.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>golang Map的扩容</title>
+      <link>http://liupengliang.com/posts/golang/golang-%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3map%E7%9A%84%E6%89%A9%E5%AE%B9/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/golang/golang-%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3map%E7%9A%84%E6%89%A9%E5%AE%B9/</guid>
+      <description>&lt;p&gt;Go Map选择的数据结构是哈希查找法, 为了解决碰撞问题, 使用了链表法. Map的扩容的衡量指标是&lt;strong&gt;装载因子&lt;/strong&gt;, 公式为: loadFactor := count / (2^B),
+即 LoadFactor（装载因子）= hash表中已存储的键值对的总数量/hash桶的个数（即hmap结构中buckets数组的个数）&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang Map的扩容</title>
+      <link>http://liupengliang.com/postsbak/golang/golang-%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3map%E7%9A%84%E6%89%A9%E5%AE%B9/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/golang/golang-%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3map%E7%9A%84%E6%89%A9%E5%AE%B9/</guid>
+      <description>&lt;p&gt;Go Map选择的数据结构是哈希查找法, 为了解决碰撞问题, 使用了链表法. Map的扩容的衡量指标是&lt;strong&gt;装载因子&lt;/strong&gt;, 公式为: loadFactor := count / (2^B),
+即 LoadFactor（装载因子）= hash表中已存储的键值对的总数量/hash桶的个数（即hmap结构中buckets数组的个数）&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang 切片的扩容</title>
+      <link>http://liupengliang.com/posts/golang/golang-%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3%E5%88%87%E7%89%87%E7%9A%84%E6%89%A9%E5%AE%B9/</link>
+      <pubDate>Tue, 12 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/golang/golang-%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3%E5%88%87%E7%89%87%E7%9A%84%E6%89%A9%E5%AE%B9/</guid>
+      <description>&lt;p&gt;切片结构的本质是对数组的封装, 那么切片的容量是怎么增长的?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang 切片的扩容</title>
+      <link>http://liupengliang.com/postsbak/golang/golang-%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3%E5%88%87%E7%89%87%E7%9A%84%E6%89%A9%E5%AE%B9/</link>
+      <pubDate>Tue, 12 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/golang/golang-%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3%E5%88%87%E7%89%87%E7%9A%84%E6%89%A9%E5%AE%B9/</guid>
+      <description>&lt;p&gt;切片结构的本质是对数组的封装, 那么切片的容量是怎么增长的?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang 逃逸分析与判断</title>
+      <link>http://liupengliang.com/posts/golang/golang-%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/golang/golang-%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</guid>
+      <description>&lt;p&gt;Go语言逃逸分析最基本的原则是：如果一个函数返回对一个变量的引用， 那么这个变量就会发生逃逸&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang 逃逸分析与判断</title>
+      <link>http://liupengliang.com/postsbak/golang/golang-%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 18 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/golang/golang-%E9%80%83%E9%80%B8%E5%88%86%E6%9E%90/</guid>
+      <description>&lt;p&gt;Go语言逃逸分析最基本的原则是：如果一个函数返回对一个变量的引用， 那么这个变量就会发生逃逸&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang 垃圾回收</title>
+      <link>http://liupengliang.com/posts/golang/golang-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/golang/golang-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>&lt;p&gt;Golang垃圾回收&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang 垃圾回收</title>
+      <link>http://liupengliang.com/postsbak/golang/golang-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/golang/golang-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>&lt;p&gt;Golang垃圾回收&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang RPC入门</title>
+      <link>http://liupengliang.com/posts/golang/golang-rpc%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/golang/golang-rpc%E5%85%A5%E9%97%A8/</guid>
+      <description>&lt;p&gt;Golang入门&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang RPC入门</title>
+      <link>http://liupengliang.com/postsbak/golang/golang-rpc%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/golang/golang-rpc%E5%85%A5%E9%97%A8/</guid>
+      <description>&lt;p&gt;Golang入门&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang热重启</title>
+      <link>http://liupengliang.com/posts/golang/golang-%E7%83%AD%E9%87%8D%E5%90%AF/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/golang/golang-%E7%83%AD%E9%87%8D%E5%90%AF/</guid>
+      <description>&lt;p&gt;golang的热重启, 分为及时更新与进程重启&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang热重启</title>
+      <link>http://liupengliang.com/postsbak/golang/golang-%E7%83%AD%E9%87%8D%E5%90%AF/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/golang/golang-%E7%83%AD%E9%87%8D%E5%90%AF/</guid>
+      <description>&lt;p&gt;golang的热重启, 分为及时更新与进程重启&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>常用的基础命令</title>
+      <link>http://liupengliang.com/posts/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <description>&lt;p&gt;常用的基础命令&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>常用的基础命令</title>
+      <link>http://liupengliang.com/postsbak/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+      <description>&lt;p&gt;常用的基础命令&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang-gin-gorm链接数据库问题</title>
+      <link>http://liupengliang.com/posts/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;在练习使用gin - gorm链接数据库时, 始终出现报错, 最终发现是时区和Sprintf的问题&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>golang-gin-gorm链接数据库问题</title>
+      <link>http://liupengliang.com/postsbak/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;在练习使用gin - gorm链接数据库时, 始终出现报错, 最终发现是时区和Sprintf的问题&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

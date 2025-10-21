@@ -1,0 +1,42 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                    Hugo 图片路径问题修复 - 快速参考                          ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+【问题】
+文章中图片引用 vx_images/xxx.png，但生成后图片404
+
+【原因】
+Hugo为每篇文章创建独立目录，导致相对路径解析错误
+
+  文章位置: /posts/运维/文章/index.html
+  图片引用: vx_images/1.png
+  解析路径: /posts/运维/文章/vx_images/1.png  ← 图片不在这里！
+  实际位置: /posts/运维/vx_images/1.png
+
+【解决方案】
+在Markdown中使用 ../ 返回上一级目录
+
+  修改前: ![图片](vx_images/xxx.png)
+  修改后: ![图片](../vx_images/xxx.png)
+
+【已修复文件】
+✅ content/posts/运维/Linux服务器中git出现大量问号的问题解决.md (2处)
+✅ content/posts/运维/0408异常问题排查.md (3处)
+✅ content/posts/tmp/Answer U_1.md (2处)
+✅ content/posts/tmp/关于亿竞端游英雄联盟1v1技术规划.md (3处)
+✅ content/posts/tmp/智能客服项目规划.md (2处)
+
+【验证】
+生成的HTML中图片路径：
+  src="../vx_images/107905629951159_1.png"  ✅ 正确
+
+浏览器访问：
+  https://liupengliang.com/posts/运维/vx_images/462725793899563_1.png  ✅ 成功
+
+【注意事项】
+1. 以后添加新图片时，记得使用 ../vx_images/ 路径
+2. 如果图片在更深的目录，使用 ../../vx_images/
+3. 或者考虑使用 Page Bundle 方式组织文件
+
+详细说明请查看：图片路径修复说明.md
+

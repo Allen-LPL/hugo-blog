@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux Dockerfile build时请求超时的问题解决 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="Linux服务器上，使用Dockerfile build镜像拉取各种依赖时， 总会碰到因为要请求被墙的网址导致build error, 辣么怎么解决呢， 本文提供一整套问题解决方案。解决方案将包括v2ray的server与client的搭建和使用， Linux代理请求以及最后实现Dockerfile打包镜像时可以翻墙。
+" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/postsbak/docker/linux-dockerfile-build%E6%97%B6%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux Dockerfile build时请求超时的问题解决" />
+<meta property="og:description" content="Linux服务器上，使用Dockerfile build镜像拉取各种依赖时， 总会碰到因为要请求被墙的网址导致build error, 辣么怎么解决呢， 本文提供一整套问题解决方案。解决方案将包括v2ray的server与client的搭建和使用， Linux代理请求以及最后实现Dockerfile打包镜像时可以翻墙。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/postsbak/docker/linux-dockerfile-build%E6%97%B6%E8%AF%B7%E6%B1%82%E8%B6%85%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" />
+<meta property="article:published_time" content="2022-11-03T15:59:09+00:00" />
+<meta property="article:modified_time" content="2022-11-03T15:59:09+00:00" />
+<meta itemprop="name" content="Linux Dockerfile build时请求超时的问题解决">
+<meta itemprop="description" content="Linux服务器上，使用Dockerfile build镜像拉取各种依赖时， 总会碰到因为要请求被墙的网址导致build error, 辣么怎么解决呢， 本文提供一整套问题解决方案。解决方案将包括v2ray的server与client的搭建和使用， Linux代理请求以及最后实现Dockerfile打包镜像时可以翻墙。">
+<meta itemprop="datePublished" content="2022-11-03T15:59:09&#43;00:00" />
+<meta itemprop="dateModified" content="2022-11-03T15:59:09&#43;00:00" />
+<meta itemprop="wordCount" content="1916">
+
+
+
+<meta itemprop="keywords" content="Linux,Docker," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux Dockerfile build时请求超时的问题解决"/>
+<meta name="twitter:description" content="Linux服务器上，使用Dockerfile build镜像拉取各种依赖时， 总会碰到因为要请求被墙的网址导致build error, 辣么怎么解决呢， 本文提供一整套问题解决方案。解决方案将包括v2ray的server与client的搭建和使用， Linux代理请求以及最后实现Dockerfile打包镜像时可以翻墙。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>Linux服务器上，使用Dockerfile build镜像拉取各种依赖时， 总会碰到因为要请求被墙的网址导致build error, 辣么怎么解决呢， 本文提供一整套问题解决方案。解决方案将包括v2ray的server与client的搭建和使用， Linux代理请求以及最后实现Dockerfile打包镜像时可以翻墙。</p>
+<h1 id="前言">前言</h1>
+<p>因为最近服务都是在centos7.4上部署， 在其他版本上的差异性自己解决， 我这里给思路和一个反正的范例。</p>
+<p>解决方案将包括v2ray的server与client的搭建和使用， Linux代理请求以及最后实现Dockerfile打包镜像时可以翻墙。</p>
+<h1 id="centos-v2ray的server与client的搭建和使用">Centos v2ray的server与client的搭建和使用</h1>
+<h2 id="v2ray-server的搭建">v2ray server的搭建</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">mkdir /etc/v2ray
+touch /etc/v2ray/config.json
+<span class="nb">echo</span> <span class="s1">&#39;{
+</span><span class="s1">  &#34;log&#34;: {
+</span><span class="s1">    &#34;access&#34;: &#34;/var/log/v2ray/access.log&#34;,
+</span><span class="s1">    &#34;error&#34;: &#34;/var/log/v2ray/error.log&#34;,
+</span><span class="s1">    &#34;loglevel&#34;: &#34;warning&#34;
+</span><span class="s1">  },
+</span><span class="s1">  &#34;dns&#34;: {},
+</span><span class="s1">  &#34;stats&#34;: {},
+</span><span class="s1">  &#34;inbounds&#34;: [
+</span><span class="s1">    {
+</span><span class="s1">      &#34;port&#34;: 80,
+</span><span class="s1">      &#34;protocol&#34;: &#34;vmess&#34;,
+</span><span class="s1">      &#34;settings&#34;: {
+</span><span class="s1">        &#34;clients&#34;: [
+</span><span class="s1">          {
+</span><span class="s1">            &#34;id&#34;: &#34;81009efb-f8e5-4fd0-84cc-5976599e88ae&#34;, # 这里随机设置自己的
+</span><span class="s1">            &#34;level&#34;: 0, # 这里设置的多少， 在客户端也要设置
+</span><span class="s1">            &#34;alterId&#34;: 100 # 这里要与客户端对照
+</span><span class="s1">          }
+</span><span class="s1">        ]
+</span><span class="s1">      },
+</span><span class="s1">      &#34;tag&#34;: &#34;in-0&#34;,
+</span><span class="s1">      &#34;streamSettings&#34;: {
+</span><span class="s1">        &#34;network&#34;: &#34;tcp&#34;,    # 注意这里， 你可以选择ws
+</span><span class="s1">        &#34;security&#34;: &#34;none&#34;,  # 客户端要和这里一直
+</span><span class="s1">        &#34;tcpSettings&#34;: {
+</span><span class="s1">        &#34;header&#34;: {          # 这个header有些客户端需要手动配置， 都是要和客户端一一对应的， 不然不会通
+</span><span class="s1">            &#34;type&#34;: &#34;http&#34;,
+</span><span class="s1">            &#34;host&#34;: [
+</span><span class="s1">                &#34;www.baidu.com&#34;
+</span><span class="s1">            ]
+</span><span class="s1">        }}
+</span><span class="s1">      }
+</span><span class="s1">    }
+</span><span class="s1">  ],
+</span><span class="s1">  &#34;outbounds&#34;: [
+</span><span class="s1">    {
+</span><span class="s1">      &#34;tag&#34;: &#34;direct&#34;,
+</span><span class="s1">      &#34;protocol&#34;: &#34;freedom&#34;,
+</span><span class="s1">      &#34;settings&#34;: {}
+</span><span class="s1">    },
+</span><span class="s1">    {
+</span><span class="s1">      &#34;tag&#34;: &#34;blocked&#34;,
+</span><span class="s1">      &#34;protocol&#34;: &#34;blackhole&#34;,
+</span><span class="s1">      &#34;settings&#34;: {}
+</span><span class="s1">    }
+</span><span class="s1">  ],
+</span><span class="s1">  &#34;routing&#34;: {
+</span><span class="s1">    &#34;domainStrategy&#34;: &#34;AsIs&#34;,
+</span><span class="s1">    &#34;rules&#34;: [
+</span><span class="s1">      {
+</span><span class="s1">        &#34;type&#34;: &#34;field&#34;,
+</span><span class="s1">        &#34;ip&#34;: [
+</span><span class="s1">          &#34;geoip:private&#34;
+</span><span class="s1">        ],
+</span><span class="s1">        &#34;outboundTag&#34;: &#34;blocked&#34;
+</span><span class="s1">      }
+</span><span class="s1">    ]
+</span><span class="s1">  },
+</span><span class="s1">  &#34;policy&#34;: {},
+</span><span class="s1">  &#34;reverse&#34;: {},
+</span><span class="s1">  &#34;transport&#34;: {}
+</span><span class="s1">}&#39;</span> &gt;&gt; /etc/v2ray/config.json
+
+
+<span class="c1"># 设置系统时区为上海</span> 
+timedatectl set-timezone Asia/Shanghai
+
+
+docker run --name<span class="o">=</span>v2ray  <span class="se">\
+</span><span class="se"></span>  -p 8888:80  <span class="se">\
+</span><span class="se"></span>  -v /etc/v2ray/config.json:/etc/v2ray/config.json  <span class="se">\
+</span><span class="se"></span>  -v /var/log/v2ray:/var/log/v2ray <span class="se">\
+</span><span class="se"></span>  -v /etc/localtime:/etc/localtime:ro <span class="se">\
+</span><span class="se"></span>  -itd v2ray/official:latest
+
+docker ps -a <span class="p">|</span>grep v2ray
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>在server端， config.json配置重点在inbounds。</p>
+</blockquote>
+<blockquote>
+<p>/etc/localtime:/etc/localtime:ro是同步时区到容器内， 如果在确定客户端与服务端的配置参数相同的情况下，还是请求不通， 那大概率是容器里的系统时间与你客户端的时间不同造成的。</p>
+</blockquote>
+<blockquote>
+<p>-p即是宿主机与容器的端口映射， 8888是宿主机端口，80是容器端口， 要保证宿主机的8888端口可以访问。</p>
+</blockquote>
+<h2 id="v2ray-client的搭建">v2ray client的搭建</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">mkdir /etc/v2ray
+mkdir ~/.docker
+touch ~/.docker/config.json
+touch /etc/v2ray/config.json
+<span class="nb">echo</span> <span class="s1">&#39;{
+</span><span class="s1">  &#34;dns&#34;: {
+</span><span class="s1">    &#34;hosts&#34;: {
+</span><span class="s1">      &#34;domain:googleapis.cn&#34;: &#34;googleapis.com&#34;
+</span><span class="s1">    },
+</span><span class="s1">    &#34;servers&#34;: [
+</span><span class="s1">      &#34;1.1.1.1&#34;
+</span><span class="s1">    ]
+</span><span class="s1">  },
+</span><span class="s1">  &#34;inbounds&#34;: [
+</span><span class="s1">    {
+</span><span class="s1">      &#34;listen&#34;: &#34;0.0.0.0&#34;,
+</span><span class="s1">      &#34;port&#34;: 10808,
+</span><span class="s1">      &#34;protocol&#34;: &#34;socks&#34;,
+</span><span class="s1">      &#34;settings&#34;: {
+</span><span class="s1">        &#34;auth&#34;: &#34;noauth&#34;, 
+</span><span class="s1">        &#34;udp&#34;: true
+</span><span class="s1">      },
+</span><span class="s1">      &#34;sniffing&#34;: {
+</span><span class="s1">        &#34;destOverride&#34;: [
+</span><span class="s1">          &#34;http&#34;,
+</span><span class="s1">          &#34;tls&#34;
+</span><span class="s1">        ],
+</span><span class="s1">        &#34;enabled&#34;: true
+</span><span class="s1">      },
+</span><span class="s1">      &#34;tag&#34;: &#34;socks&#34;
+</span><span class="s1">    },
+</span><span class="s1">    {
+</span><span class="s1">      &#34;listen&#34;: &#34;0.0.0.0&#34;,
+</span><span class="s1">      &#34;port&#34;: 10809,
+</span><span class="s1">      &#34;protocol&#34;: &#34;http&#34;,
+</span><span class="s1">      &#34;settings&#34;: {
+</span><span class="s1">        &#34;userLevel&#34;: 0
+</span><span class="s1">      },
+</span><span class="s1">      &#34;tag&#34;: &#34;http&#34;
+</span><span class="s1">    }
+</span><span class="s1">  ],
+</span><span class="s1">  &#34;log&#34;: {
+</span><span class="s1">    &#34;loglevel&#34;: &#34;warning&#34;,
+</span><span class="s1">    &#34;access&#34;:&#34;/var/log/v2ray/access.log&#34;,
+</span><span class="s1">    &#34;error&#34;:&#34;/var/log/v2ray/error.log&#34;
+</span><span class="s1">  },
+</span><span class="s1">  &#34;outbounds&#34;: [
+</span><span class="s1">    {
+</span><span class="s1">    //此处根据具体设置
+</span><span class="s1">      &#34;mux&#34;: {
+</span><span class="s1">        &#34;concurrency&#34;: -1,
+</span><span class="s1">        &#34;enabled&#34;: false
+</span><span class="s1">      },
+</span><span class="s1">      &#34;protocol&#34;: &#34;vmess&#34;,
+</span><span class="s1">      &#34;settings&#34;: {
+</span><span class="s1">        &#34;vnext&#34;: [
+</span><span class="s1">          {
+</span><span class="s1">          //此处根据具体设置
+</span><span class="s1">            &#34;address&#34;: &#34;服务端IP地址&#34;,
+</span><span class="s1">            &#34;port&#34;: 8888,
+</span><span class="s1">            &#34;users&#34;: [
+</span><span class="s1">              {
+</span><span class="s1">                &#34;alterId&#34;: 100,
+</span><span class="s1">                &#34;id&#34;: &#34;81009efb-f8e5-4fd0-84cc-5976599e88ae&#34;,  # 客户端与服务端要一直
+</span><span class="s1">                //&#34;level&#34;: 0,
+</span><span class="s1">                &#34;security&#34;: &#34;none&#34;
+</span><span class="s1">              }
+</span><span class="s1">            ]
+</span><span class="s1">          }
+</span><span class="s1">        ]
+</span><span class="s1">      },
+</span><span class="s1">      &#34;streamSettings&#34;: {
+</span><span class="s1">        &#34;tcpSettings&#34;: {
+</span><span class="s1">          &#34;header&#34;: {
+</span><span class="s1">            &#34;type&#34;: &#34;http&#34;
+</span><span class="s1">          }
+</span><span class="s1">        }
+</span><span class="s1">      },
+</span><span class="s1">      &#34;tag&#34;: &#34;proxy&#34;
+</span><span class="s1">    },
+</span><span class="s1">    {
+</span><span class="s1">      &#34;protocol&#34;: &#34;freedom&#34;,
+</span><span class="s1">      &#34;settings&#34;: {},
+</span><span class="s1">      &#34;tag&#34;: &#34;direct&#34;
+</span><span class="s1">    },
+</span><span class="s1">    {
+</span><span class="s1">      &#34;protocol&#34;: &#34;blackhole&#34;,
+</span><span class="s1">      &#34;settings&#34;: {
+</span><span class="s1">        &#34;response&#34;: {
+</span><span class="s1">          &#34;type&#34;: &#34;http&#34;
+</span><span class="s1">        }
+</span><span class="s1">      },
+</span><span class="s1">      &#34;tag&#34;: &#34;block&#34;
+</span><span class="s1">    }
+</span><span class="s1">  ],
+</span><span class="s1">  &#34;policy&#34;: {
+</span><span class="s1">    &#34;levels&#34;: {
+</span><span class="s1">      &#34;8&#34;: {
+</span><span class="s1">        &#34;connIdle&#34;: 300,
+</span><span class="s1">        &#34;downlinkOnly&#34;: 1,
+</span><span class="s1">        &#34;handshake&#34;: 4,
+</span><span class="s1">        &#34;uplinkOnly&#34;: 1
+</span><span class="s1">      }
+</span><span class="s1">    },
+</span><span class="s1">    &#34;system&#34;: {
+</span><span class="s1">      &#34;statsOutboundUplink&#34;: true,
+</span><span class="s1">      &#34;statsOutboundDownlink&#34;: true
+</span><span class="s1">    }
+</span><span class="s1">  },
+</span><span class="s1">  &#34;routing&#34;: {
+</span><span class="s1">    &#34;domainStrategy&#34;: &#34;IPIfNonMatch&#34;,
+</span><span class="s1">    &#34;rules&#34;: []
+</span><span class="s1">  },
+</span><span class="s1">  &#34;stats&#34;: {}
+</span><span class="s1">}&#39;</span> &gt;&gt; /etc/v2ray/config.json
+
+<span class="c1"># 设置系统时区为上海</span> 
+timedatectl set-timezone Asia/Shanghai
+
+docker run --name<span class="o">=</span>v2ray <span class="se">\
+</span><span class="se"></span> -p 10808:10808 -p 10809:10809  -p 8888:80 <span class="se">\
+</span><span class="se"></span> -v /etc/v2ray/config.json:/etc/v2ray/config.json  <span class="se">\
+</span><span class="se"></span> -v /var/log/v2ray:/var/log/v2ray <span class="se">\
+</span><span class="se"></span> -v /etc/localtime:/etc/localtime:ro <span class="se">\
+</span><span class="se"></span> -itd v2ray/official:latest
+
+docker ps -a <span class="p">|</span>grep v2ray
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="linux代理设置">Linux代理设置</h1>
+<p>在Linux中，没有一种代理配置是配置后可以一劳永逸的，目前碰到三个代理配置， 分别对应如下</p>
+<ul>
+<li>Linux的代理配置
+<ul>
+<li>在.bashrc或者.zshrc等其他shell中配置， 大部分宿主机的请求都会走代理</li>
+<li>通过proxychains强制没有走代理的软件走代理</li>
+</ul>
+</li>
+<li>docker build镜像时， 以上两个都不起作用，
+<ul>
+<li>需要在.docker中做配置才可以</li>
+<li>在.docker配置了代理后， 拉取的依赖有时会执行git， 如果文件很大，也会timeout, 这时就需要再dockerfile中强制git config</li>
+</ul>
+</li>
+</ul>
+<p>·以下是详细的配置， 结合上面的说明应该能明白， 不能明白就谷歌·。
+如果你是想解决docker build镜像的问题， 那就不用做宿主机的配置， 直接看《docker走代理》</p>
+<h2 id="宿主机设置">宿主机设置</h2>
+<h3 id="shell中配置以bash为例">Shell中配置，以bash为例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> <span class="s1">&#39;export ALL_PROXY=&#34;socks5://127.0.0.1:10808&#34;
+</span><span class="s1">export http_proxy=&#34;http://127.0.0.1:10809&#34;&#39;</span> &gt;&gt; ~/.bashrc 
+
+<span class="nb">source</span> ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="proxychains的安装与使用">proxychains的安装与使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">git clone https://github.com/rofl0r/proxychains-ng.git
+<span class="nb">cd</span> proxychains-ng
+./configure --prefix<span class="o">=</span>/usr --sysconfdir<span class="o">=</span>/etc
+make <span class="o">&amp;&amp;</span> make install
+make install-config
+<span class="nb">cd</span> .. <span class="o">&amp;&amp;</span> rm -rf proxychains-ng
+vim /etc/proxychains.conf  <span class="c1">#修改配置文件</span>
+socks5  127.0.0.1 <span class="m">1080</span>  <span class="c1">#ip和port改成自己的ip和端口</span>
+proxychains4 wget http://xxx.com/xxx.zip   <span class="c1">#在需要代理的命令前加上proxychains4</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>proxychains安装如果出现问题，请自行谷歌。</p>
+</blockquote>
+<h2 id="docker走代理">docker走代理</h2>
+<p>在宿主机执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">echo</span> <span class="s1">&#39;{
+</span><span class="s1"> &#34;proxies&#34;:
+</span><span class="s1"> {
+</span><span class="s1">   &#34;default&#34;:
+</span><span class="s1">   {
+</span><span class="s1">     &#34;httpProxy&#34;: &#34;http://172.17.0.1:10809&#34;, #172.17.0.1是指宿主机的虚拟IP， 这里不会找的看下面的解释
+</span><span class="s1">     &#34;httpsProxy&#34;: &#34;http://172.17.0.1:10809&#34;,
+</span><span class="s1">     &#34;noProxy&#34;: &#34;*.test.example.com,.example2.com,127.0.0.0/8&#34; # 看需要设置
+</span><span class="s1">   }
+</span><span class="s1"> }
+</span><span class="s1">}&#39;</span> &gt;&gt; ~/.docker/config.json
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>宿主机的IP就是docker0网卡的inet, 可以ifconfig查看， 也可以执行下面的命令查看</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ifconfig eth0<span class="p">|</span>sed -n 2p<span class="p">|</span>awk  <span class="s1">&#39;{ print $2 }&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果在Dockerfile中有依赖需要git pull或者git submodule超时了，如图：
+<img src="https://s2.loli.net/2022/11/07/Vc61gUIHEbTjwJW.png" alt="Xnip2022-11-07_20-47-24.png" title="docker build git error"></p>
+<p>在Dockerfile中添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-docker" data-lang="docker"><span class="k">RUN</span> git config --global https.proxy https://172.17.0.1:10809<span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div>
+  </div>
+</article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

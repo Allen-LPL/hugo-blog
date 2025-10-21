@@ -1,0 +1,51 @@
+{
+    "created_time": "2023-02-09T15:51:11Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2023-02-09T15:51:11Z",
+            "id": "88",
+            "modified_time": "2023-02-09T15:51:11Z",
+            "name": "TestWebService.class",
+            "signature": "5420630049309398639",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2023-02-09T15:51:11Z",
+            "id": "89",
+            "modified_time": "2023-02-09T15:51:11Z",
+            "name": "TestWebServiceImpl.class",
+            "signature": "1391837626287593071",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2023-02-09T15:51:11Z",
+            "id": "90",
+            "modified_time": "2023-02-09T15:51:11Z",
+            "name": "TestWebServicePublish.class",
+            "signature": "2352092464273495663",
+            "tags": [
+            ]
+        },
+        {
+            "attachment_folder": "",
+            "created_time": "2023-02-09T15:51:11Z",
+            "id": "91",
+            "modified_time": "2023-02-09T15:51:11Z",
+            "name": "User.class",
+            "signature": "7368913268739741295",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+    ],
+    "id": "87",
+    "modified_time": "2023-02-09T15:51:11Z",
+    "signature": "5663569591597864559",
+    "version": 3
+}

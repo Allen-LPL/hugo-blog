@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zsh on 文刀苑</title>
@@ -13,10 +13,19 @@
     
     <item>
       <title>Ubuntu安装zsh &amp;&amp; 默认启动</title>
-      <link>http://liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
+      <link>http://liupengliang.com/posts/ubuntu%E5%AE%89%E8%A3%85zsh-%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
       <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
       
-      <guid>http://liupengliang.com/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
+      <guid>http://liupengliang.com/posts/ubuntu%E5%AE%89%E8%A3%85zsh-%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
+      <description>zsh拥有更强的补全功能(常用工具的参数补全), 推荐大家使用 安装 sudo apt-get install zsh 引入增强插件,支持git,rails等补全，可选多种外观皮肤 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O -</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu安装zsh &amp;&amp; 默认启动</title>
+      <link>http://liupengliang.com/postsbak/ubuntu%E5%AE%89%E8%A3%85zsh-%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/ubuntu%E5%AE%89%E8%A3%85zsh-%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/</guid>
       <description>zsh拥有更强的补全功能(常用工具的参数补全), 推荐大家使用 安装 sudo apt-get install zsh 引入增强插件,支持git,rails等补全，可选多种外观皮肤 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O -</description>
     </item>
     

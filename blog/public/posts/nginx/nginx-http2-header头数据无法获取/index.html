@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Nginx报ERR_CONNECTION_CLOSED的解决现场 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原
+" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/posts/nginx/nginx-http2-header%E5%A4%B4%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Nginx报ERR_CONNECTION_CLOSED的解决现场" />
+<meta property="og:description" content="客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/posts/nginx/nginx-http2-header%E5%A4%B4%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96/" />
+<meta property="article:published_time" content="2023-01-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-16T00:00:00+00:00" />
+<meta itemprop="name" content="Nginx报ERR_CONNECTION_CLOSED的解决现场">
+<meta itemprop="description" content="客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原">
+<meta itemprop="datePublished" content="2023-01-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2023-01-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1362">
+
+
+
+<meta itemprop="keywords" content="Nginx," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nginx报ERR_CONNECTION_CLOSED的解决现场"/>
+<meta name="twitter:description" content="客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Nginx报ERR_CONNECTION_CLOSED的解决现场</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-01-16 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+            </div>
+          <span class="more-meta"> 1362 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原</p>
+<h1 id="异常">异常</h1>
+<p><img src="https://s2.loli.net/2023/01/16/NVcDMsJEOfTj3vG.png" alt="img.png" title="Chrome异常"></p>
+<p><img src="https://s2.loli.net/2023/01/16/cFoqBLhZDSpQsKe.png" alt="img_2.png" title="Chrome没有请求体"></p>
+<blockquote>
+<p>只有请求头, 但是没有响应</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/01/16/vMQ8yNhHtVnJ5UO.png" alt="img_1.png" title="控制台报错"></p>
+<blockquote>
+<p>VUE控制台显示报错 <strong>net::ERR_CONNECTION_CLOSED</strong></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2023/01/16/QKwHf9BqvreYXtS.png" alt="img_3.png" title="Nginx日志"></p>
+<blockquote>
+<p>Nginx日志记录了请求现场, 无法获取Header头, 无法获取resp请求体</p>
+</blockquote>
+<h1 id="思路">思路</h1>
+<ol>
+<li>检查PHP接口是否正常</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/01/16/4RIvrhbQLOSmB5J.png" alt="img_4.png" title="PostMan请求"></p>
+<ol start="2">
+<li>调整nginx config 将请求header及请求体记录到log</li>
+</ol>
+<blockquote>
+<p>使用的是openresty, 如果你使用的是nginx, 请自行引入model</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="c1">## 首先定义请求头, 请求体
+</span><span class="c1"></span><span class="k">server</span>
+<span class="p">{</span>
+    <span class="kn">...</span>
+
+    <span class="s">set</span> <span class="nv">$resp_body</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$req_body</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+    <span class="kn">set</span> <span class="nv">$req_headers</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+
+    <span class="kn">rewrite_by_lua_block</span> <span class="p">{</span>
+    <span class="kn">local</span> <span class="s">req_headers</span> <span class="p">=</span> <span class="s">&#34;Headers:</span> <span class="s">&#34;</span><span class="p">;</span>
+    <span class="kn">ngx.var.req_body</span> <span class="p">=</span> <span class="s">ngx.req.get_body_data()</span><span class="p">;</span>
+    <span class="kn">local</span> <span class="s">h,</span> <span class="s">err</span> <span class="p">=</span> <span class="s">ngx.req.get_headers()</span>
+            <span class="s">for</span> <span class="s">k,</span> <span class="s">v</span> <span class="s">in</span> <span class="s">pairs(h)</span> <span class="s">do</span>
+                <span class="s">req_headers</span> <span class="p">=</span> <span class="s">req_headers</span> <span class="s">..</span> <span class="s">k</span> <span class="s">..</span> <span class="s">&#34;:</span> <span class="s">&#34;</span> <span class="s">..</span> <span class="s">v</span> <span class="s">..</span> <span class="s">&#34;\n&#34;</span><span class="p">;</span>
+    <span class="kn">end</span>
+
+            <span class="s">ngx.var.req_headers</span> <span class="p">=</span> <span class="s">req_headers</span><span class="p">;</span>
+<span class="p">}</span>
+
+    <span class="kn">body_filter_by_lua</span> <span class="s">&#39;</span>
+        <span class="s">local</span> <span class="s">resp_body</span> <span class="p">=</span> <span class="s">string.sub(ngx.arg[1],</span> <span class="mi">1</span><span class="s">,</span> <span class="mi">1000</span><span class="s">)</span>
+        <span class="s">ngx.ctx.buffered</span> <span class="p">=</span> <span class="s">(ngx.ctx.buffered</span> <span class="s">or</span> <span class="s">&#34;&#34;)</span> <span class="s">..</span> <span class="s">resp_body</span>
+        <span class="s">if</span> <span class="s">ngx.arg[2]</span> <span class="s">then</span>
+          <span class="s">ngx.var.resp_body</span> <span class="p">=</span> <span class="s">ngx.ctx.buffered</span>
+        <span class="s">end</span>
+        <span class="s">&#39;</span><span class="p">;</span>
+    
+    <span class="c1"># 记录access
+</span><span class="c1"></span>    <span class="kn">access_log</span>  <span class="s">/var/log/com.log</span> <span class="s">json_combined</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">## 再在server外定义nginx json
+</span><span class="c1"></span><span class="k">log_format</span> <span class="s">json_combined</span> <span class="s">escape=json</span> <span class="s">&#39;</span><span class="p">{</span><span class="kn">&#34;@timestamp&#34;:&#34;$time_iso8601&#34;,&#39;</span>
+<span class="s">&#39;&#34;@source&#34;:&#34;</span><span class="nv">$server_addr&#34;,&#39;</span>
+<span class="s">&#39;&#34;@nginx_fields&#34;:</span><span class="p">{</span><span class="kn">&#39;</span>
+<span class="s">&#39;&#34;remote_addr&#34;:&#34;</span><span class="nv">$remote_addr&#34;,&#39;</span>
+<span class="s">&#39;&#34;remote_user&#34;:&#34;</span><span class="nv">$remote_user&#34;,&#39;</span>
+<span class="s">&#39;&#34;body_bytes_sent&#34;:&#34;</span><span class="nv">$body_bytes_sent&#34;,&#39;</span>
+<span class="s">&#39;&#34;request_time&#34;:&#34;</span><span class="nv">$request_time&#34;,&#39;</span>
+<span class="s">&#39;&#34;status&#34;:&#34;</span><span class="nv">$status&#34;,&#39;</span>
+<span class="s">&#39;&#34;host&#34;:&#34;</span><span class="nv">$host&#34;,&#39;</span>
+<span class="s">&#39;&#34;uri&#34;:&#34;</span><span class="nv">$uri&#34;,&#39;</span>
+<span class="s">&#39;&#34;server&#34;:&#34;</span><span class="nv">$server_name&#34;,&#39;</span>
+<span class="s">&#39;&#34;port&#34;:&#34;</span><span class="nv">$server_port&#34;,&#39;</span>
+<span class="s">&#39;&#34;protocol&#34;:&#34;</span><span class="nv">$server_protocol&#34;,&#39;</span>
+<span class="s">&#39;&#34;request_uri&#34;:&#34;</span><span class="nv">$request_uri&#34;,&#39;</span>
+<span class="s">&#39;&#34;request_body&#34;:&#34;</span><span class="nv">$request_body&#34;,&#39;</span>
+<span class="s">&#39;&#34;request_method&#34;:&#34;</span><span class="nv">$request_method&#34;,&#39;</span>
+<span class="s">&#39;&#34;http_referrer&#34;:&#34;</span><span class="nv">$http_referer&#34;,&#39;</span>
+<span class="s">&#39;&#34;body_bytes_sent&#34;:&#34;</span><span class="nv">$body_bytes_sent&#34;,&#39;</span>
+<span class="s">&#39;&#34;http_x_forwarded_for&#34;:&#34;</span><span class="nv">$http_x_forwarded_for&#34;,&#39;</span>
+<span class="s">&#39;&#34;http_user_agent&#34;:&#34;</span><span class="nv">$http_user_agent&#34;,&#39;</span>
+<span class="s">&#39;&#34;http_header_authorization&#34;:&#34;</span><span class="nv">$http_authorization&#34;,&#39;</span>
+<span class="s">&#39;&#34;upstream_response_time&#34;:&#34;</span><span class="nv">$upstream_response_time&#34;,&#39;</span>
+<span class="s">\n</span>
+<span class="s">&#39;&#34;req_headers&#34;:&#34;</span><span class="nv">$req_headers&#34;,&#39;</span>
+ <span class="s">\n</span>
+<span class="s">&#39;&#34;resp_body&#34;:&#34;</span><span class="nv">$resp_body&#34;,&#39;</span>
+<span class="s">\n</span>
+<span class="s">&#39;&#34;req_body&#34;:&#34;</span><span class="nv">$req_body&#34;,&#39;</span>
+<span class="s">\n</span>
+<span class="s">&#39;&#34;upstream_addr&#34;:&#34;</span><span class="nv">$upstream_addr&#34;}}&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>分析nginx日志发现无法获取header头, 考虑有可能是header头过大导致无法获取, 那就继续调整nginx config, 将转发, 请求体等都放大</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="c1"># nginx.conf中增加
+</span><span class="c1"></span><span class="k">server_names_hash_bucket_size</span> <span class="mi">512</span><span class="p">;</span>
+<span class="k">client_header_buffer_size</span> <span class="mi">32k</span><span class="p">;</span>
+<span class="k">large_client_header_buffers</span> <span class="mi">4</span> <span class="mi">32k</span><span class="p">;</span>
+<span class="k">client_max_body_size</span> <span class="mi">150m</span><span class="p">;</span>
+
+<span class="k">在</span> <span class="s">server中添加</span>
+<span class="s">location</span> <span class="p">~</span> <span class="sr">\.php$</span> <span class="p">{</span>
+    <span class="kn">client_body_buffer_size</span> <span class="mi">512k</span><span class="p">;</span>
+    <span class="kn">proxy_connect_timeout</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="kn">proxy_read_timeout</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="kn">proxy_send_timeout</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="kn">proxy_buffer_size</span> <span class="mi">32k</span><span class="p">;</span>
+    <span class="kn">proxy_buffers</span> <span class="mi">4</span> <span class="mi">64k</span><span class="p">;</span>
+    <span class="kn">proxy_busy_buffers_size</span> <span class="mi">128k</span><span class="p">;</span>
+    <span class="kn">proxy_temp_file_write_size</span> <span class="mi">128k</span><span class="p">;</span>
+    <span class="kn">proxy_max_temp_file_size</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kn">proxy_next_upstream</span> <span class="s">error</span> <span class="s">timeout</span> <span class="s">invalid_header</span> <span class="s">http_500</span> <span class="s">http_503</span> <span class="s">http_404</span><span class="p">;</span>
+    <span class="kn">client_max_body_size</span> <span class="mi">150m</span><span class="p">;</span>
+    <span class="kn">fastcgi_connect_timeout</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="kn">fastcgi_send_timeout</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="kn">fastcgi_read_timeout</span> <span class="mi">300</span><span class="p">;</span>
+    <span class="kn">fastcgi_busy_buffers_size</span> <span class="mi">512k</span><span class="p">;</span>
+    <span class="kn">fastcgi_temp_file_write_size</span> <span class="mi">256k</span><span class="p">;</span>
+    <span class="kn">fastcgi_buffers</span> <span class="mi">16</span> <span class="mi">256k</span><span class="p">;</span>
+    <span class="kn">fastcgi_buffer_size</span> <span class="mi">256k</span><span class="p">;</span>
+    <span class="kn">fastcgi_intercept_errors</span> <span class="no">on</span><span class="p">;</span>
+
+
+    <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="s">/index.php</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
+    <span class="kn">fastcgi_pass</span> <span class="s">php-upstream</span><span class="p">;</span>
+    <span class="kn">fastcgi_index</span> <span class="s">index.php</span><span class="p">;</span>
+    <span class="kn">fastcgi_param</span> <span class="s">SCRIPT_FILENAME</span> <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+    <span class="kn">include</span> <span class="s">fastcgi_params</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>调整完后还是获取不到Header头等数据</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="c1"># 变量含义
+</span><span class="c1"></span><span class="k">$remote_addr,</span> <span class="nv">$http_x_forwarded_for</span> <span class="s">记录客户端IP地址</span>
+<span class="nv">$remote_user</span> <span class="s">记录客户端用户名称</span>
+<span class="nv">$request</span> <span class="s">记录请求的URL和HTTP协议</span>
+<span class="nv">$request_length</span> <span class="s">请求的长度（包括请求行，请求头和请求正文）。</span>
+<span class="nv">$request_time</span> <span class="s">请求处理时间，单位为秒，精度毫秒；从读入客户端的第一个字节开始，直到把最后一个字符发送给客户端后进行日志写入为止。</span>
+<span class="nv">$status</span> <span class="s">记录请求状态</span>
+<span class="nv">$body_bytes_sent</span> <span class="s">发送给客户端的字节数，不包括响应头的大小；</span> <span class="s">该变量与Apache模块mod_log_config里的“%B”参数兼容。</span>
+<span class="nv">$bytes_sent</span> <span class="s">发送给客户端的总字节数。</span>
+<span class="nv">$connection</span> <span class="s">连接的序列号。</span>
+<span class="nv">$connection_requests</span> <span class="s">当前通过一个连接获得的请求数量。</span>
+<span class="nv">$msec</span> <span class="s">日志写入时间。单位为秒，精度是毫秒。</span>
+<span class="nv">$pipe</span> <span class="s">如果请求是通过</span> <span class="s">HTTP</span> <span class="s">流水线(pipelined)发送，pipe值为“p”，否则为“.”。</span>
+<span class="nv">$http_referer</span> <span class="s">记录从哪个页面链接访问过来的</span>
+<span class="nv">$http_user_agent</span> <span class="s">记录客户端浏览器相关信息</span>
+<span class="nv">$time_iso8601</span> <span class="s">ISO8601标准格式下的本地时间。</span>
+<span class="nv">$time_local</span> <span class="s">通用日志格式下的本地时间。</span>
+<span class="nv">$request_body</span> <span class="s">获取请求</span> <span class="s">body</span> <span class="s">内容</span>
+<span class="nv">$cookie_[COOKIE_NAME]</span> <span class="s">通过</span> <span class="s">cookie</span> <span class="s">名字记录</span> <span class="s">cookie</span> <span class="s">值</span>
+<span class="nv">$http_[HEADER_NAME]</span> <span class="s">通过</span> <span class="s">header</span> <span class="s">名字记录</span> <span class="s">header</span> <span class="s">值</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>至此还没有解决问题, 就开始急病乱投医, 包括不限于重新处理VUE代码, PHP代码, Linux文件权限, 自己电脑的代理问题等
+最后没有办法, 只能从<a href="https://nginx.org/en/docs/http/ngx_http_v2_module.html">nginx官方文档</a>一点点找, 最后找出关键点!</li>
+</ol>
+<p><img src="https://s2.loli.net/2023/01/16/UkWXolpVDMbZtYy.png" alt="img_5.png" title="nginx官方文档"></p>
+<blockquote>
+<p>如果nginx版本是version 1.19.7及以上, 那么就使用large_client_header_buffers</p>
+</blockquote>
+<p>我的nginx版本是 <em>nginx version: openresty/1.19.3.2</em>
+所以在nginx.conf增加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">http2_max_field_size</span> <span class="mi">16k</span><span class="p">;</span> <span class="c1"># default 4k
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这里我只修改了http2_max_field_size就解决了问题, http2_max_header_size使用了默认值, 因为上面说如果调整了, 或许会使解压后的数据过大, 如果你没有解决问题, 可以尝试下</p>
+</blockquote>
+<h1 id="结束">结束</h1>
+<p>好了, 搞定
+<img src="https://s2.loli.net/2023/01/16/uJpbLXyPdh5gaU2.png" alt="img_6.png" title="结束"></p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Allen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2023-01-16</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/nginx/">Nginx</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="http://liupengliang.com/postsbak/%E8%BF%90%E7%BB%B4/etcd%E5%92%8Cetcdkeeper%E7%9A%84docker-compose%E7%9A%84%E4%BD%BF%E7%94%A8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">etcd和etcdKeeper的docker-compose的使用</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="http://liupengliang.com/postsbak/nginx/nginx-http2-header%E5%A4%B4%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96/">
+            <span class="next-text nav-default">Nginx报ERR_CONNECTION_CLOSED的解决现场</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

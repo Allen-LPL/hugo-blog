@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>SpringBoot整合cxf调用WebService服务 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="#1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/posts/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="SpringBoot整合cxf调用WebService服务" />
+<meta property="og:description" content="#1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/posts/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/" />
+<meta property="article:published_time" content="2018-07-02T08:13:58+00:00" />
+<meta property="article:modified_time" content="2018-07-02T08:13:58+00:00" />
+<meta itemprop="name" content="SpringBoot整合cxf调用WebService服务">
+<meta itemprop="description" content="#1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采">
+<meta itemprop="datePublished" content="2018-07-02T08:13:58&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-02T08:13:58&#43;00:00" />
+<meta itemprop="wordCount" content="1259">
+
+
+
+<meta itemprop="keywords" content="SpeingBoot,Java," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SpringBoot整合cxf调用WebService服务"/>
+<meta name="twitter:description" content="#1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SpringBoot整合cxf调用WebService服务</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-02 </span>
+        <div class="post-category">
+            <a href="/categories/bigdata/"> BigData </a>
+            </div>
+          <span class="more-meta"> 1259 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>#1.WebService简介</p>
+<p>WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采用java编写，客户端程序则可以采用其他编程语言编写，反之亦然！跨操作系统平台则是指服务端程序和客户端程序可以在不同的操作系统上运行。远程调用，就是一台计算机a上的一个程序可以调用到另外一台计算机b上的一个对象的方法。</p>
+<p>#2.发布WebService服务</p>
+<p>最近的工作中,主要调用第三方webserivce服务，为了方便就在本地模拟了一个webserivce服务端，因此服务端就简单用了java project。<!-- raw HTML omitted -->
+生成一个webservice服务端分三个部分：服务端接口、实现接口、发布服务</p>
+<ol>
+<li>
+<p>编写服务端接口</p>
+<pre><code> package com.idea;
+
+ import javax.jws.WebMethod;
+
+ @javax.jws.WebService
+ public interface TestWebService {
+     @WebMethod
+     String helloUser(User user);
+ }
+</code></pre>
+</li>
+<li>
+<p>实现接口</p>
+<pre><code> package com.idea;
+
+ @javax.jws.WebService
+ public class TestWebServiceImpl implements TestWebService{
+
+     @Override
+     public String helloUser(User user) {
+         return &quot;name:&quot;+user.getName()
+         +&quot; ,sex&quot;+user.getSex();
+     }
+ }
+</code></pre>
+</li>
+<li>
+<p>发布服务</p>
+<pre><code> package com.idea;
+
+ import javax.xml.ws.Endpoint;
+
+ public class TestWebServicePublish {
+     public static void main(String[] args){
+         String address=&quot;http://localhost:8099/Webservice/   helloUser&quot;;  //服务发布路径，客户端调用的时候会用到
+         Endpoint.publish(address, new TestWebServiceImpl());
+         System.out.println(&quot;发布 helloUser webservice 成功！&quot;);
+     }
+ }
+</code></pre>
+</li>
+<li>
+<p>以上用到User类，该类中的属性如下：</p>
+<pre><code> public class User {
+     private String name;
+     private String sex;
+ }
+</code></pre>
+</li>
+<li>
+<p>运行TestWebServicePublish，控制台输出：发布 helloUser webservice 成功！<!-- raw HTML omitted -->访问http://localhost:8080/Webservice/helloUser?wsdl，可以看到该服务的wsdl文档</p>
+</li>
+</ol>
+<p>#3.SpringBoot整合cxf调用WebService服务</p>
+<ol>
+<li>
+<p>在pom.xml文件中添加cxf的依赖</p>
+<pre><code> &lt;dependency&gt;
+     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+     &lt;artifactId&gt;spring-boot-starter-ws&lt;/artifactId&gt;
+     &lt;version&gt;1.2.2.RELEASE&lt;/version&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+     &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+     &lt;artifactId&gt;cxf-rt-frontend-jaxws&lt;/artifactId&gt;
+     &lt;version&gt;3.0.4&lt;/version&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+     &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+     &lt;artifactId&gt;cxf-rt-transports-http&lt;/artifactId&gt;
+     &lt;version&gt;3.0.4&lt;/version&gt;
+ &lt;/dependency&gt;
+ &lt;dependency&gt;
+     &lt;groupId&gt;org.apache.cxf&lt;/groupId&gt;
+     &lt;artifactId&gt;cxf-core&lt;/artifactId&gt;
+     &lt;version&gt;3.0.4&lt;/version&gt;
+ &lt;/dependency&gt;
+</code></pre>
+</li>
+<li>
+<p>调用WebService服务
+由于只是做示例，就把调用服务端的代码写在了spring boot的启动类中，代码如下：</p>
+<pre><code> import java.lang.reflect.Method;
+ import org.apache.cxf.endpoint.Client;
+ import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
+ import org.apache.cxf.staxutils.StaxUtils;
+ import org.apache.cxf.transport.http.HTTPConduit;
+ import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
+ import org.springframework.boot.SpringApplication;
+ import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+ @SpringBootApplication
+ public class Application {
+ public static void main(String[] args) throws Exception{
+     SpringApplication.run(Application.class, args);
+     testWebservice();
+ }
+
+ public static void testWebservice() throws Exception{
+     //System.setProperty(StaxUtils.ALLOW_INSECURE_PARSER,&quot;true&quot;);
+     // 创建动态客户端
+     JaxWsDynamicClientFactory factory = JaxWsDynamicClientFactory.newInstance();
+     // 创建客户端连接       
+     Client client = factory.createClient(&quot;http://localhost:8099/Webservice/helloUser?wsdl&quot;);
+     //设置超时时间
+     HTTPConduit conduit = (HTTPConduit) client.getConduit();
+     HTTPClientPolicy policy = new HTTPClientPolicy();
+     long timeout = 60*1000;//60秒
+     policy.setConnectionTimeout(timeout);//连接超时
+     policy.setReceiveTimeout(timeout);//响应超时
+     conduit.setClient(policy);
+	
+     //获取User类的实例并赋值
+      Object user = Thread.currentThread().getContextClassLoader().loadClass(&quot;com.idea.User&quot;).newInstance();
+     //1.姓名
+     Method setName = user.getClass().getMethod(&quot;setName&quot;, String.class);
+     setName.invoke(user, &quot;张三&quot;);//		    
+     //2.性别
+     Method setSex = user.getClass().getMethod(&quot;setSex&quot;, String.class);
+     setSex.invoke(user, &quot;男&quot;);		    
+    
+     //调用服务端helloUser方法，并传入参数user
+     Object[] result = client.invoke(&quot;helloUser&quot;,user);
+
+     System.out.println(result[0]);
+ }
+ }
+</code></pre>
+</li>
+<li>
+<p>首先要启动服务端，然后再启动客户端。<!-- raw HTML omitted -->
+启动客户端后，控制台会打印出调用服务端方法获取的返回值,如下图
+<img src="/images/webservice1.jpg" alt="Alt text"></p>
+</li>
+</ol>
+<p>#4.调用WebService服务可能遇到的问题</p>
+<ol>
+<li>
+<p><code>java.lang.RuntimeException: Cannot create a secure XMLInputFactory</code>,解决这个问题，需要在创建动态客户端代码前面加上<code>System.setProperty(StaxUtils.ALLOW_INSECURE_PARSER,&quot;true&quot;);</code></p>
+<pre><code> java.lang.RuntimeException: Cannot create a secure XMLInputFactory
+     at org.apache.cxf.staxutils.StaxUtils.createXMLInputFactory(StaxUtils.java:315)
+     at org.apache.cxf.staxutils.StaxUtils.getXMLInputFactory(StaxUtils.java:265)
+     at org.apache.cxf.staxutils.StaxUtils.createXMLStreamReader(StaxUtils.java:1701)
+     at org.apache.cxf.interceptor.StaxInInterceptor.handleMessage(StaxInInterceptor.java:123)
+     at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:307)
+     at org.apache.cxf.endpoint.ClientImpl.onMessage(ClientImpl.java:802)
+     at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.handleResponseInternal(HTTPConduit.java:1638)
+     at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.handleResponse(HTTPConduit.java:1527)
+     at org.apache.cxf.transport.http.HTTPConduit$WrappedOutputStream.close(HTTPConduit.java:1330)
+     at org.apache.cxf.transport.AbstractConduit.close(AbstractConduit.java:56)
+     at org.apache.cxf.transport.http.HTTPConduit.close(HTTPConduit.java:638)
+     at org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor.handleMessage(MessageSenderInterceptor.java:62)
+     at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:307)
+     at org.apache.cxf.endpoint.ClientImpl.doInvoke(ClientImpl.java:516)
+     at org.apache.cxf.endpoint.ClientImpl.invoke(ClientImpl.java:425)
+</code></pre>
+</li>
+<li>
+<p>包冲突：添加cxf相关依赖包之后，可能会跟原有项目中的包冲突。可以根据报错信息，排除冲突的包。</p>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Allen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2018-07-02</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/speingboot/">SpeingBoot</a>
+          <a href="/tags/java/">Java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="http://liupengliang.com/postsbak/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">RestTemplate的post请求中文乱码问题</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="http://liupengliang.com/postsbak/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/">
+            <span class="next-text nav-default">SpringBoot整合cxf调用WebService服务</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

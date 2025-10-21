@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RestTemplate on 文刀苑</title>
+    <link>http://liupengliang.com/tags/resttemplate/</link>
+    <description>Recent content in RestTemplate on 文刀苑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jul 2018 08:13:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://liupengliang.com/tags/resttemplate/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RestTemplate的post请求中文乱码问题</title>
+      <link>http://liupengliang.com/posts/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</guid>
+      <description>###1.问题重现 需调用的接口如下： @RequestMapping(value = &amp;quot;/test&amp;quot;, method = RequestMethod.POST) public Object createTransGet(HttpServletRequest request, HttpServletResponse response,@RequestBody String text) { System.out.println(text); return &amp;quot;ok&amp;quot;; } RestTemplate调用接口的代码如下： @Test public void test9() throws UnsupportedEncodingException{ RestTemplate restTemplate = new RestTemplate();</description>
+    </item>
+    
+    <item>
+      <title>RestTemplate的post请求中文乱码问题</title>
+      <link>http://liupengliang.com/postsbak/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</guid>
+      <description>###1.问题重现 需调用的接口如下： @RequestMapping(value = &amp;quot;/test&amp;quot;, method = RequestMethod.POST) public Object createTransGet(HttpServletRequest request, HttpServletResponse response,@RequestBody String text) { System.out.println(text); return &amp;quot;ok&amp;quot;; } RestTemplate调用接口的代码如下： @Test public void test9() throws UnsupportedEncodingException{ RestTemplate restTemplate = new RestTemplate();</description>
+    </item>
+    
+  </channel>
+</rss>

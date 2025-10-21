@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -16,62 +16,37 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Ailen1988" />
-  <meta name="description" content="代码,健身与远方" />
-  <meta name="keywords" content="Hugo, PHP, Git, JAVA" />
+<meta name="author" content="Allen" /><meta name="description" content="代码,健身与远方" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
 
 
 
 
 
 
-<meta name="generator" content="Hugo 0.40.1" />
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="http://www.liupengliang.com/" />
-<link href="http://www.liupengliang.com/index.xml" rel="alternate" type="application/rss+xml" title="文刀苑" />
-  <link href="http://www.liupengliang.com/index.xml" rel="feed" type="application/rss+xml" title="文刀苑" />
-
+<link rel="canonical" href="http://liupengliang.com/" />
+  <link href="http://liupengliang.com/index.xml" rel="alternate" type="application/rss+xml" title="文刀苑" />
+  <link href="http://liupengliang.com/index.xml" rel="feed" type="application/rss+xml" title="文刀苑" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 
-
-
-
-
-
-
-<link href="/dist/even.min.css?v=3.2.0" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="文刀苑" />
 <meta property="og:description" content="代码,健身与远方" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://www.liupengliang.com/" />
-
-
-
-<meta property="og:updated_time" content="2017-07-03T18:29:29&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
+<meta property="og:url" content="http://liupengliang.com/" />
+<meta property="og:updated_time" content="2023-05-22T15:16:57+00:00" />
 <meta itemprop="name" content="文刀苑">
-<meta itemprop="description" content="代码,健身与远方">
-
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="代码,健身与远方"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="文刀苑"/>
 <meta name="twitter:description" content="代码,健身与远方"/>
 
@@ -100,7 +75,7 @@
   <ul class="mobile-menu-list">
     <a href="/">
         <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
+      </a><a href="/posts/">
         <li class="mobile-menu-item">Archives</li>
       </a><a href="/tags/">
         <li class="mobile-menu-item">Tags</li>
@@ -120,7 +95,7 @@
     <li class="menu-item">
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
+        <a class="menu-item-link" href="/posts/">Archives</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/tags/">Tags</a>
       </li><li class="menu-item">
@@ -133,158 +108,503 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          
-  <section id="posts" class="posts">
+          <section id="posts" class="posts">
     
-    
-    
-      <article class="post">
+    <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E8%AE%B0%E4%B8%80%E6%AC%A1array_multisort%E6%8E%92%E5%BA%8F%E6%97%B6%E5%85%85%E5%80%BC%E6%95%B0%E5%AD%97key%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">记一次array_multisort排序时充值数字KEY的问题与解决方法</a></h1>
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/git-%E5%A6%82%E4%BD%95%E7%9B%B4%E6%8E%A5%E6%9F%A5%E6%89%BE%E5%87%BA%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%87%E4%BB%B6/">Git - 如何直接查找出冲突的文件</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2017-07-03 </span>
+      <span class="post-time"> 2019-09-04 </span>
       <div class="post-category">
-          
-            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
-          
-        </div>
-      <span class="more-meta"> 约 46 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 192 words </span>
+        <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      array_multisort在执行过程中, 不会充值字符串KEY, 但是会充值纯数字的KEY.
+      <pre><code>在项目中, 在合并其他分支的时候, 总会遇到合并大量文件, 其中有一两个文件有冲突, 那怎么在茫茫多的修改分支中查找到冲突的文件是本文解决的问题
+</code></pre>
     </div>
     <div class="read-more">
-      <a href="/post/%E8%AE%B0%E4%B8%80%E6%AC%A1array_multisort%E6%8E%92%E5%BA%8F%E6%97%B6%E5%85%85%E5%80%BC%E6%95%B0%E5%AD%97key%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="read-more-link">阅读更多</a>
+      <a href="http://liupengliang.com/posts/git-%E5%A6%82%E4%BD%95%E7%9B%B4%E6%8E%A5%E6%9F%A5%E6%89%BE%E5%87%BA%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%87%E4%BB%B6/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
-    
-      <article class="post">
+
+    <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/">介绍一个oh-my-zsh的扩展Z实现跳转</a></h1>
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/docker/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/">docker部署gitlab, gitlab-cli, gitlab-runner的血与泪</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2017-07-02 </span>
+      <span class="post-time"> 2019-07-23 </span>
       <div class="post-category">
-          
-            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
-          
-            <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
-          
-        </div>
-      <span class="more-meta"> 约 305 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 878 words </span>
+        <span class="more-meta"> 2 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      oh-my-zsh是款常用的命令行工具, 他具有很多插件和扩展, 今天介绍一下Z. #介绍 Z 不是 Oh-My-ZSH 的一部分，不过对任何苦于使用命令行的人来说它都是
+      <pre><code>使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂... 
+就这么入了gitlab-cli &amp;&amp; gitlab-runner的坑, 爬了两天才爬出来, 仅以此篇祭奠自己的血泪.
+</code></pre>
     </div>
     <div class="read-more">
-      <a href="/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/" class="read-more-link">阅读更多</a>
+      <a href="http://liupengliang.com/posts/docker/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
-    
-      <article class="post">
+
+    <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/">Ubuntu安装zsh &amp;&amp; 默认启动</a></h1>
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/pj/uxc/">Uxc项目部署</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2017-07-02 </span>
+      <span class="post-time"> 2019-04-02 </span>
       <div class="post-category">
-          
-            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
-          
-        </div>
-      <span class="more-meta"> 约 110 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
+          <a href="/categories/%E7%AE%A1%E7%90%86/"> 管理 </a>
+          </div>
+        <span class="more-meta"> 99 words </span>
+        <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      zsh拥有更强的补全功能(常用工具的参数补全), 推荐大家使用 安装 sudo apt-get install zsh 引入增强插件,支持git,rails等补全，可选多种外观皮肤 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O -
+      <p>Uxc的搭建</p>
     </div>
     <div class="read-more">
-      <a href="/post/ubuntu%E5%AE%89%E8%A3%85zsh--%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/" class="read-more-link">阅读更多</a>
+      <a href="http://liupengliang.com/posts/pj/uxc/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
-    
-      <article class="post">
+
+    <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/docker%E5%AE%89%E8%A3%85---ubuntu/">docker安装 - Ubuntu</a></h1>
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/golang/golang-rpc%E5%85%A5%E9%97%A8/">golang RPC入门</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2017-07-02 </span>
+      <span class="post-time"> 2019-01-02 </span>
       <div class="post-category">
-          
-            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
-          
-        </div>
-      <span class="more-meta"> 约 692 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 2104 words </span>
+        <span class="more-meta"> 5 mins read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      经过了在window10安装docker的摧残后, 准备来linux系统找找自信 知识背景 2013-3诞生了docker linux内核3.8以上
+      <p>Golang入门</p>
     </div>
     <div class="read-more">
-      <a href="/post/docker%E5%AE%89%E8%A3%85---ubuntu/" class="read-more-link">阅读更多</a>
+      <a href="http://liupengliang.com/posts/golang/golang-rpc%E5%85%A5%E9%97%A8/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
-    
-      <article class="post">
+
+    <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/docker%E5%AE%89%E8%A3%85---window10/">docker安装 - window10</a></h1>
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/windows-for-docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">windows for docker遇到的问题总结</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2017-07-02 </span>
+      <span class="post-time"> 2018-11-20 </span>
       <div class="post-category">
-          
-            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
-          
-        </div>
-      <span class="more-meta"> 约 729 字 </span>
-      <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 423 words </span>
+        <span class="more-meta"> 1 min read </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      昨天准备重新布置自己的开发环境, 顺便练一下docker的安装, 就先尝试了window10的安装, 安装的过程中, 有各种各样的坑, 搏斗了一天后,
+      <p>docker现在对于windows平台的支持越来越好, 我在windows环境开发的时候, 都是通过docker作为开发环境, 现整理汇总平时遇到的问题及解决方案, 供大家参考.</p>
     </div>
     <div class="read-more">
-      <a href="/post/docker%E5%AE%89%E8%A3%85---window10/" class="read-more-link">阅读更多</a>
+      <a href="http://liupengliang.com/posts/windows-for-docker%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="read-more-link">Read more..</a>
     </div>
   </div>
 </article>
 
-    
-  </section>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/php/php7%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%84%E7%90%86redis%E9%98%9F%E5%88%97%E9%97%AE%E9%A2%98/">PHP7多进程处理redis队列问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-10-18 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 518 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>一直在研究PHP7多进程编程, 在使用的过程中遇到了一些问题.</p>
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/php/php7%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%84%E7%90%86redis%E9%98%9F%E5%88%97%E9%97%AE%E9%A2%98/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">hadoop伪分布式集群搭建</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-02 </span>
+      <div class="post-category">
+          <a href="/categories/bigdata/"> BigData </a>
+          </div>
+        <span class="more-meta"> 1722 words </span>
+        <span class="more-meta"> 4 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">HDFS学习笔记</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-02 </span>
+      <div class="post-category">
+          <a href="/categories/bigdata/"> BigData </a>
+          </div>
+        <span class="more-meta"> 9600 words </span>
+        <span class="more-meta"> 20 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">kettle学习笔记</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-02 </span>
+      <div class="post-category">
+          <a href="/categories/bigdata/"> BigData </a>
+          </div>
+        <span class="more-meta"> 3922 words </span>
+        <span class="more-meta"> 8 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ###1.简介 Kettle是免费开源的基于java的企业级ETL工具。特点： 免费开源：基于java的免费开源的软件，对商业用户也没有限制 易配
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/">RestTemplate的post请求中文乱码问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-02 </span>
+      <div class="post-category">
+          <a href="/categories/bigdata/"> BigData </a>
+          </div>
+        <span class="more-meta"> 1428 words </span>
+        <span class="more-meta"> 3 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ###1.问题重现 需调用的接口如下： @RequestMapping(value = &quot;/test&quot;, method = RequestMethod.POST) public Object createTransGet(HttpServletRequest request, HttpServletResponse response,@RequestBody String text) { System.out.println(text); return &quot;ok&quot;; } RestTemplate调用接口的代码如下： @Test public void test9() throws UnsupportedEncodingException{ RestTemplate restTemplate = new RestTemplate();
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/">SpringBoot整合cxf调用WebService服务</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-02 </span>
+      <div class="post-category">
+          <a href="/categories/bigdata/"> BigData </a>
+          </div>
+        <span class="more-meta"> 1259 words </span>
+        <span class="more-meta"> 3 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      #1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/lfblog/springboot/%E5%9F%BA%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84https/">基于SpringBoot项目的https</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-07-02 </span>
+      <div class="post-category">
+          <a href="/categories/bigdata/"> BigData </a>
+          </div>
+        <span class="more-meta"> 995 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      ###1.生成和导入证书步骤： 生成请求证书： 1.1 keytool -genkey -alias [Name] -keypass [Password] -keyalg RSA -keysize 2048 -validity 18250 -keystore [Name]-alias:后的Name为要申请的证书的别名-keyp
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/lfblog/springboot/%E5%9F%BA%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84https/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BA%8C-/">windows10 shell折腾日记 ( 二 )</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-05-04 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 145 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>折腾了一圈MAC, 现在是MAC+Windows双环境开发, 因为中了MAC oh-my-zsh的毒, 感觉不弄好windows的环境, 就浑身不得劲</p>
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0-%E4%BA%8C-/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/golang/golang-%E7%83%AD%E9%87%8D%E5%90%AF/">golang热重启</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-04-02 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 89 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>golang的热重启, 分为及时更新与进程重启</p>
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/golang/golang-%E7%83%AD%E9%87%8D%E5%90%AF/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">常用的基础命令</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-04-02 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 72 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>常用的基础命令</p>
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/">golang-gin-gorm链接数据库问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-03-21 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 105 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>在练习使用gin - gorm链接数据库时, 始终出现报错, 最终发现是时区和Sprintf的问题</p>
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/golang/golang-gin-gorm%E9%93%BE%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/php/%E5%9C%A8phpstorm%E4%B8%AD%E4%BD%BF%E7%94%A8cmder/">在PHPSTORM中使用cmder</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-01-16 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 205 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>windows平台 PHPSTORM 中自带的命令终端是cmd, 之前我使用过git bash, 这个配置起来很简单, 这里就不赘述, 本文主要讲一下我配置cmder的过程</p>
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/php/%E5%9C%A8phpstorm%E4%B8%AD%E4%BD%BF%E7%94%A8cmder/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/git%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98/">Git多平台开发换行符异常的问题</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-01-13 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 343 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>Git 多平台换行符问题(LF or CRLF).
+文本文件所使用的换行符，在不同的系统平台上是不一样的。UNIX/Linux 使用的是 0x0A（LF），早期的 Mac OS 使用的是 0x0D（CR），后来的 OS X 在更换内核后与 UNIX 保持一致了.
+但 DOS/Windows 一直使用 0x0D0A（CRLF） 作为换行符.</p>
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/git%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%BC%80%E5%8F%91%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%BC%82%E5%B8%B8%E7%9A%84%E9%97%AE%E9%A2%98/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/">vultr基于docker搭建的hugo和ssr&#43;bbr</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-11-20 </span>
+      <div class="post-category">
+          <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+          </div>
+        <span class="more-meta"> 700 words </span>
+        <span class="more-meta"> 2 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="http://liupengliang.com/posts/php/%E8%AE%B0%E4%B8%80%E6%AC%A1phpexcel%E5%AF%BC%E5%87%BA%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/">记一次PHPExcel导出特殊字符的问题和解决</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2017-08-10 </span>
+      
+        <span class="more-meta"> 303 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      #描述 在导出数据时，碰见了直接崩溃，报505。 打断点和异常捕获都不能组织任性的505. 最后分析是特殊字符的问题， 最早想到的解决方式是str_
+    </div>
+    <div class="read-more">
+      <a href="http://liupengliang.com/posts/php/%E8%AE%B0%E4%B8%80%E6%AC%A1phpexcel%E5%AF%BC%E5%87%BA%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
+
+    </section>
   
   <nav class="pagination">
-    
-      <a class="prev" href="/">
+    <a class="prev" href="/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">上一页</span>
+        <span class="prev-text">Prev</span>
       </a>
-    
-      <a class="next" href="/page/3/">
-        <span class="next-text">下一页</span>
+    <a class="next" href="/page/3/">
+        <span class="next-text">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
   </nav>
-
         </div>
         
 
@@ -293,41 +613,35 @@
 
     <footer id="footer" class="footer">
       <div class="social-links">
-      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
-      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
-      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
-      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
-      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
-      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
-      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
-      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
-      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
-      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
-  <a href="http://www.liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
 </div>
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
-  
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
 
   <span class="copyright-year">
     &copy; 
-    2018
+    2016 - 
+    2025
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">Ailen1988</span>
+    <span class="author">Allen</span>
   </span>
 </div>
     </footer>
@@ -337,12 +651,10 @@
     </div>
   </div>
   
-<script src="/lib/highlight/highlight.pack.js?v=20171001"></script><script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-
-
-<script type="text/javascript" src="/dist/even.min.js?v=3.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
 
 
 

@@ -1,0 +1,27 @@
+{
+    "created_time": "2023-02-09T15:51:11Z",
+    "files": [
+        {
+            "attachment_folder": "",
+            "created_time": "2023-02-09T15:51:11Z",
+            "id": "63",
+            "modified_time": "2023-02-09T15:51:11Z",
+            "name": "pom.xml",
+            "signature": "6442724341819184751",
+            "tags": [
+            ]
+        }
+    ],
+    "folders": [
+        {
+            "name": "src"
+        },
+        {
+            "name": "target"
+        }
+    ],
+    "id": "62",
+    "modified_time": "2023-02-09T15:51:11Z",
+    "signature": "1511917348446344815",
+    "version": 3
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mysql索引总结 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/posts/%E9%9D%A2%E8%AF%95/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Mysql索引总结" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/posts/%E9%9D%A2%E8%AF%95/" />
+<meta property="article:published_time" content="2020-05-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-18T00:00:00+00:00" />
+<meta itemprop="name" content="Mysql索引总结">
+<meta itemprop="description" content="">
+<meta itemprop="datePublished" content="2020-05-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-05-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="870">
+
+
+
+<meta itemprop="keywords" content="Mysql," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mysql索引总结"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Mysql索引总结</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-18 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+            </div>
+          <span class="more-meta"> 870 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="mysql-索引">Mysql 索引</h1>
+<ol>
+<li>MySQL索引数据结构底层为什么不用二叉树
+顺序查找时, 单边增长的列还是全表查询, 没有一丝增长</li>
+<li>MySQL索引数据结构底层为什么不用红黑树(二叉平衡树)
+数据越多, 树的高度越大. 即数据量越大查询越慢.</li>
+<li>MySQL索引数据结构底层为什么使用B+Tree
+<ol>
+<li>首先B Tree与B+Tree的区别是, B Tree节点上的data数据, 挪移到最后层的叶子节点上. 其次, B+Tree比B Tree叶子节点上多了双向指针, 存储了磁盘地址, 方便做范围查询.</li>
+<li>每次索引查询时, 都会将每层的索引load到内存中进行二分比对, 直到找到data数据, 这样就导致BTree相对于B+Tree会很重, B+Tree找到相应的索引后才会去拉取数据</li>
+<li>每一页的索引都是做了排序</li>
+<li>树高控制在3层高度, 每一层叫一页(innodb_page_size), 默认为16KB(大概可以放1170多个元素)</li>
+</ol>
+</li>
+<li>为什么不使用红黑树
+相对于红黑树, BTree可以压缩树的高度.</li>
+<li>innodb索引的结构有哪些? 分别都有什么优劣
+<ol>
+<li>有两种, 一种是BTree, 另一种是hash</li>
+<li>Hash速度快, 尤其是等值或者”IN”的时候, 但是有hash冲突的和不支持范围查询的问题;</li>
+</ol>
+</li>
+<li>为什么推荐使用Innodb, 为什么推荐使用整形自增主键
+<ol>
+<li>innodb与my在存储结构上的不同决定的, innodb可以按照索引直接查找到数据, My按照索引只能查找到数据的磁盘文件地址, 还要到另一种表中查找数据, 性能上有浪费</li>
+<li>在索引排序规则下, 使用自增会很方便的在后面新增节点, 相反, 如果不使用自增, 在已经排序完很多节点的情况下, 再插入中间的节点, 会造成索引排序引擎非常大的压力, 又将已经排序好的节点做重新的分裂, 也有可能在根节点做变动.</li>
+</ol>
+</li>
+<li>MY的主键索引和非主键索引是一样的类型, Innodb的主键索引和非主键索引是不一样的类型, 非主键索引存储的data, 是这张表的聚集索引(一般是主键索引), 这么做是为了一致性和节约空间, 二级索引都是非聚集索引, innodb每张表只有一张聚集索引</li>
+<li>聚合索引, 使用的是左列前缀, 按照索引建立的前后顺序来做索引排序</li>
+</ol>
+<h1 id="mysql-explain">Mysql Explain</h1>
+<ol>
+<li>关联查询时要使用主键关联</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Allen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2020-05-18</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/mysql/">Mysql</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="http://liupengliang.com/postsbak/golang/golang-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">golang 垃圾回收</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="http://liupengliang.com/postsbak/%E9%9D%A2%E8%AF%95/">
+            <span class="next-text nav-default">Mysql索引总结</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

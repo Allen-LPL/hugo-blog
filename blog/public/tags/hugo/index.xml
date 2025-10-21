@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on 文刀苑</title>
@@ -13,11 +13,20 @@
     
     <item>
       <title>vultr基于docker搭建的hugo和ssr&#43;bbr</title>
-      <link>http://liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</link>
+      <link>http://liupengliang.com/posts/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</link>
       <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
       
-      <guid>http://liupengliang.com/post/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</guid>
-      <description>前言 迁移Blog，最近一直在研究docker，正好使用docker部署hugo, 以及配置了BBR算法的酸酸乳（ssr）。 步骤 直接说方法 部署v</description>
+      <guid>http://liupengliang.com/posts/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vultr基于docker搭建的hugo和ssr&#43;bbr</title>
+      <link>http://liupengliang.com/postsbak/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</link>
+      <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/</guid>
+      <description></description>
     </item>
     
   </channel>

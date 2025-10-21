@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="python装饰器@语法介绍及作用和用途？ 介绍 装饰器@语法是python的一种特殊的语法，它可以让我们更方便地修改函数、方法（以及可能的类）" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/postsbak/tmp/answer-u/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="python装饰器@语法介绍及作用和用途？ 介绍 装饰器@语法是python的一种特殊的语法，它可以让我们更方便地修改函数、方法（以及可能的类）" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/postsbak/tmp/answer-u/" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="python装饰器@语法介绍及作用和用途？ 介绍 装饰器@语法是python的一种特殊的语法，它可以让我们更方便地修改函数、方法（以及可能的类）">
+
+<meta itemprop="wordCount" content="3656">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="python装饰器@语法介绍及作用和用途？ 介绍 装饰器@语法是python的一种特殊的语法，它可以让我们更方便地修改函数、方法（以及可能的类）"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <h2 id="python装饰器语法介绍及作用和用途">python装饰器@语法介绍及作用和用途？</h2>
+<h3 id="介绍">介绍</h3>
+<p>装饰器@语法是python的一种特殊的语法，它可以让我们更方便地修改函数、方法（以及可能的类）的行为，而不需要显式地修改它们。它支持更可读的装饰器模式（DecoratorPattern）的应用，也支持其他的用途。</p>
+<h3 id="用途和作用">用途和作用</h3>
+<h4 id="装饰器的作用是在不改变原函数定义和调用方式的情况下给原函数增加一些额外的功能这些功能通常和原函数的逻辑无关而是和一些通用的需求有关例如日志记录性能测试缓存权限验证等">装饰器的作用是在不改变原函数定义和调用方式的情况下，给原函数增加一些额外的功能。这些功能通常和原函数的逻辑无关，而是和一些通用的需求有关，例如日志记录、性能测试、缓存、权限验证等。</h4>
+<h4 id="装饰器的用途是实现一种高阶函数higher-order-function即一个接受函数作为参数并返回一个新函数的函数这样可以让我们把一些通用的功能封装在装饰器函数中然后通过语法来应用到不同的原函数上实现代码的复用和解耦">装饰器的用途是实现一种高阶函数（higher-order function），即一个接受函数作为参数并返回一个新函数的函数。这样可以让我们把一些通用的功能封装在装饰器函数中，然后通过@语法来应用到不同的原函数上，实现代码的复用和解耦。</h4>
+<h4 id="python中有一些内置的装饰器例如propertyclassmethodstaticmethod等它们可以让我们更方便地定义类属性类方法和静态方法">python中有一些内置的装饰器，例如@property、@classmethod、@staticmethod等，它们可以让我们更方便地定义类属性、类方法和静态方法。</h4>
+<h4 id="python中也有一些第三方库提供了一些常用的装饰器例如flask中的approutefunctools中的lru_cache等它们可以让我们更方便地实现一些web开发缓存等功能">python中也有一些第三方库提供了一些常用的装饰器，例如flask中的@app.route()、functools中的@lru_cache()等，它们可以让我们更方便地实现一些web开发、缓存等功能。</h4>
+<h4 id="python中也可以自定义装饰器只需要定义一个接受函数作为参数并返回一个新函数的函数并在新函数中调用原函数并添加一些额外的功能即可">python中也可以自定义装饰器，只需要定义一个接受函数作为参数并返回一个新函数的函数，并在新函数中调用原函数并添加一些额外的功能即可</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+
+<span class="c1"># 这是一个装饰器函数</span>
+<span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;{func.__name__}运行时间:{end - start}&#34;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="c1"># 使用装饰器  </span>
+<span class="nd">@timer</span>
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&#34;foo函数运行中...&#34;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="n">foo</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="简述join-和-split-方法">简述join() 和 split() 方法？</h2>
+<h4 id="介绍-1">介绍</h4>
+<h6 id="1-join方法">1. join()方法</h6>
+<ul>
+<li>作用:用指定的字符串连接序列中的元素,并返回连接后的新字符串。</li>
+<li>语法:&lsquo;分隔符&rsquo;.join(sequence)</li>
+<li>sequence可以是列表,元组,集合,字典等</li>
+</ul>
+<h6 id="2-split方法">2. split()方法:</h6>
+<ul>
+<li>作用:用指定的分隔符对字符串进行切片,并返回切片后的子字符串组成的列表。</li>
+<li>语法:字符串.split(分隔符)</li>
+</ul>
+<h4 id="示例">示例</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+<span class="n">twitter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0_7_15_0_14_7_21&#34;</span><span class="p">,</span> <span class="s2">&#34;-13_11_15&#34;</span><span class="p">,</span> <span class="s2">&#34;-13_11_20&#34;</span><span class="p">,</span> <span class="s2">&#34;-14_27&#34;</span><span class="p">]</span>
+<span class="c1"># x是字符串</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">twitter</span><span class="p">:</span>
+    <span class="c1"># 不能使用twitter[x], 报错list indices must be integers or slices not str</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">90</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="python变量前和符号的作用">python变量前＆和*符号的作用？</h2>
+<h4 id="符号用于传递变量的引用">&amp;符号用于传递变量的引用。</h4>
+<p>在funcA(argA, &amp;argB)的调用中,argB必须是一个变量,&amp;表示传入argB的引用而不是值。在funcA内部,对argB的修改将影响到外部的argB变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">funcA</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> 
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># 修改b的值</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">funcA</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># 输出20</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="符号用于接收不定长的参数">*符号用于接收不定长的参数。</h4>
+<p>在funcB(argA, *argB)的调用中,*argB允许你传入0个或多个参数,这些参数被组装成一个tuple赋值给参数argB。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">funcB</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">*</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">funcB</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 1 ()  </span>
+<span class="n">funcB</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 1 (2, 3)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>所以简单来说:</p>
+<ul>
+<li>&amp;用于传递变量引用</li>
+<li>*用于接收不定长参数</li>
+</ul>
+<h2 id="c中类名后的和符号的作用">c++中类名后的*、&amp;和~符号的作用？</h2>
+<h4 id="-代表指针表示一个指向该类型的指针变量">* 代表指针,表示一个指向该类型的指针变量。</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// observer是一个指向observer类类型的指针。
+</span><span class="c1"></span><span class="n">observer</span><span class="o">*</span> <span class="n">observer</span>   
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="-代表引用表示一个对该类型的引用">&amp; 代表引用,表示一个对该类型的引用。</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// enity是一个对Entity类型的常引用。  
+</span><span class="c1">// const关键字的作用是使该引用enity成为一个常量引用,无法通过它来修改所引用的对象。  
+</span><span class="c1">// 具体来说:
+</span><span class="c1">// - Entity&amp; 表示这是一个对Entity对象的引用。
+</span><span class="c1">// - const修饰这个引用,使得它成为一个常引用,无法通过它来修改所引用的对象。
+</span><span class="c1">// 这样做的好处是:
+</span><span class="c1">// 1. 避免通过引用意外修改对象,增强程序健壮性。
+</span><span class="c1">// 2. 可以让编译器进行优化,如果函数不修改引用指向的对象,那编译器可以进行一些性能优化。
+</span><span class="c1">// 3. 对于类成员,可以在声明时使其成为常引用,防止修改。
+</span><span class="c1">// 所以,const的作用是使引用及指针无法修改所指向的对象,起到一个保护对象不被修改的作用
+</span><span class="c1"></span><span class="k">const</span> <span class="n">Entity</span><span class="o">&amp;</span> <span class="n">enity</span>  
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="-代表析构函数它会在类的对象销毁时执行">~ 代表析构函数,它会在类的对象销毁时执行。</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="c1">// 定义一个virtual析构可以让子类正确执行析构。
+</span><span class="c1">// 所以在C++中,正确使用指针、引用和析构函数对类的设计非常重要。
+</span><span class="c1">// 指针用于传递对象地址,提高效率;引用用于避免复制,节省空间;析构用于释放资源。
+</span><span class="c1"></span><span class="k">virtual</span> <span class="o">~</span><span class="n">Entity</span><span class="p">()</span> <span class="p">{</span> 
+    <span class="c1">// 析构函数代码
+</span><span class="c1"></span><span class="p">}</span>  
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="python中闭包和垃圾回收机制">python中闭包和垃圾回收机制</h2>
+<h4 id="闭包">闭包</h4>
+<p>Python中一般通过嵌套函数实现闭包,内部函数可以访问外部函数的变量:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">outer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">inner</span> 
+
+<span class="n">closure</span> <span class="o">=</span> <span class="n">outer</span><span class="p">()</span>
+<span class="n">closure</span><span class="p">()</span> <span class="c1"># 输出1</span>
+
+<span class="c1"># inner函数封闭保存了outer函数的x,所以inner就是一个闭包。</span>
+<span class="c1"># 我们也可以通过lambda表达式创建闭包:</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">closure</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="垃圾回收">垃圾回收</h4>
+<p>Python与PHP都是使用引用计数进行自动垃圾回收。当一个对象的引用计数降为0时,会被自动回收。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># Python还可以通过gc模块手动触发垃圾回收。</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">Object</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># 2</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> 
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># 3 </span>
+
+<span class="k">del</span> <span class="n">b</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getrefcount</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> <span class="c1"># 2</span>
+
+<span class="k">del</span> <span class="n">a</span>
+<span class="c1"># a自动被回收</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="面向对象变成常见继承关系和关键字作用详细讲解面向切面编程">面向对象变成常见继承关系和关键字作用？详细讲解面向切面编程</h2>
+<h4 id="面向对象">面向对象</h4>
+<h5 id="公有继承子类继承父类所有公开属性和方法">公有继承,子类继承父类所有公开属性和方法:</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Parent</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">public_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="c1"># 可以访问public_method</span>
+    <span class="k">pass</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="保护继承子类只继承保护单下划线和公有属性方法">保护继承,子类只继承保护(单下划线)和公有属性/方法:</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Parent</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_protected_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="c1"># 只可以访问public_method</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="面向切面编程">面向切面编程</h5>
+<p>Python中可以通过装饰器实现AOP:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="c1"># 这里log装饰器在不修改add函数的情况下,为其添加了日志打印功能。</span>
+<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;Call {func.__name__}&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@log</span>  
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># 打印:</span>
+<span class="c1"># Call add</span>
+<span class="c1"># 5</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="python连接存储数据db的主流方式介绍">python连接存储数据DB的主流方式介绍。</h2>
+<h5 id="使用数据库接口模块python内置了mysqldbpsycopg2等模块可以很方便的连接mysqlpostgresql等数据库">使用数据库接口模块:Python内置了MySQLdb、psycopg2等模块,可以很方便的连接MySQL、PostgreSQL等数据库。</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">MySQLdb</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">MySQLdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="s1">&#39;123456&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;select * from tb_user&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="使用orm框架如sqlalchemydjango-orm等可以实现对象关系映射通过面向对象的方式操作数据库不需要写sql语句">使用ORM框架:如SqlAlchemy、Django ORM等,可以实现对象关系映射,通过面向对象的方式操作数据库,不需要写SQL语句。</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">String</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
+
+<span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;user&#39;</span>
+
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="使用nosql数据库如mongodbredis等用key-value或者文档形式存储通过官方或第三方提供的驱动连接">使用NoSQL数据库:如MongoDB、Redis等,用Key-Value或者文档形式存储,通过官方或第三方提供的驱动连接。</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pymongo</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">27017</span><span class="p">)</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="p">[</span><span class="s1">&#39;testdb&#39;</span><span class="p">]</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="社经新闻">社经新闻</h2>
+<ol>
+<li>财政部公布2023年上半年财政收支情况，其中社会保障和就业支出21791亿元，同比增长7.9%，主要用于养老、医疗、失业、工伤等保险基金转移支付，以及实施就业扶贫、稳岗返还等政策。</li>
+<li>国家统计局发布6月份国民经济运行情况，其中全国居民消费价格同比上涨1.1%，环比下降0.4%；工业生产者出厂价格同比上涨8.8%，环比上涨0.3%；工业生产者购进价格同比上涨12.5%，环比上涨0.8%。</li>
+<li>国家统计局发布6月份国民经济运行情况，其中全国城镇调查失业率为5.0%，同比下降0.7个百分点，环比下降0.1个百分点；全国城镇登记失业率为3.5%，持平于上年同期。</li>
+<li>国家统计局发布6月份国民经济运行情况，其中全国房地产开发投资71154亿元，同比增长15%，增速比1-5月份回落1.4个百分点；商品房销售面积8亿平方米，同比增长27.7%，增速比1-5月份回落2个百分点；商品房销售额88555亿元，同比增长36.3%，增速比1-5月份回落2个百分点。</li>
+<li>中国在酒泉卫星发射中心用长征二号丁运载火箭，成功将高分十三号卫星送入预定轨道。高分十三号卫星是一颗高分辨率对地观测卫星，主要用于国土普查、城市规划、土地确权、路网设计、农作物估产和防灾减灾等领域。</li>
+<li>中国科学家在量子计算领域取得重大突破，实现了光量子计算机的超越经典计算能力。该光量子计算机采用了光学波导芯片，能够实现66个光量子比特的可控操作，完成了一项复杂的线性代数问题，耗时约200秒，而最快的经典超级计算机需要2.5亿年才能完成。这是继去年中国科学家实现超导量子计算机的超越经典计算能力后，又一次在量子计算领域的重大突破。</li>
+<li>中国人民银行发布6月份全国金融统计数据报告，其中全国人民币贷款增加22100亿元，同比多增111亿元；社会融资规模增加35700亿元，同比多增11100亿元；人民币广义货币（M2）余额231.95万亿元，同比增长8.6%，增速比上月末低0.3个百分点。</li>
+<li>国家外汇管理局发布6月份全国外汇储备规模为32167亿美元，较5月份增加230亿美元，增幅为0.72%。国家外汇管理局表示，6月份外汇储备规模变动主要受到汇率和资产价格变化等因素的影响。</li>
+<li>中国人民银行发布6月份全国银行间同业拆借市场运行情况，其中银行间同业拆借加权平均利率为2.14%，较上月下降0.01个百分点；银行间质押式回购加权平均利率为2.17%，较上月下降0.01个百分点；银行间协议式回购加权平均利率为2.16%，较上月下降0.02个百分点。</li>
+</ol>
+
+  </div>
+</article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工具 on 文刀苑</title>
@@ -13,11 +13,20 @@
     
     <item>
       <title>介绍一个oh-my-zsh的扩展Z实现跳转</title>
-      <link>http://liupengliang.com/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</link>
+      <link>http://liupengliang.com/posts/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</link>
       <pubDate>Sun, 02 Jul 2017 18:26:53 +0000</pubDate>
       
-      <guid>http://liupengliang.com/post/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</guid>
-      <description>oh-my-zsh是款常用的命令行工具, 他具有很多插件和扩展, 今天介绍一下Z. #介绍 Z 不是 Oh-My-ZSH 的一部分，不过对任何苦于使用命令行的人来说它都是</description>
+      <guid>http://liupengliang.com/posts/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</guid>
+      <description>&lt;p&gt;oh-my-zsh是款常用的命令行工具, 他具有很多插件和扩展, 今天介绍一下Z.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>介绍一个oh-my-zsh的扩展Z实现跳转</title>
+      <link>http://liupengliang.com/postsbak/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</link>
+      <pubDate>Sun, 02 Jul 2017 18:26:53 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%AAoh-my-zsh%E7%9A%84%E6%89%A9%E5%B1%95z%E5%AE%9E%E7%8E%B0%E8%B7%B3%E8%BD%AC/</guid>
+      <description>&lt;p&gt;oh-my-zsh是款常用的命令行工具, 他具有很多插件和扩展, 今天介绍一下Z.&lt;/p&gt;</description>
     </item>
     
   </channel>

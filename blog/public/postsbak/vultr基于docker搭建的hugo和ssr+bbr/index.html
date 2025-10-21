@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>vultr基于docker搭建的hugo和ssr&#43;bbr - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/postsbak/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="vultr基于docker搭建的hugo和ssr&#43;bbr" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/postsbak/vultr%E5%9F%BA%E4%BA%8Edocker%E6%90%AD%E5%BB%BA%E7%9A%84hugo%E5%92%8Cssr&#43;bbr/" />
+<meta property="article:published_time" content="2017-11-20T00:15:03+00:00" />
+<meta property="article:modified_time" content="2017-11-20T00:15:03+00:00" />
+<meta itemprop="name" content="vultr基于docker搭建的hugo和ssr&#43;bbr">
+<meta itemprop="description" content="">
+<meta itemprop="datePublished" content="2017-11-20T00:15:03&#43;00:00" />
+<meta itemprop="dateModified" content="2017-11-20T00:15:03&#43;00:00" />
+<meta itemprop="wordCount" content="700">
+
+
+
+<meta itemprop="keywords" content="Docker,Hugo," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="vultr基于docker搭建的hugo和ssr&#43;bbr"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <h1 id="前言">前言</h1>
+<p>迁移Blog，最近一直在研究docker，正好使用docker部署hugo, 以及配置了BBR算法的酸酸乳（ssr）。</p>
+<h1 id="步骤">步骤</h1>
+<p>直接说方法</p>
+<h2 id="部署vultr">部署vultr</h2>
+<p>在vultr上部署服务器， 选择默认安装docker的服务器，或者在服务器上安装docker</p>
+<h2 id="部署docker的容器">部署docker的容器</h2>
+<h3 id="部署hugo">部署hugo</h3>
+<p>两种部署方式
+资料来源于 <a href="https://orianna-zzo.github.io/blog/2018-01/blog%E5%85%BB%E6%88%90%E8%AE%B02-hugo-docker%E5%9C%A8github%E4%B8%8A%E5%BB%BA%E7%AB%8Bblog/">BLOG养成记(2) HUGO+DOCKER在GITHUB上建立BLOG</a></p>
+<h4 id="dockerfile">dockerfile</h4>
+<p><strong>需要注意HUGO的版本</strong>，目前我使用的是HUGO v0.40.1</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">FROM alpine:latest
+MAINTAINER Zi&#39;ou Zheng &lt;zhengziou@gmail.com&gt;
+
+ENV HUGO_VERSION=0.40.1
+
+# Install Hugo
+ADD https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz /tmp
+RUN apk add --no-cache py-pygments ca-certificates \
+    &amp;&amp; cd /tmp \
+    &amp;&amp; tar -xf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz hugo \
+    &amp;&amp; mv /tmp/hugo /usr/local/bin/hugo \
+    &amp;&amp; rm -rf /tmp/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+
+# Decide working directory
+WORKDIR /hugo-site
+
+# Mount volume to host
+VOLUME /hugo-site
+VOLUME /static-site
+
+# Expose default hugo port
+EXPOSE 1313
+
+# # By default, serve site
+# ENV HUGO_BASE_URL http://localhost:1313
+# CMD hugo server -b ${HUGO_BASE_URL} --bind=0.0.0.0
+# CMD [&#34;/bin/sh&#34;]
+
+COPY start.sh /start.sh
+CMD [&#34;/start.sh&#34;]
+
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="镜像推荐">镜像(推荐)</h4>
+<blockquote>
+<p>docker pull liupengliang/hugo-docker</p>
+</blockquote>
+<h3 id="部署ssr-bbr-docker">部署SSR-BBR-DOCKER</h3>
+<p>在docker中部署酸酸乳（ssr）+ 谷歌bbr算法， 实现快速部署</p>
+<blockquote>
+<p><a href="https://github.com/Ailen1988/ssr-bbr-docker">https://github.com/Ailen1988/ssr-bbr-docker</a></p>
+</blockquote>
+<p><em><strong>记得给star</strong></em></p>
+<h2 id="生成容器">生成容器</h2>
+<h3 id="hugo">hugo</h3>
+<blockquote>
+<p>docker run &ndash;name my-hugo -v $(pwd):/hugo-site -v $(pwd)/public:/static-site -p 80:1313 &ndash;rm -it liupengliang/hugo-docker:latest</p>
+</blockquote>
+<p><em>命令详解</em></p>
+<ul>
+<li>&ndash;name 容器命名</li>
+<li>-v 本地目录映射到容器的目录</li>
+<li>-p 本地端口映射到容器的端口</li>
+<li>&ndash;rm 执行完删除镜像</li>
+<li>-it 执行并进入容器</li>
+</ul>
+<p>其中需要强调的是， 我使用的端口映射， 是将容器中的1313端口直接映射到80端口， 因为hugo本身就可以做web server， 辣么就不需要nginx了。</p>
+<h3 id="开启ssr-bbr-docker服务">开启SSR-BBR-DOCKER服务</h3>
+<p>在上面的github地址中， 已经讲解了如何使用， 如果看不明白， 可以直接这么使用。</p>
+<blockquote>
+<p>docker run &ndash;privileged -d -p 465:465/tcp -p 465:465/udp &ndash;name ssr-bbr-docker letssudormrf/ssr-bbr-docker -p 465 -k password -m aes-128-ctr -O auth_aes128_sha1 -o http_post</p>
+</blockquote>
+<p><em>命令详解</em></p>
+<p>命令分为两部分</p>
+<ol>
+<li>docker run &ndash;privileged -d -p 465:465/tcp -p 465:465/udp &ndash;name ssr-bbr-docker letssudormrf/ssr-bbr-docker</li>
+<li>-p 465 -k password -m aes-256-cfb -O origin -o plain</li>
+</ol>
+<blockquote>
+<p>第一部分是docker的基础命令
+第二部分是镜像内部需要的命令</p>
+</blockquote>
+<ul>
+<li>-p 端口</li>
+<li>-k 密码</li>
+<li>-m 加密方法</li>
+<li>-O 协议</li>
+<li>-o 混淆</li>
+</ul>
+<h3 id="客户端">客户端</h3>
+<h4 id="windows">windows</h4>
+<blockquote>
+<p><a href="https://github.com/HMBSbige/ShadowsocksR-Windows/releases">ShadowsocksR-Windows</a></p>
+</blockquote>
+<h4 id="mac">mac</h4>
+<blockquote>
+<p><a href="https://github.com/qinyuhang/ShadowsocksX-NG-R/releases">ShadowsocksX-NG-R</a></p>
+</blockquote>
+  </div>
+</article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>docker部署gitlab, gitlab-cli, gitlab-runner的血与泪 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂... 就这么入了gitlab-cli &amp;amp;&amp;amp; gitlab-runner的坑, 爬了两天才爬出来, 仅以此篇祭奠自己的血泪. " /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/posts/docker/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="docker部署gitlab, gitlab-cli, gitlab-runner的血与泪" />
+<meta property="og:description" content="使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂... 
+就这么入了gitlab-cli &amp;&amp; gitlab-runner的坑, 爬了两天才爬出来, 仅以此篇祭奠自己的血泪.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/posts/docker/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/" />
+<meta property="article:published_time" content="2019-07-23T18:11:26+00:00" />
+<meta property="article:modified_time" content="2019-07-23T18:11:26+00:00" />
+<meta itemprop="name" content="docker部署gitlab, gitlab-cli, gitlab-runner的血与泪">
+<meta itemprop="description" content="使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂... 
+就这么入了gitlab-cli &amp;&amp; gitlab-runner的坑, 爬了两天才爬出来, 仅以此篇祭奠自己的血泪.
+">
+<meta itemprop="datePublished" content="2019-07-23T18:11:26&#43;00:00" />
+<meta itemprop="dateModified" content="2019-07-23T18:11:26&#43;00:00" />
+<meta itemprop="wordCount" content="878">
+
+
+
+<meta itemprop="keywords" content="Docker,Gitlab," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="docker部署gitlab, gitlab-cli, gitlab-runner的血与泪"/>
+<meta name="twitter:description" content="使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂... 
+就这么入了gitlab-cli &amp;&amp; gitlab-runner的坑, 爬了两天才爬出来, 仅以此篇祭奠自己的血泪.
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">docker部署gitlab, gitlab-cli, gitlab-runner的血与泪</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-23 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+            </div>
+          <span class="more-meta"> 878 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dockerfile--docker-compose">dockerfile &amp;&amp; docker-compose</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#docker-compose部分">docker-compose部分</a>
+      <ul>
+        <li><a href="#runner-">RUNNER</a></li>
+      </ul>
+    </li>
+    <li><a href="#gitlab-runnerの注册">gitlab-runnerの注册</a>
+      <ul>
+        <li><a href="#shell执行">shell执行</a></li>
+        <li><a href="#使用docker-in-docker执行器">使用docker-in-docker执行器</a></li>
+        <li><a href="#使用docker套接字绑定">使用Docker套接字绑定</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <pre><code>使用docker部署服务到gitlab, 原本以为只是做个代码库, DevOps要使用jenkins或者walle做, 结果😂... 
+就这么入了gitlab-cli &amp;&amp; gitlab-runner的坑, 爬了两天才爬出来, 仅以此篇祭奠自己的血泪.
+</code></pre>
+<h1 id="安装docker">安装docker</h1>
+<pre><code>&gt; 略
+</code></pre>
+<h1 id="安装docker-compose">安装docker-compose</h1>
+<pre><code>&gt; 略
+</code></pre>
+<h1 id="docker-compose-部署gitlab">docker-compose 部署gitlab</h1>
+<h2 id="dockerfile--docker-compose">dockerfile &amp;&amp; docker-compose</h2>
+<p>可直接引用<a href="https://github.com/laradock/laradock" title="laradock">laradock</a>的gitlab部分, 自带gitlab-cli.
+本来可以仅仅使用gitlab的代码管理部分就可以了, 不过我发现了devops部分, 那就折腾起来.</p>
+<hr>
+<hr>
+<h1 id="docker-compose-部署gitlab-runner">docker-compose 部署gitlab-runner</h1>
+<h2 id="docker-compose部分">docker-compose部分</h2>
+<h3 id="runner-">RUNNER</h3>
+<pre><code>runner:
+  image: gitlab/gitlab-runner
+  restart: always
+  container_name: gitlab-runner
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./gitlab-runner/config:/etc/gitlab-runner
+</code></pre>
+<p>`</p>
+<blockquote>
+<p>docker-compose up -d runner
+<img src="https://i.loli.net/2019/07/23/5d371fcf7c27f51190.png" alt="跑起来的状态" title="跑起来的状态"></p>
+</blockquote>
+<h2 id="gitlab-runnerの注册">gitlab-runnerの注册</h2>
+<p>按照<a href="https://docs.gitlab.com/ee/ci/docker/using_docker_build.html">官方文档</a>的指示, 有三种</p>
+<ul>
+<li>shell执行</li>
+<li>docker in docker执行</li>
+<li>docker套接字执行</li>
+</ul>
+<p>我们来一一分解</p>
+<h3 id="shell执行">shell执行</h3>
+<h4 id="服务器配置注册信息">服务器配置注册信息</h4>
+<pre><code> docker exec -it gitlab-runner gitlab-runner register -n \
+   --url https://gitlab.com/ \
+   --registration-token REGISTRATION_TOKEN \
+   --executor shell \
+   --tag-list &quot;tag&quot; \
+   --description &quot;My Runner&quot;
+</code></pre>
+<h4 id="搭配的命令">搭配的命令</h4>
+<pre><code> sudo usermod -aG docker gitlab-runner
+ sudo -u gitlab-runner -H docker info
+</code></pre>
+<h4 id="搭配的gitlab-ciyml配置需要放到项目根目录">搭配的.gitlab-ci.yml配置(需要放到项目根目录)</h4>
+<pre><code> before_script:
+   - docker info
+
+ build_image:
+   script:
+     - docker build -t my-docker-image .
+     - docker run my-docker-image /script/to/run/tests
+</code></pre>
+<h4 id="失败"><del>失败</del></h4>
+<p><img src="https://i.loli.net/2019/07/23/5d371fcfd75b472667.png" alt="依旧提示没有权限" title="依旧提示没有权限"></p>
+<h3 id="使用docker-in-docker执行器">使用docker-in-docker执行器</h3>
+<h4 id="服务器配置注册信息-1">服务器配置注册信息</h4>
+<pre><code> sudo gitlab-runner register -n \
+   --url https://gitlab.com/ \
+   --registration-token REGISTRATION_TOKEN \
+   --executor docker \
+   --description &quot;My Docker Runner&quot; \
+   --docker-image &quot;docker:stable&quot; \
+   --tag-list &quot;tag&quot; \
+   --docker-privileged
+</code></pre>
+<h4 id="搭配的gitlab-ciyml配置需要放到项目根目录-1">搭配的.gitlab-ci.yml配置(需要放到项目根目录)</h4>
+<pre><code> image: docker:stable
+
+ variables:
+   # When using dind service we need to instruct docker, to talk with the
+   # daemon started inside of the service. The daemon is available with
+   # a network connection instead of the default /var/run/docker.sock socket.
+   #
+   # The 'docker' hostname is the alias of the service container as described at
+   # https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#accessing-the-services
+   #
+   # Note that if you're using the Kubernetes executor, the variable should be set to
+   # tcp://localhost:2375/ because of how the Kubernetes executor connects services
+   # to the job container
+   # DOCKER_HOST: tcp://localhost:2375/
+   #
+   # For non-Kubernetes executors, we use tcp://docker:2375/
+   DOCKER_HOST: tcp://docker:2375/
+   # When using dind, it's wise to use the overlayfs driver for
+   # improved performance.
+   DOCKER_DRIVER: overlay2
+
+ services:
+   - docker:dind
+
+ before_script:
+   - docker info
+
+ build:
+   stage: build
+   script:
+     - docker build -t my-docker-image .
+     - docker run my-docker-image /script/to/run/tests
+</code></pre>
+<h4 id="失败-1"><del>失败</del></h4>
+<p><img src="https://i.loli.net/2019/07/23/5d371fd00a9c981206.jpg" alt="docker链接不上" title="docker链接不上"></p>
+<h3 id="使用docker套接字绑定">使用Docker套接字绑定</h3>
+<h4 id="服务器配置注册信息-2">服务器配置注册信息</h4>
+<pre><code>docker exec -it gitlab-runner gitlab-runner register \
+           --non-interactive \
+           --executor &quot;docker&quot; \
+           --docker-image tico/docker \
+           --docker-privileged \
+           --docker-volumes /var/run/docker.sock:/var/run/docker.sock \
+           --docker-volumes /data/wwwroot:/var/www \
+           --url &quot;http://gitcode.com:8989/&quot; \
+           --registration-token &quot;REGISTRATION_TOKEN&quot; \
+           --description &quot;docker-runner-web002&quot; \
+           --tag-list &quot;docker-runner-web002&quot; \
+           --run-untagged=&quot;true&quot; \
+           --locked=&quot;false&quot; \
+           --access-level=&quot;not_protected&quot;
+</code></pre>
+<blockquote>
+<p>注: 注意tag必须是唯一的, 多台机器公用一个, 会随机在某一台机器执行, 而不会全部执行.</p>
+</blockquote>
+<h4 id="搭配的gitlab-ciyml配置需要放到项目根目录-2">搭配的.gitlab-ci.yml配置(需要放到项目根目录)</h4>
+<pre><code> image: docker:stable
+
+ before_script:
+   - docker info
+
+ build:
+   stage: build
+   script:
+     - docker build -t my-docker-image .
+     - docker run my-docker-image /script/to/run/tests
+</code></pre>
+<h4 id="_成功_"><strong><em>成功</em></strong></h4>
+<p><img src="https://i.loli.net/2019/07/23/5d371fd00adf241936.png" alt="成功" title="成功"></p>
+<p>以上是整个项目配置的流程, 三种方式我都尝试了, 最终通过<strong>第三种</strong>方式实现.</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Allen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2019-07-23</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker/">Docker</a>
+          <a href="/tags/gitlab/">Gitlab</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="http://liupengliang.com/postsbak/git-%E5%A6%82%E4%BD%95%E7%9B%B4%E6%8E%A5%E6%9F%A5%E6%89%BE%E5%87%BA%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%87%E4%BB%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Git - 如何直接查找出冲突的文件</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="http://liupengliang.com/postsbak/docker/docker%E9%83%A8%E7%BD%B2gitlab-gitlab-cli-gitlab-runner%E7%9A%84%E8%A1%80%E4%B8%8E%E6%B3%AA/">
+            <span class="next-text nav-default">docker部署gitlab, gitlab-cli, gitlab-runner的血与泪</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

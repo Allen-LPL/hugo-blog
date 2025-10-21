@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BigData on 文刀苑</title>
+    <link>http://liupengliang.com/categories/bigdata/</link>
+    <description>Recent content in BigData on 文刀苑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Jul 2018 08:13:58 +0000</lastBuildDate>
+    
+	<atom:link href="http://liupengliang.com/categories/bigdata/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hadoop伪分布式集群搭建</title>
+      <link>http://liupengliang.com/posts/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv</description>
+    </item>
+    
+    <item>
+      <title>hadoop伪分布式集群搭建</title>
+      <link>http://liupengliang.com/postsbak/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv</description>
+    </item>
+    
+    <item>
+      <title>HDFS学习笔记</title>
+      <link>http://liupengliang.com/posts/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数</description>
+    </item>
+    
+    <item>
+      <title>HDFS学习笔记</title>
+      <link>http://liupengliang.com/postsbak/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/hadoop/hdfs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.HDFS简介 HDFS（Hadoop Distributed File System)是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流式数</description>
+    </item>
+    
+    <item>
+      <title>kettle学习笔记</title>
+      <link>http://liupengliang.com/posts/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.简介 Kettle是免费开源的基于java的企业级ETL工具。特点： 免费开源：基于java的免费开源的软件，对商业用户也没有限制 易配</description>
+    </item>
+    
+    <item>
+      <title>kettle学习笔记</title>
+      <link>http://liupengliang.com/postsbak/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/kettle/kettle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>###1.简介 Kettle是免费开源的基于java的企业级ETL工具。特点： 免费开源：基于java的免费开源的软件，对商业用户也没有限制 易配</description>
+    </item>
+    
+    <item>
+      <title>RestTemplate的post请求中文乱码问题</title>
+      <link>http://liupengliang.com/posts/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</guid>
+      <description>###1.问题重现 需调用的接口如下： @RequestMapping(value = &amp;quot;/test&amp;quot;, method = RequestMethod.POST) public Object createTransGet(HttpServletRequest request, HttpServletResponse response,@RequestBody String text) { System.out.println(text); return &amp;quot;ok&amp;quot;; } RestTemplate调用接口的代码如下： @Test public void test9() throws UnsupportedEncodingException{ RestTemplate restTemplate = new RestTemplate();</description>
+    </item>
+    
+    <item>
+      <title>RestTemplate的post请求中文乱码问题</title>
+      <link>http://liupengliang.com/postsbak/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/resttemplate/resttemplate%E4%B9%B1%E7%A0%81/</guid>
+      <description>###1.问题重现 需调用的接口如下： @RequestMapping(value = &amp;quot;/test&amp;quot;, method = RequestMethod.POST) public Object createTransGet(HttpServletRequest request, HttpServletResponse response,@RequestBody String text) { System.out.println(text); return &amp;quot;ok&amp;quot;; } RestTemplate调用接口的代码如下： @Test public void test9() throws UnsupportedEncodingException{ RestTemplate restTemplate = new RestTemplate();</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合cxf调用WebService服务</title>
+      <link>http://liupengliang.com/posts/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/</guid>
+      <description>#1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合cxf调用WebService服务</title>
+      <link>http://liupengliang.com/postsbak/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/webservice/springboot%E6%95%B4%E5%90%88cxf%E8%B0%83%E7%94%A8webservice%E6%9C%8D%E5%8A%A1/</guid>
+      <description>#1.WebService简介 WebService是一种跨编程语言和跨操作系统平台的远程调用技术。跨编程语言和跨操作平台，就是说服务端程序采</description>
+    </item>
+    
+    <item>
+      <title>基于SpringBoot项目的https</title>
+      <link>http://liupengliang.com/posts/lfblog/springboot/%E5%9F%BA%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84https/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/lfblog/springboot/%E5%9F%BA%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84https/</guid>
+      <description>###1.生成和导入证书步骤： 生成请求证书： 1.1 keytool -genkey -alias [Name] -keypass [Password] -keyalg RSA -keysize 2048 -validity 18250 -keystore [Name]-alias:后的Name为要申请的证书的别名-keyp</description>
+    </item>
+    
+    <item>
+      <title>基于SpringBoot项目的https</title>
+      <link>http://liupengliang.com/postsbak/lfblog/springboot/%E5%9F%BA%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84https/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/lfblog/springboot/%E5%9F%BA%E4%BA%8Espringboot%E9%A1%B9%E7%9B%AE%E7%9A%84https/</guid>
+      <description>###1.生成和导入证书步骤： 生成请求证书： 1.1 keytool -genkey -alias [Name] -keypass [Password] -keyalg RSA -keysize 2048 -validity 18250 -keystore [Name]-alias:后的Name为要申请的证书的别名-keyp</description>
+    </item>
+    
+  </channel>
+</rss>

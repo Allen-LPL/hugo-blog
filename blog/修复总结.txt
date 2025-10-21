@@ -1,0 +1,55 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                     Hugo 博客修复完成 - 2025-10-21                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+【修复的问题】
+
+✅ 问题1：代码块多层嵌套和样式错误
+   原因：同时启用了Chroma和highlight.js两种代码高亮
+   解决：禁用 highlightInClient，只使用Chroma
+   文件：config.toml (第80行)
+
+✅ 问题2：首页没有文章数据
+   原因：主题期望 "post" 类型，但内容在 "posts" 目录
+   解决：创建 layouts/index.html 和 layouts/posts/ 模板
+   文件：layouts/index.html, layouts/posts/summary.html, layouts/posts/single.html
+
+【修改的文件】
+
+1. blog/config.toml
+   - 第80行：highlightInClient = false
+
+2. blog/layouts/index.html (新建)
+   - 适配 posts 类型的首页模板
+
+3. blog/layouts/posts/summary.html (新建)
+   - 文章摘要模板
+
+4. blog/layouts/posts/single.html (新建)
+   - 文章详情页模板
+
+【验证结果】
+
+✅ 首页正常显示20篇文章
+✅ 代码块高亮正常，无多层嵌套
+✅ 生成226个页面，11个分页
+
+【如何启动】
+
+开发服务器：
+cd /data/hugo-blog
+docker run --rm -p 1313:1313 -v $(pwd)/blog:/hugo-site hugo-blog \
+  hugo server -w -b http://localhost:1313 --bind=0.0.0.0 --disableFastRender
+
+重新生成静态文件：
+cd /data/hugo-blog
+docker run --rm -v $(pwd)/blog:/hugo-site hugo-blog hugo --cleanDestinationDir
+
+【注意事项】
+
+- 主题升级时，需要保留 layouts/ 目录下的自定义模板
+- 如果要使用 content/post/ (单数) 目录，可以删除 layouts/ 目录
+- public/ 目录是自动生成的，可以随时重新生成
+
+详细信息请查看：blog/修复说明.md
+

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>windows10 shell折腾日记 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="无法忍受windows的cmd, powershell的低效, 对于windows-git-bash如果在不配置git alias的情况下, 依旧是难以忍受, 故, 折腾window10可用的, 好用的shell
+" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/postsbak/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="windows10 shell折腾日记" />
+<meta property="og:description" content="无法忍受windows的cmd, powershell的低效, 对于windows-git-bash如果在不配置git alias的情况下, 依旧是难以忍受, 故, 折腾window10可用的, 好用的shell" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/postsbak/windows10-shell%E6%8A%98%E8%85%BE%E6%97%A5%E8%AE%B0/" />
+<meta property="article:published_time" content="2017-07-06T09:46:05+00:00" />
+<meta property="article:modified_time" content="2017-07-06T09:46:05+00:00" />
+<meta itemprop="name" content="windows10 shell折腾日记">
+<meta itemprop="description" content="无法忍受windows的cmd, powershell的低效, 对于windows-git-bash如果在不配置git alias的情况下, 依旧是难以忍受, 故, 折腾window10可用的, 好用的shell">
+<meta itemprop="datePublished" content="2017-07-06T09:46:05&#43;00:00" />
+<meta itemprop="dateModified" content="2017-07-06T09:46:05&#43;00:00" />
+<meta itemprop="wordCount" content="1261">
+
+
+
+<meta itemprop="keywords" content="Shell,oh-my-zsh,Babun," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="windows10 shell折腾日记"/>
+<meta name="twitter:description" content="无法忍受windows的cmd, powershell的低效, 对于windows-git-bash如果在不配置git alias的情况下, 依旧是难以忍受, 故, 折腾window10可用的, 好用的shell"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>无法忍受windows的cmd, powershell的低效, 对于windows-git-bash如果在不配置git alias的情况下, 依旧是难以忍受, 故, 折腾window10可用的, 好用的shell</p>
+<h1 id="前言-">前言</h1>
+<p>说起为什么折腾windows10的shell, 就牵扯到了我用于工作的开发环境 <em><strong>virtualBox + vagrant + homestead</strong></em>,
+这套环境, 在我使用的过程中, 出现了 <em>git status</em> 获取困难的情况, 会有非常严重的卡顿! 让人无法忍受, 就开始想解决方式</p>
+<h1 id="正文-">正文</h1>
+<h2 id="获取git状态时发生的卡顿-起因分析"><strong>获取git状态时发生的卡顿</strong> 起因分析</h2>
+<ul>
+<li>猜测是虚拟机到windows通信有问题</li>
+<li>oh-my-zsh 插件获取git status时有问题&hellip; 嗯, 道听途说的, 具体是哪里不清楚.</li>
+</ul>
+<h2 id="解决方式">解决方式</h2>
+<ul>
+<li>虚拟机中在linux端处理
+为了解决window到Linux的映射问题, 引入samba, 完美解决卡顿现象, 但是会有虚拟机启动以后映射盘还没有开启的情况,
+以及如果不开启虚拟机, 就无法打开映射盘, 这好似给自己加了个金箍&hellip; 此处不表</li>
+<li>window端处理
+<ul>
+<li>
+<p>window-git-bash 通过配置git alias, 基本可以支持自己的业务需求, 但是需要自己配置, 而且吧&hellip; 哈哈哈, 用过了oh-my-zsh
+以后, 对这个已无爱.</p>
+</li>
+<li>
+<p>babun 完美解决问题</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="babun介绍">babun介绍</h2>
+<blockquote>
+<p><strong>使用babun无需管理员权限</strong>
+先进的安装包管理器(类似于linux上面的apt-get或yum)
+预先配置了Cygwin和很多插件
+拥有256色的兼容控制台
+HTTP(S)的代理支持
+面向插件的体系结构
+可以使用它来配置你的git
+集成了oh-my-zsh
+自动升级
+支持shell编程，内置VIM等</p>
+</blockquote>
+<blockquote>
+<p><strong>Cygwin</strong>
+babun的核心包括一个预配置的Cygwin。cygwin是一个非常好的工具，但有很多使用技巧，使你能够节省大量的时间。babun解决了很多问题，它里面包含了很多重要的软件包，是你能够第一时间能够使用它们。</p>
+</blockquote>
+<blockquote>
+<p><strong>包的管理</strong>
+babun的包管理在shell输入：pact，这类似于：apt-get或yum，来非常方便的管理软件包，安装、升级、搜索和删除，让你省区很多麻烦，shell输入pact —help能够获得帮助信息。</p>
+</blockquote>
+<blockquote>
+<p><strong>shell</strong>
+babun的shell通过调整，已达到最佳的用户体验，babun有两个配置之后马上使用的shell(默认使用zsh)，babun的shell具有以下的特点
+语法高亮
+具有unix的工具
+软件开发工具
+git-语义提示
+自定义脚本和别名
+等等………</p>
+</blockquote>
+<blockquote>
+<p><strong>Console</strong>
+babun支持HTTP代理，只需添加地址和HTTP代理服务器的凭据。babunrc文件所在文件夹执行源babunrc启用HTTP代理。目前还不支持SOCKS代理。</p>
+</blockquote>
+<blockquote>
+<p><strong>开发者工具</strong>
+babun提供多种方便的工具和脚本，是你的开发工作更轻松，具有的功能如下
+编程语言(python,Perl, etc等)
+git(各种各样的别名调整)
+UNIX工具((grep, wget, curl, etc)
+vcs (svn, git)
+oh-my-zsh
+自定义脚本(pbcopy, pbpaste, babun, etc)</p>
+</blockquote>
+<h2 id="babun的安装">babun的安装</h2>
+<p>安装非常简单, 直接去<a href="http://babun.github.io/">babun</a>官方上下载压缩包, 解压缩后执行install.bat文件, 即可使用.</p>
+<h1 id="坑">坑</h1>
+<p>在使用的过程中, 会出现这种
+- 0 [main] fish 6020 child_info_fork::abort: C:\Users\me.babun\cygwin\bin\cygncursesw-10.dll:
+Loaded to different address: parent(0xA80000) != child(0x580000)
+Could not create child process - exiting
+fork: unknown error (errno was 11)</p>
+<p><strong><a href="https://stackoverflow.com/questions/9300722/cygwin-error-bash-fork-retry-resource-temporarily-unavailable">解决方式</a></strong></p>
+<h1 id="资料">资料</h1>
+<ul>
+<li><a href="https://github.com/babun/babun/issues/477">资料一</a></li>
+<li><a href="https://github.com/babun/babun/issues/558">资料二</a></li>
+</ul>
+  </div>
+</article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nginx on 文刀苑</title>
@@ -6,17 +6,45 @@
     <description>Recent content in Nginx on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Mon, 16 Jan 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://liupengliang.com/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Ubuntu重启Nginx</title>
-      <link>http://liupengliang.com/post/ubuntu-%E9%87%8D%E5%90%AF-nginx/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Nginx报ERR_CONNECTION_CLOSED的解决现场</title>
+      <link>http://liupengliang.com/posts/nginx/nginx-http2-header%E5%A4%B4%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
       
-      <guid>http://liupengliang.com/post/ubuntu-%E9%87%8D%E5%90%AF-nginx/</guid>
-      <description>ubuntu操作系统重启nginx的操作 正文 ps -ef |grep nginx 首先查看nginx在系统中的进程 kill -9 2127 结束nginx进程 开启nginx /usr/local/nginx/sbin/nginx 重启nginx /usr/local/nginx/sbin/nginx</description>
+      <guid>http://liupengliang.com/posts/nginx/nginx-http2-header%E5%A4%B4%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96/</guid>
+      <description>&lt;p&gt;客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nginx报ERR_CONNECTION_CLOSED的解决现场</title>
+      <link>http://liupengliang.com/postsbak/nginx/nginx-http2-header%E5%A4%B4%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/nginx/nginx-http2-header%E5%A4%B4%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96/</guid>
+      <description>&lt;p&gt;客户端使用VUE请求PHP登录接口成功, 在带着auth跳转到其他页面时, 出现了net::ERR_CONNECTION_CLOSED的报错, 接口通过postman请求正常, 能够获取数据, 以下是现场复原&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu重启Nginx</title>
+      <link>http://liupengliang.com/posts/ubuntu-%E9%87%8D%E5%90%AF-nginx/</link>
+      <pubDate>Thu, 03 Aug 2017 15:43:31 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/ubuntu-%E9%87%8D%E5%90%AF-nginx/</guid>
+      <description>&lt;p&gt;ubuntu操作系统重启nginx的操作&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu重启Nginx</title>
+      <link>http://liupengliang.com/postsbak/ubuntu-%E9%87%8D%E5%90%AF-nginx/</link>
+      <pubDate>Thu, 03 Aug 2017 15:43:31 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/ubuntu-%E9%87%8D%E5%90%AF-nginx/</guid>
+      <description>&lt;p&gt;ubuntu操作系统重启nginx的操作&lt;/p&gt;</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 文刀苑</title>
@@ -6,44 +6,116 @@
     <description>Recent content in Tags on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 04 May 2018 19:30:24 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 May 2023 15:16:57 +0000</lastBuildDate>
     
 	<atom:link href="http://liupengliang.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Babun</title>
-      <link>http://liupengliang.com/tags/babun/</link>
-      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
+      <title>Linux</title>
+      <link>http://liupengliang.com/tags/linux/</link>
+      <pubDate>Mon, 22 May 2023 15:16:57 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/babun/</guid>
+      <guid>http://liupengliang.com/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>CMDER</title>
-      <link>http://liupengliang.com/tags/cmder/</link>
-      <pubDate>Tue, 16 Jan 2018 09:10:03 +0000</pubDate>
+      <title>架构</title>
+      <link>http://liupengliang.com/tags/%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Fri, 24 Feb 2023 20:35:04 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/cmder/</guid>
+      <guid>http://liupengliang.com/tags/%E6%9E%B6%E6%9E%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>http://liupengliang.com/tags/nginx/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>大数据 架构</title>
+      <link>http://liupengliang.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%9E%B6%E6%9E%84/</link>
+      <pubDate>Sat, 14 Jan 2023 17:28:25 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%9E%B6%E6%9E%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
       <link>http://liupengliang.com/tags/docker/</link>
-      <pubDate>Tue, 23 Jul 2019 18:11:26 +0000</pubDate>
+      <pubDate>Sun, 27 Nov 2022 00:02:08 +0000</pubDate>
       
       <guid>http://liupengliang.com/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Gin</title>
-      <link>http://liupengliang.com/tags/gin/</link>
-      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      <title>IM</title>
+      <link>http://liupengliang.com/tags/im/</link>
+      <pubDate>Mon, 21 Nov 2022 04:13:58 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/gin/</guid>
+      <guid>http://liupengliang.com/tags/im/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker TensorFlowServer</title>
+      <link>http://liupengliang.com/tags/docker-tensorflowserver/</link>
+      <pubDate>Sat, 05 Nov 2022 18:34:08 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/docker-tensorflowserver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>技术管理</title>
+      <link>http://liupengliang.com/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Fri, 02 Jul 2021 08:13:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://liupengliang.com/tags/golang/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://liupengliang.com/tags/mysql/</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>http://liupengliang.com/tags/mac/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grafana</title>
+      <link>http://liupengliang.com/tags/grafana/</link>
+      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/grafana/</guid>
       <description></description>
     </item>
     
@@ -66,38 +138,47 @@
     </item>
     
     <item>
-      <title>Golang</title>
-      <link>http://liupengliang.com/tags/golang/</link>
-      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      <title>Uxc</title>
+      <link>http://liupengliang.com/tags/uxc/</link>
+      <pubDate>Tue, 02 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/golang/</guid>
+      <guid>http://liupengliang.com/tags/uxc/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Gorm</title>
-      <link>http://liupengliang.com/tags/gorm/</link>
-      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      <title>PHP</title>
+      <link>http://liupengliang.com/tags/php/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/gorm/</guid>
+      <guid>http://liupengliang.com/tags/php/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Grafana</title>
-      <link>http://liupengliang.com/tags/grafana/</link>
-      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
+      <title>PHP7</title>
+      <link>http://liupengliang.com/tags/php7/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/grafana/</guid>
+      <guid>http://liupengliang.com/tags/php7/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>HDFS</title>
-      <link>http://liupengliang.com/tags/hdfs/</link>
-      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
+      <title>REDIS</title>
+      <link>http://liupengliang.com/tags/redis/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/hdfs/</guid>
+      <guid>http://liupengliang.com/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yii2</title>
+      <link>http://liupengliang.com/tags/yii2/</link>
+      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/yii2/</guid>
       <description></description>
     </item>
     
@@ -111,29 +192,11 @@
     </item>
     
     <item>
-      <title>Hexo</title>
-      <link>http://liupengliang.com/tags/hexo/</link>
-      <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
+      <title>HDFS</title>
+      <link>http://liupengliang.com/tags/hdfs/</link>
+      <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/hexo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Homestead</title>
-      <link>http://liupengliang.com/tags/homestead/</link>
-      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/homestead/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>http://liupengliang.com/tags/hugo/</link>
-      <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/hugo/</guid>
+      <guid>http://liupengliang.com/tags/hdfs/</guid>
       <description></description>
     </item>
     
@@ -156,101 +219,11 @@
     </item>
     
     <item>
-      <title>Laravel</title>
-      <link>http://liupengliang.com/tags/laravel/</link>
-      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/laravel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://liupengliang.com/tags/linux/</link>
-      <pubDate>Sun, 02 Jul 2017 18:26:53 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Nginx</title>
-      <link>http://liupengliang.com/tags/nginx/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/nginx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Node</title>
-      <link>http://liupengliang.com/tags/node/</link>
-      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/node/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Oh-my-zsh</title>
-      <link>http://liupengliang.com/tags/oh-my-zsh/</link>
-      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/oh-my-zsh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PHP</title>
-      <link>http://liupengliang.com/tags/php/</link>
-      <pubDate>Thu, 10 Aug 2017 17:38:15 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/php/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PHP7</title>
-      <link>http://liupengliang.com/tags/php7/</link>
-      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/php7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PHPSTORM</title>
-      <link>http://liupengliang.com/tags/phpstorm/</link>
-      <pubDate>Tue, 16 Jan 2018 09:10:03 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/phpstorm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>REDIS</title>
-      <link>http://liupengliang.com/tags/redis/</link>
-      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/redis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>RestTemplate</title>
       <link>http://liupengliang.com/tags/resttemplate/</link>
       <pubDate>Mon, 02 Jul 2018 08:13:58 +0000</pubDate>
       
       <guid>http://liupengliang.com/tags/resttemplate/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Shell</title>
-      <link>http://liupengliang.com/tags/shell/</link>
-      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/shell/</guid>
       <description></description>
     </item>
     
@@ -273,11 +246,92 @@
     </item>
     
     <item>
-      <title>Ssh</title>
-      <link>http://liupengliang.com/tags/ssh/</link>
-      <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
+      <title>Babun</title>
+      <link>http://liupengliang.com/tags/babun/</link>
+      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/ssh/</guid>
+      <guid>http://liupengliang.com/tags/babun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oh-my-zsh</title>
+      <link>http://liupengliang.com/tags/oh-my-zsh/</link>
+      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/oh-my-zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shell</title>
+      <link>http://liupengliang.com/tags/shell/</link>
+      <pubDate>Fri, 04 May 2018 19:30:24 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gin</title>
+      <link>http://liupengliang.com/tags/gin/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/gin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gorm</title>
+      <link>http://liupengliang.com/tags/gorm/</link>
+      <pubDate>Wed, 21 Mar 2018 21:47:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/gorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CMDER</title>
+      <link>http://liupengliang.com/tags/cmder/</link>
+      <pubDate>Tue, 16 Jan 2018 09:10:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/cmder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PHPSTORM</title>
+      <link>http://liupengliang.com/tags/phpstorm/</link>
+      <pubDate>Tue, 16 Jan 2018 09:10:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/phpstorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://liupengliang.com/tags/hugo/</link>
+      <pubDate>Mon, 20 Nov 2017 00:15:03 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>http://liupengliang.com/tags/ubuntu/</link>
+      <pubDate>Thu, 03 Aug 2017 15:43:31 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Zsh</title>
+      <link>http://liupengliang.com/tags/zsh/</link>
+      <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/zsh/</guid>
       <description></description>
     </item>
     
@@ -291,11 +345,47 @@
     </item>
     
     <item>
-      <title>Ubuntu</title>
-      <link>http://liupengliang.com/tags/ubuntu/</link>
-      <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
+      <title>Homestead</title>
+      <link>http://liupengliang.com/tags/homestead/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
       
-      <guid>http://liupengliang.com/tags/ubuntu/</guid>
+      <guid>http://liupengliang.com/tags/homestead/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laravel</title>
+      <link>http://liupengliang.com/tags/laravel/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/laravel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node</title>
+      <link>http://liupengliang.com/tags/node/</link>
+      <pubDate>Tue, 25 Apr 2017 10:55:20 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hexo</title>
+      <link>http://liupengliang.com/tags/hexo/</link>
+      <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/hexo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>http://liupengliang.com/tags/ssh/</link>
+      <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/tags/ssh/</guid>
       <description></description>
     </item>
     
@@ -305,24 +395,6 @@
       <pubDate>Wed, 15 Mar 2017 21:15:22 +0000</pubDate>
       
       <guid>http://liupengliang.com/tags/vps/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Yii2</title>
-      <link>http://liupengliang.com/tags/yii2/</link>
-      <pubDate>Thu, 18 Oct 2018 10:55:20 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/yii2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Zsh</title>
-      <link>http://liupengliang.com/tags/zsh/</link>
-      <pubDate>Sun, 02 Jul 2017 08:33:58 +0000</pubDate>
-      
-      <guid>http://liupengliang.com/tags/zsh/</guid>
       <description></description>
     </item>
     

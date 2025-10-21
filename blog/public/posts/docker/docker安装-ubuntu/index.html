@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>docker安装 - Ubuntu - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="经过了在window10安装docker的摧残后, 准备来linux系统找找自信
+" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/posts/docker/docker%E5%AE%89%E8%A3%85-ubuntu/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="docker安装 - Ubuntu" />
+<meta property="og:description" content="经过了在window10安装docker的摧残后, 准备来linux系统找找自信" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/posts/docker/docker%E5%AE%89%E8%A3%85-ubuntu/" />
+<meta property="article:published_time" content="2017-07-02T08:26:53+00:00" />
+<meta property="article:modified_time" content="2017-07-02T08:26:53+00:00" />
+<meta itemprop="name" content="docker安装 - Ubuntu">
+<meta itemprop="description" content="经过了在window10安装docker的摧残后, 准备来linux系统找找自信">
+<meta itemprop="datePublished" content="2017-07-02T08:26:53&#43;00:00" />
+<meta itemprop="dateModified" content="2017-07-02T08:26:53&#43;00:00" />
+<meta itemprop="wordCount" content="703">
+
+
+
+<meta itemprop="keywords" content="Docker,Ubuntu," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="docker安装 - Ubuntu"/>
+<meta name="twitter:description" content="经过了在window10安装docker的摧残后, 准备来linux系统找找自信"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">docker安装 - Ubuntu</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-07-02 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+            </div>
+          <span class="more-meta"> 703 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>经过了在window10安装docker的摧残后, 准备来linux系统找找自信</p>
+<h1 id="知识背景">知识背景</h1>
+<ul>
+<li>2013-3诞生了docker</li>
+<li>linux内核3.8以上的系统才能支持docker, 只有一个特例(RHEL/Centos), 内核版本2.6.32-431的RHEL/Centos6.5才开始支持docker</li>
+<li>docker 在Ubuntu下诞生, 是对docker支持最好的操作系统.</li>
+<li>随着RHEL/Centos对于docker的支持力度逐渐加大, 对于系统稳定性有比较高要求的生产环境, 还是推荐使用RHEL/Centos.</li>
+<li>CoreOS是为docker而生的操作系统, 除了对docker有良好的支持外, 还集成了etcd, fleet等, 方便了对docker的集中管理,</li>
+<li>CoreOS推出了自家的类docker的容器 &ndash; rocket</li>
+</ul>
+<blockquote>
+<p>操作系统必须是64位才能支持docker</p>
+</blockquote>
+<h1 id="配置环境">配置环境</h1>
+<p>我选择的开发环境是 <em>virtualBox</em> + <em>vagrant</em> + <em>homestead</em> + <em>docker</em> + <em>laraDock</em>
+此处只讲述docker配置</p>
+<h1 id="开始配置">开始配置</h1>
+<ul>
+<li>
+<p>更新apt软件源
+<code>sudo apt-get update</code></p>
+</li>
+<li>
+<p>安装docker
+有两种方式:
+方法一: 从apt源安装docker.io, 但是一般版本比较旧
+<code>sudo apt-get install docker.io</code>
+方法二: 使用官方的安装脚本(推荐)
+<code>sudo apt-get install curl curl -sSL https://get.docker.com/ | sh</code></p>
+</li>
+<li>
+<p>开启服务
+安装完以后, 开启docker守护进程
+<code>sudo service docker start docker start/running. process 3050</code></p>
+</li>
+<li>
+<p>测试
+使用命令
+<code>sudo docker run hello-world</code>
+拉取hello-world 镜像并输出
+会显示一堆代码, 其中包括<strong>Hello from Docker</strong></p>
+</li>
+<li>
+<p>赋予sudo权限
+如果不想每次执行docker时都要使用sudo权限, 可以把用户添加到Docker组中, 例如,
+我用的vagrant , 默认用户就是vagrant , 那我可以这么执行
+<code>sudo usermod -aG docker vagrant</code></p>
+</li>
+</ul>
+<h1 id="参考文献">参考文献</h1>
+<p>&lt;循序渐进学Docker&gt;, 作者: 李金榜, 尹烨, 刘天斯, 陈纯. 出版社: 机械工业出版社.</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Allen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2017-07-02</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker/">Docker</a>
+          <a href="/tags/ubuntu/">Ubuntu</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="http://liupengliang.com/postsbak/ubuntu%E5%AE%89%E8%A3%85zsh-%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Ubuntu安装zsh &amp;&amp; 默认启动</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="http://liupengliang.com/postsbak/docker/docker%E5%AE%89%E8%A3%85-ubuntu/">
+            <span class="next-text nav-default">docker安装 - Ubuntu</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

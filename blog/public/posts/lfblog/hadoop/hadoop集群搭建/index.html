@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>hadoop伪分布式集群搭建 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/posts/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="hadoop伪分布式集群搭建" />
+<meta property="og:description" content="下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/posts/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" />
+<meta property="article:published_time" content="2018-07-02T08:13:58+00:00" />
+<meta property="article:modified_time" content="2018-07-02T08:13:58+00:00" />
+<meta itemprop="name" content="hadoop伪分布式集群搭建">
+<meta itemprop="description" content="下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv">
+<meta itemprop="datePublished" content="2018-07-02T08:13:58&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-02T08:13:58&#43;00:00" />
+<meta itemprop="wordCount" content="1722">
+
+
+
+<meta itemprop="keywords" content="Hadoop," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hadoop伪分布式集群搭建"/>
+<meta name="twitter:description" content="下载：http://www.oracle.com/technetwork/java/javase/downloads/java-archiv"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">hadoop伪分布式集群搭建</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-02 </span>
+        <div class="post-category">
+            <a href="/categories/bigdata/"> BigData </a>
+            </div>
+          <span class="more-meta"> 1722 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <ol>
+<li>
+<p>下载：<a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html">http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html</a></p>
+</li>
+<li>
+<p>解压： tar -zxvf jdk-7u79-linux-x64.gz</p>
+</li>
+<li>
+<p>配置环境变量：需要root权限，然后输入命令 vim /etc/profile</p>
+<pre><code> export JAVA_HOME=/home/java/jdk1.7.0_79 （jdk安装位置）
+ export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+ export PATH=$PATH:$JAVA_HOME/bin
+</code></pre>
+</li>
+<li>
+<p>使配置生效： source /etc/profile
+###2.安装hadoop2.7
+先在master节点安装，然后在copy到其他slave节点，在此master节点为：192.168.0.182<!-- raw HTML omitted --></p>
+</li>
+<li>
+<p>下载:hadoop-2.7.6.tar.gz  <a href="http://hadoop.apache.org/releases.html">http://hadoop.apache.org/releases.html</a></p>
+</li>
+<li>
+<p>解压：tar -xzvf hadoop-2.7.6.tar.gz /home/hadoop</p>
+</li>
+<li>
+<p>在hadoop-2.7.6文件夹下创建存放数据的文件夹：tmp、hdfs、hdfs/data、hdfs/name</p>
+</li>
+<li>
+<p>配置core-site.xml文件</p>
+<pre><code> &lt;configuration&gt;
+     &lt;!--指定namenode的地址--&gt;
+     &lt;property&gt;
+         &lt;name&gt;fs.defaultFS&lt;/name&gt;
+         &lt;value&gt;hdfs://192.168.0.182:9000&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--用来指定使用hadoop时产生文件的存放目录--&gt;
+     &lt;property&gt;
+         &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+         &lt;value&gt;file:/home/hadoop/tmp&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--用作序列化文件处理时读写buffer的大小--&gt;
+     &lt;property&gt;
+         &lt;name&gt;io.file.buffer.size&lt;/name&gt;
+         &lt;value&gt;131702&lt;/value&gt;
+     &lt;/property&gt;
+ &lt;/configuration&gt;
+</code></pre>
+</li>
+<li>
+<p>配置hdfs-site.xml</p>
+<pre><code> &lt;configuration&gt;
+     &lt;!--指定hdfs中namenode的存储位置--&gt;
+     &lt;property&gt;
+         &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+         &lt;value&gt;file:/home/hadoop/dfs/name&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--指定hdfs中datanode的存储位置--&gt;
+     &lt;property&gt;
+         &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
+         &lt;value&gt;file:/home/hadoop/dfs/data&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--指定hdfs保存数据的副本数量--&gt;
+     &lt;property&gt;
+         &lt;name&gt;dfs.replication&lt;/name&gt;
+         &lt;value&gt;2&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--指定hdfs中SecondaryNameNode的存储位置--&gt;
+     &lt;property&gt;
+         &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+         &lt;value&gt;192.168.0.182:9001&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--开启WebHDFS服务--&gt;
+     &lt;property&gt;
+         &lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;
+         &lt;value&gt;true&lt;/value&gt;
+     &lt;/property&gt;
+ &lt;/configuration&gt;
+</code></pre>
+</li>
+<li>
+<p>配置mapred-site.xml</p>
+<pre><code> &lt;configuration&gt;
+     &lt;!-- 使用 Yarn 框架执行 map-reduce 处理程序 --&gt;
+     &lt;property&gt;
+         &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+         &lt;value&gt;yarn&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--指定MapReduce JobHistory Server地址--&gt;
+     &lt;property&gt;
+         &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
+         &lt;value&gt;192.168.0.182:10020&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--指定MapReduce JobHistory Server Web UI地址--&gt;
+     &lt;property&gt;
+         &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
+         &lt;value&gt;192.168.0.182:19888&lt;/value&gt;
+     &lt;/property&gt;
+ &lt;/configuration&gt;
+</code></pre>
+</li>
+<li>
+<p>配置yarn-site.xml</p>
+<pre><code> &lt;configuration&gt;
+     &lt;!--以下两条是设置shuffle service --&gt;
+     &lt;property&gt;
+         &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+         &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;property&gt;
+         &lt;name&gt;yarn.nodemanager.auxservices.mapreduce.shuffle.class&lt;/name&gt;
+         &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
+     &lt;/property&gt;
+      &lt;!--ResourceManager对客户端暴露的地址,客户端通过该地址向RM提交应用程序，杀死应用程序等--&gt;  
+     &lt;property&gt;
+         &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;
+         &lt;value&gt;192.168.0.182:8032&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--ResourceManager 对ApplicationMaster暴露的访问地址。ApplicationMaster通过该地址向RM申请资源、释放资源等--&gt;
+     &lt;property&gt;
+         &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;
+         &lt;value&gt;192.168.0.182:8030&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--ResourceManager 对NodeManager暴露的地址.。NodeManager通过该地址向RM汇报心跳，领取任务等 --&gt;
+     &lt;property&gt;
+         &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;
+         &lt;value&gt;192.168.0.182:8031&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--ResourceManager 对管理员暴露的访问地址。管理员通过该地址向RM发送管理命令等--&gt;
+     &lt;property&gt;
+         &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;
+         &lt;value&gt;192.168.0.182:8033&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--ResourceManager对外web ui地址。用户可通过该地址在浏览器中查看集群各类信息。--&gt;
+     &lt;property&gt;
+         &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;
+         &lt;value&gt;192.168.0.182:8088&lt;/value&gt;
+     &lt;/property&gt;
+     &lt;!--NodeManager总的可用物理内存,默认值是8192MB,即使你的机器内存不够8192MB，YARN也会按照这些内存来使用,因此，这个值通常一定要配置--&gt;
+     &lt;property&gt;
+         &lt;name&gt;yarn.nodemanager.resource.memory-mb&lt;/name&gt;
+         &lt;value&gt;768&lt;/value&gt;
+     &lt;/property&gt;
+ &lt;/configuration&gt;
+</code></pre>
+</li>
+<li>
+<p>配置hadoop-env.sh、yarn-env.sh的JAVA_HOME</p>
+<pre><code> export JAVA_HOME=/home/java/jdk1.7.0_79
+</code></pre>
+</li>
+<li>
+<p>配置slaves，删除默认的localhost，增加2个从节点：</p>
+<pre><code> 192.168.0.183 
+ 192.168.0.184 
+</code></pre>
+</li>
+<li>
+<p>将配置好的Hadoop复制到各个节点对应位置上：</p>
+<pre><code>scp -r /home/hadoop 192.168.0.183:/home/
+scp -r /home/hadoop 192.168.0.184:/home/
+</code></pre>
+</li>
+<li>
+<p>在Master服务器启动hadoop</p>
+<ul>
+<li>要先进入hadoop目录下</li>
+<li>初始化，输入命令，bin/hdfs namenode -format</li>
+<li>全部启动：sbin/start-all.sh</li>
+<li>停止：sbin/stop-all.sh</li>
+<li>输入jsp，可查看相关信息</li>
+</ul>
+</li>
+<li>
+<p>web访问，先要开放端口或者直接关闭防火墙</p>
+<ul>
+<li>输入命令，systemctl stop firewalld.service</li>
+<li>浏览器打开http://192.168.0.182:8088/</li>
+<li>浏览器打开http://192.168.0.182:50070/</li>
+</ul>
+</li>
+<li>
+<p>测试wordcount</p>
+<ul>
+<li>首先要在本地/home下新建一个word.txt，并写入一些英文单词到该文件。</li>
+<li>在hdfs上新建一个input目录<code>hadoop fs -mkdir input</code></li>
+<li>在hdfs上新建一个output目录<code>hadoop fs -mkdir output</code>，当wordcount程序执行结束后，会将执行的结果放入到该目录下</li>
+<li>将本地的word.txt文件放入hdfs的input目录下 <code>hapdoop fs -put /home/word.txt  input</code></li>
+<li>在hadoop上执行wordcount程序：<!-- raw HTML omitted --><code>hadoop jar /home/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.6.jar wordcount input  output</code></li>
+<li>查看输出结果：<!-- raw HTML omitted -->
+<code>hadoop fs -ls output</code><!-- raw HTML omitted -->
+<code>hadoop fs -cat output/part-r-00000</code></li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Allen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2018-07-02</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/hadoop/">Hadoop</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="http://liupengliang.com/postsbak/php/php7%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%A4%84%E7%90%86redis%E9%98%9F%E5%88%97%E9%97%AE%E9%A2%98/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">PHP7多进程处理redis队列问题</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="http://liupengliang.com/postsbak/lfblog/hadoop/hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/">
+            <span class="next-text nav-default">hadoop伪分布式集群搭建</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

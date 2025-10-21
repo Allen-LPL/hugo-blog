@@ -8,7 +8,7 @@ categories: [手艺]
 <!--more-->
 
 # 问题
-![Linux服务器中git命令终端渲染出现问号](vx_images/107905629951159_1.png)
+![Linux服务器中git命令终端渲染出现问号](../vx_images/107905629951159_1.png)
 
 
 # 原因
@@ -25,4 +25,4 @@ export LANGUAGE=en_US.UTF-8
 ```
 
 # 效果
-![解决Linux服务器中git命令终端渲染出现问号](vx_images/462725793899563_1.png)
+![解决Linux服务器中git命令终端渲染出现问号](../vx_images/462725793899563_1.png)

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>编译tfs的dockerfile文件 - 文刀苑</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Allen" /><meta name="description" content="最近在做机器学习的服务搭建， 使用的是docker容器内编译， 性能直接提升了30%， 以下是Bazel5.1.1编译
+" /><meta name="keywords" content="Hugo, PHP, Golang, docker" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.69.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://liupengliang.com/posts/%E7%BC%96%E8%AF%91tfs%E7%9A%84dockerfile/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="编译tfs的dockerfile文件" />
+<meta property="og:description" content="最近在做机器学习的服务搭建， 使用的是docker容器内编译， 性能直接提升了30%， 以下是Bazel5.1.1编译" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://liupengliang.com/posts/%E7%BC%96%E8%AF%91tfs%E7%9A%84dockerfile/" />
+<meta property="article:published_time" content="2022-11-05T18:34:08+00:00" />
+<meta property="article:modified_time" content="2022-11-05T18:34:08+00:00" />
+<meta itemprop="name" content="编译tfs的dockerfile文件">
+<meta itemprop="description" content="最近在做机器学习的服务搭建， 使用的是docker容器内编译， 性能直接提升了30%， 以下是Bazel5.1.1编译">
+<meta itemprop="datePublished" content="2022-11-05T18:34:08&#43;00:00" />
+<meta itemprop="dateModified" content="2022-11-05T18:34:08&#43;00:00" />
+<meta itemprop="wordCount" content="769">
+
+
+
+<meta itemprop="keywords" content="Docker TensorFlowServer," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="编译tfs的dockerfile文件"/>
+<meta name="twitter:description" content="最近在做机器学习的服务搭建， 使用的是docker容器内编译， 性能直接提升了30%， 以下是Bazel5.1.1编译"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">文刀苑</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/posts/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">文刀苑</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/posts/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">编译tfs的dockerfile文件</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-11-05 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%89%8B%E8%89%BA/"> 手艺 </a>
+            </div>
+          <span class="more-meta"> 769 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>最近在做机器学习的服务搭建， 使用的是docker容器内编译， 性能直接提升了30%， 以下是Bazel5.1.1编译</p>
+<div class="admonition tip"><p class="admonition-title">注意</p>
+  
+如果你是在墙内， 那你需要参考《Linux Dockerfile build时请求超时的问题解决》以解决编译时的超时问题。
+如果你是在墙外， 请注释*RUN git config --global https.proxy https://172.17.0.1:10809*这一行  
+
+</div>
+<blockquote>
+</blockquote>
+<h1 id="编译镜像">编译镜像</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-docker" data-lang="docker"><span class="k">FROM</span><span class="s"> ubuntu:18.04 as base_build</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">ARG</span> <span class="nv">TF_SERVING_VERSION_GIT_BRANCH</span><span class="o">=</span>master
+<span class="k">ARG</span> <span class="nv">TF_SERVING_VERSION_GIT_COMMIT</span><span class="o">=</span>HEAD
+
+<span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span>gvasudevan@google.com<span class="err">
+</span><span class="err"></span><span class="k">LABEL</span> <span class="nv">tensorflow_serving_github_branchtag</span><span class="o">=</span><span class="si">${</span><span class="nv">TF_SERVING_VERSION_GIT_BRANCH</span><span class="si">}</span><span class="err">
+</span><span class="err"></span><span class="k">LABEL</span> <span class="nv">tensorflow_serving_github_commit</span><span class="o">=</span><span class="si">${</span><span class="nv">TF_SERVING_VERSION_GIT_COMMIT</span><span class="si">}</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y --no-install-recommends <span class="se">\
+</span><span class="se"></span>        automake <span class="se">\
+</span><span class="se"></span>        build-essential <span class="se">\
+</span><span class="se"></span>        ca-certificates <span class="se">\
+</span><span class="se"></span>        curl <span class="se">\
+</span><span class="se"></span>        git <span class="se">\
+</span><span class="se"></span>        libcurl3-dev <span class="se">\
+</span><span class="se"></span>        libfreetype6-dev <span class="se">\
+</span><span class="se"></span>        libpng-dev <span class="se">\
+</span><span class="se"></span>        libtool <span class="se">\
+</span><span class="se"></span>        libzmq3-dev <span class="se">\
+</span><span class="se"></span>        mlocate <span class="se">\
+</span><span class="se"></span>        openjdk-8-jdk<span class="se">\
+</span><span class="se"></span>        openjdk-8-jre-headless <span class="se">\
+</span><span class="se"></span>        pkg-config <span class="se">\
+</span><span class="se"></span>        python-dev <span class="se">\
+</span><span class="se"></span>        software-properties-common <span class="se">\
+</span><span class="se"></span>        swig <span class="se">\
+</span><span class="se"></span>        unzip <span class="se">\
+</span><span class="se"></span>        wget <span class="se">\
+</span><span class="se"></span>        zip <span class="se">\
+</span><span class="se"></span>        zlib1g-dev <span class="se">\
+</span><span class="se"></span>        python3-distutils <span class="se">\
+</span><span class="se"></span>        <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    apt-get clean <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    rm -rf /var/lib/apt/lists/*<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Install python 3.7.</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> add-apt-repository ppa:deadsnakes/ppa <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\
+</span><span class="se"></span>    python3.7 python3.7-dev python3-pip python3.7-venv <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    rm -rf /var/lib/apt/lists/* <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    python3.7 -m pip install pip --upgrade <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 <span class="m">0</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Make python3.7 the default python version</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> update-alternatives --install /usr/bin/python python /usr/bin/python3.7 <span class="m">0</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> curl -fSsL -O https://bootstrap.pypa.io/get-pip.py <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    python3 get-pip.py <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    rm get-pip.py<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> pip3 --no-cache-dir install <span class="se">\
+</span><span class="se"></span>    future&gt;<span class="o">=</span>0.17.1 <span class="se">\
+</span><span class="se"></span>    grpcio <span class="se">\
+</span><span class="se"></span>    h5py <span class="se">\
+</span><span class="se"></span>    keras_applications&gt;<span class="o">=</span>1.0.8 <span class="se">\
+</span><span class="se"></span>    keras_preprocessing&gt;<span class="o">=</span>1.1.0 <span class="se">\
+</span><span class="se"></span>    mock <span class="se">\
+</span><span class="se"></span>    numpy <span class="se">\
+</span><span class="se"></span>    portpicker <span class="se">\
+</span><span class="se"></span>    requests <span class="se">\
+</span><span class="se"></span>    --ignore-installed setuptools <span class="se">\
+</span><span class="se"></span>    --ignore-installed six&gt;<span class="o">=</span>1.12.0<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># 需要使用git拉取镜像， 这里指定使用宿主机的代理端口</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> git config --global https.proxy https://172.17.0.1:10809<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Set up Bazel</span><span class="err">
+</span><span class="err"></span><span class="k">ENV</span> BAZEL_VERSION 5.1.1<span class="err">
+</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> mkdir /bazel <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    <span class="nb">cd</span> /bazel <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    curl -H <span class="s2">&#34;User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#34;</span> -fSsL -O https://github.com/bazelbuild/bazel/releases/download/<span class="nv">$BAZEL_VERSION</span>/bazel-<span class="nv">$BAZEL_VERSION</span>-installer-linux-x86_64.sh --http1.0 <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    curl -H <span class="s2">&#34;User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#34;</span> -fSsL -o /bazel/LICENSE.txt https://raw.githubusercontent.com/bazelbuild/bazel/master/LICENSE --http1.0 <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    chmod +x bazel-*.sh <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    ./bazel-<span class="nv">$BAZEL_VERSION</span>-installer-linux-x86_64.sh <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    <span class="nb">cd</span> / <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    rm -f /bazel/bazel-<span class="nv">$BAZEL_VERSION</span>-installer-linux-x86_64.sh<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Download TF Serving sources (optionally at specific commit).</span><span class="err">
+</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /tensorflow-serving</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> curl -sSL --retry <span class="m">5</span> https://github.com/tensorflow/serving/tarball/<span class="si">${</span><span class="nv">TF_SERVING_VERSION_GIT_COMMIT</span><span class="si">}</span> <span class="p">|</span> tar --strip-components<span class="o">=</span><span class="m">1</span> -xzf -<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">FROM</span><span class="s"> base_build as binary_build</span><span class="err">
+</span><span class="err"></span><span class="c"># Build, and install TensorFlow Serving</span><span class="err">
+</span><span class="err"></span><span class="c">#ARG TF_SERVING_BUILD_OPTIONS=&#34;--config=release&#34;</span><span class="err">
+</span><span class="err"></span><span class="k">ARG</span> <span class="nv">TF_SERVING_BUILD_OPTIONS</span><span class="o">=</span><span class="s2">&#34;--copt=-mavx --copt=-mavx2 --copt=-mfma --copt=-msse4.1 --copt=-msse4.2  --local_ram_resources=2048 --local_cpu_resources=2 --worker_max_instances=2&#34;</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;Building with build options: </span><span class="si">${</span><span class="nv">TF_SERVING_BUILD_OPTIONS</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
+</span><span class="err"></span><span class="k">ARG</span> <span class="nv">TF_SERVING_BAZEL_OPTIONS</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s2">&#34;Building with Bazel options: </span><span class="si">${</span><span class="nv">TF_SERVING_BAZEL_OPTIONS</span><span class="si">}</span><span class="s2">&#34;</span><span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> bazel build --color<span class="o">=</span>yes --curses<span class="o">=</span>yes <span class="se">\
+</span><span class="se"></span>    <span class="si">${</span><span class="nv">TF_SERVING_BAZEL_OPTIONS</span><span class="si">}</span> <span class="se">\
+</span><span class="se"></span>    --verbose_failures <span class="se">\
+</span><span class="se"></span>    --output_filter<span class="o">=</span>DONT_MATCH_ANYTHING <span class="se">\
+</span><span class="se"></span>    <span class="si">${</span><span class="nv">TF_SERVING_BUILD_OPTIONS</span><span class="si">}</span> <span class="se">\
+</span><span class="se"></span>    tensorflow_serving/model_servers:tensorflow_model_server <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    cp bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server <span class="se">\
+</span><span class="se"></span>    /usr/local/bin/<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="c"># Build and install TensorFlow Serving API</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> bazel build --color<span class="o">=</span>yes --curses<span class="o">=</span>yes <span class="se">\
+</span><span class="se"></span>    <span class="si">${</span><span class="nv">TF_SERVING_BAZEL_OPTIONS</span><span class="si">}</span> <span class="se">\
+</span><span class="se"></span>    --verbose_failures <span class="se">\
+</span><span class="se"></span>    --output_filter<span class="o">=</span>DONT_MATCH_ANYTHING <span class="se">\
+</span><span class="se"></span>    <span class="si">${</span><span class="nv">TF_SERVING_BUILD_OPTIONS</span><span class="si">}</span> <span class="se">\
+</span><span class="se"></span>    tensorflow_serving/tools/pip_package:build_pip_package <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    bazel-bin/tensorflow_serving/tools/pip_package/build_pip_package <span class="se">\
+</span><span class="se"></span>    /tmp/pip <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    pip --no-cache-dir install --upgrade <span class="se">\ </span><span class="err">
+</span><span class="err"></span>    /tmp/pip/tensorflow_serving_api-*.whl <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    rm -rf /tmp/pip<span class="err">
+</span><span class="err">
+</span><span class="err"></span><span class="k">FROM</span><span class="s"> binary_build as clean_build</span><span class="err">
+</span><span class="err"></span><span class="c"># Clean up Bazel cache when done.</span><span class="err">
+</span><span class="err"></span><span class="k">RUN</span> bazel clean --expunge --color<span class="o">=</span>yes <span class="o">&amp;&amp;</span> <span class="se">\
+</span><span class="se"></span>    rm -rf /root/.cache<span class="err">
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;/bin/bash&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><h1 id="查看并启动镜像">查看并启动镜像</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker images <span class="p">|</span>grep hbbtec/tensorflow-serving-devel
+</code></pre></td></tr></table>
+</div>
+</div><p>如果编译成功， 并生成镜像， 那么启动镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 拉取模型</span>
+mkdir -p ~/tf_serving_model/clip_text 
+<span class="nb">cd</span> ~/tf_serving_model/ 
+wget https://brandai-upload.oss-cn-hangzhou.aliyuncs.com/clip_text.tar.gz 
+tar xvzf clip_text.tar.gz -C clip_text
+
+<span class="c1"># 启动</span>
+docker run --name serving-new <span class="se">\
+</span><span class="se"></span>  -dt <span class="se">\
+</span><span class="se"></span>  -p 8500:8500 <span class="se">\
+</span><span class="se"></span>  -p 8501:8501 <span class="se">\
+</span><span class="se"></span>  -v <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/app/tf_serving_model/clip_text:/models/clip_text&#34;</span> <span class="se">\
+</span><span class="se"></span>  -e <span class="nv">MODEL_BASE_PATH</span><span class="o">=</span>/models -e <span class="nv">MODEL_NAME</span><span class="o">=</span>clip_text <span class="se">\
+</span><span class="se"></span>  -t <span class="nv">$USER</span>/tensorflow-serving-devel:latest
+</code></pre></td></tr></table>
+</div>
+</div><p>进入容器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker <span class="nb">exec</span> -it serving-new /bin/bash
+</code></pre></td></tr></table>
+</div>
+</div><p>启动服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">tensorflow_model_server --port<span class="o">=</span><span class="m">8500</span> --rest_api_port<span class="o">=</span><span class="m">8501</span> --model_name<span class="o">=</span>clip_text --model_base_path<span class="o">=</span>/models/clip_text <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Allen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2022-11-05</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker-tensorflowserver/">Docker TensorFlowServer</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="http://liupengliang.com/postsbak/%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96/im%E7%9A%84%E9%95%BF%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">IM的长连接管理</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="http://liupengliang.com/postsbak/%E7%BC%96%E8%AF%91tfs%E7%9A%84dockerfile/">
+            <span class="next-text nav-default">编译tfs的dockerfile文件</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:liupengliang1012@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/Allen-LPL" class="iconfont icon-github" title="github"></a>
+  <a href="http://liupengliang.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2025
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Allen</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.ece58db6.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

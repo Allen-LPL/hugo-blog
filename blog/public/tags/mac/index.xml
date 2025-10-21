@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on 文刀苑</title>
+    <link>http://liupengliang.com/tags/mac/</link>
+    <description>Recent content in Mac on 文刀苑</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://liupengliang.com/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mac低版本mac低版本Homebrew报错</title>
+      <link>http://liupengliang.com/posts/mac%E4%BD%8E%E7%89%88%E6%9C%ACmac%E4%BD%8E%E7%89%88%E6%9C%AChomebrew%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/posts/mac%E4%BD%8E%E7%89%88%E6%9C%ACmac%E4%BD%8E%E7%89%88%E6%9C%AChomebrew%E6%8A%A5%E9%94%99/</guid>
+      <description>&lt;p&gt;mac系统低版本过低, 或者Homebrew长时间未更新过, 造成homebrew-core文件落后太多, 解决方案就是将homebrew-core文件删除, 重新
+pull.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>mac低版本mac低版本Homebrew报错</title>
+      <link>http://liupengliang.com/postsbak/mac%E4%BD%8E%E7%89%88%E6%9C%ACmac%E4%BD%8E%E7%89%88%E6%9C%AChomebrew%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/mac%E4%BD%8E%E7%89%88%E6%9C%ACmac%E4%BD%8E%E7%89%88%E6%9C%AChomebrew%E6%8A%A5%E9%94%99/</guid>
+      <description>&lt;p&gt;mac系统低版本过低, 或者Homebrew长时间未更新过, 造成homebrew-core文件落后太多, 解决方案就是将homebrew-core文件删除, 重新
+pull.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ssh on 文刀苑</title>
+    <title>ssh on 文刀苑</title>
     <link>http://liupengliang.com/tags/ssh/</link>
-    <description>Recent content in Ssh on 文刀苑</description>
+    <description>Recent content in ssh on 文刀苑</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 28 Mar 2017 10:05:40 +0000</lastBuildDate>
@@ -13,11 +13,20 @@
     
     <item>
       <title>远程登录服务器</title>
-      <link>http://liupengliang.com/post/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>http://liupengliang.com/posts/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
       
-      <guid>http://liupengliang.com/post/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-      <description>本章主要为了补写git ssh到远端的VPS服务器时, 出现的问题 前言 本章主要为了补写git ssh到远端的VPS服务器时, 出现的问题 正文 问题遇到</description>
+      <guid>http://liupengliang.com/posts/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>&lt;p&gt;本章主要为了补写git ssh到远端的VPS服务器时, 出现的问题&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>远程登录服务器</title>
+      <link>http://liupengliang.com/postsbak/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Tue, 28 Mar 2017 10:05:40 +0000</pubDate>
+      
+      <guid>http://liupengliang.com/postsbak/%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>&lt;p&gt;本章主要为了补写git ssh到远端的VPS服务器时, 出现的问题&lt;/p&gt;</description>
     </item>
     
   </channel>
